@@ -19,10 +19,10 @@ public class InterType {
     private int id;
 
     @Column(name="type_en")
-    private String status_en;
+    private String typeEn;
 
     @Column(name="type_ru")
-    private String status_ru;
+    private String typeRu;
 
     public int getId() {
         return id;
@@ -32,20 +32,16 @@ public class InterType {
         this.id = id;
     }
 
-    public String getStatus_en() {
-        return status_en;
+    public String getTypeEn() {
+        return typeEn;
     }
 
-    public void setStatus_en(String status_en) {
-        this.status_en = status_en;
+    public void setTypeEn(String typeEn) {
+        this.typeEn = typeEn;
     }
 
-    public String getStatus_ru() {
-        return status_ru;
-    }
-
-    public void setStatus_ru(String status_ru) {
-        this.status_ru = status_ru;
+    public String getTypeRu() {
+        return typeRu;
     }
 
     @Override
@@ -56,25 +52,30 @@ public class InterType {
         InterType interType = (InterType) o;
 
         if (id != interType.id) return false;
-        if (status_en != null ? !status_en.equals(interType.status_en) : interType.status_en != null) return false;
-        return status_ru != null ? status_ru.equals(interType.status_ru) : interType.status_ru == null;
+        if (typeEn != null ? !typeEn.equals(interType.typeEn) : interType.typeEn != null) return false;
+        return typeRu != null ? typeRu.equals(interType.typeRu) : interType.typeRu == null;
 
     }
 
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + (status_en != null ? status_en.hashCode() : 0);
-        result = 31 * result + (status_ru != null ? status_ru.hashCode() : 0);
+        result = 31 * result + (typeEn != null ? typeEn.hashCode() : 0);
+        result = 31 * result + (typeRu != null ? typeRu.hashCode() : 0);
         return result;
+    }
+
+    public void setTypeRu(String typeRu) {
+        this.typeRu = typeRu;
+
     }
 
     @Override
     public String toString() {
         return "InterType{" +
                 "id=" + id +
-                ", status_en='" + status_en + '\'' +
-                ", status_ru='" + status_ru + '\'' +
+                ", typeEn='" + typeEn + '\'' +
+                ", typeRu='" + typeRu + '\'' +
                 '}';
     }
 }

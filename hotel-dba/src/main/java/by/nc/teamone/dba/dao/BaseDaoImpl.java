@@ -1,15 +1,15 @@
 package by.nc.teamone.dba.dao;
 
-import java.io.Serializable;
-import java.util.List;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-@Repository("dao")
+import java.io.Serializable;
+import java.util.List;
+
+@Repository
 @Transactional
 public class BaseDaoImpl<T, PK extends Serializable> implements IBaseDao<T, PK>{
 	

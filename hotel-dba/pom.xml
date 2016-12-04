@@ -9,7 +9,13 @@
 		<artifactId>hotel</artifactId>
 		<version>0.1</version>
 	</parent>
-	
+
+
+	<context-param>
+	<param-name>contextConfigLocation</param-name>
+	<param-value>classpath:spring/business-config.xml</param-value>
+	</context-param>
+
 	<artifactId>hotel-dba</artifactId>
 	<name>hotel-dba</name>
 

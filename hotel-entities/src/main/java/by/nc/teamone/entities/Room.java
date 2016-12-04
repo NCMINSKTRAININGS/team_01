@@ -23,11 +23,11 @@ public class Room {
 
     @OneToOne
     @JoinColumn(name = "status_id")
-    private int status_id;
+    private Status statusId;
 
     @OneToOne
     @JoinColumn(name = "type_id")
-    private int type_id;
+    private InterType typeId;
 
     public int getId() {
         return id;
@@ -45,20 +45,20 @@ public class Room {
         this.seats = seats;
     }
 
-    public int getStatus_id() {
-        return status_id;
+    public Status getStatusId() {
+        return statusId;
     }
 
-    public void setStatus_id(int status_id) {
-        this.status_id = status_id;
+    public void setStatusId(Status statusId) {
+        this.statusId = statusId;
     }
 
-    public int getType_id() {
-        return type_id;
+    public InterType getTypeId() {
+        return typeId;
     }
 
-    public void setType_id(int type_id) {
-        this.type_id = type_id;
+    public void setTypeId(InterType typeId) {
+        this.typeId = typeId;
     }
 
     @Override
@@ -70,8 +70,8 @@ public class Room {
 
         if (id != room.id) return false;
         if (seats != room.seats) return false;
-        if (status_id != room.status_id) return false;
-        return type_id == room.type_id;
+        if (statusId != null ? !statusId.equals(room.statusId) : room.statusId != null) return false;
+        return typeId != null ? typeId.equals(room.typeId) : room.typeId == null;
 
     }
 
@@ -79,8 +79,8 @@ public class Room {
     public int hashCode() {
         int result = id;
         result = 31 * result + seats;
-        result = 31 * result + status_id;
-        result = 31 * result + type_id;
+        result = 31 * result + (statusId != null ? statusId.hashCode() : 0);
+        result = 31 * result + (typeId != null ? typeId.hashCode() : 0);
         return result;
     }
 
@@ -89,8 +89,8 @@ public class Room {
         return "Room{" +
                 "id=" + id +
                 ", seats=" + seats +
-                ", status_id=" + status_id +
-                ", type_id=" + type_id +
+                ", statusId=" + statusId +
+                ", typeId=" + typeId +
                 '}';
     }
 }

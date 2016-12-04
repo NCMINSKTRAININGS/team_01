@@ -35,7 +35,7 @@ public class User {
 	private String phone;
 	
 	@Column(name="money")
-	double money;
+	private double money;
 	
 	@Column(name="role")
 	private String role;

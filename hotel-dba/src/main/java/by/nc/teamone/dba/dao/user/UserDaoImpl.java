@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import by.nc.teamone.dba.dao.BaseDaoImpl;
 import by.nc.teamone.entities.User;
 
-@Repository("userDao")
+@Repository
 public class UserDaoImpl extends BaseDaoImpl<User, Long> implements IUserDao{
 
 	public UserDaoImpl() {
