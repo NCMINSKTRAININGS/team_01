@@ -7,18 +7,18 @@ import javax.persistence.*;
  */
 
 @Entity
-@Table(name="status")
-public class Status {
+@Table(name="type")
+public class InterType {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="id")
     private int id;
 
-    @Column(name="status_en")
+    @Column(name="type_en")
     private String status_en;
 
-    @Column(name="status_ru")
+    @Column(name="type_ru")
     private String status_ru;
 
     public int getId() {
@@ -45,26 +45,16 @@ public class Status {
         this.status_ru = status_ru;
     }
 
-
-    @Override
-    public String toString() {
-        return "Status{" +
-                "id=" + id +
-                ", status_en='" + status_en + '\'' +
-                ", status_ru='" + status_ru + '\'' +
-                '}';
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Status status = (Status) o;
+        InterType interType = (InterType) o;
 
-        if (id != status.id) return false;
-        if (status_en != null ? !status_en.equals(status.status_en) : status.status_en != null) return false;
-        return status_ru != null ? status_ru.equals(status.status_ru) : status.status_ru == null;
+        if (id != interType.id) return false;
+        if (status_en != null ? !status_en.equals(interType.status_en) : interType.status_en != null) return false;
+        return status_ru != null ? status_ru.equals(interType.status_ru) : interType.status_ru == null;
 
     }
 
@@ -74,5 +64,14 @@ public class Status {
         result = 31 * result + (status_en != null ? status_en.hashCode() : 0);
         result = 31 * result + (status_ru != null ? status_ru.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "InterType{" +
+                "id=" + id +
+                ", status_en='" + status_en + '\'' +
+                ", status_ru='" + status_ru + '\'' +
+                '}';
     }
 }
