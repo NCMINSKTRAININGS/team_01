@@ -9,6 +9,8 @@ import javax.persistence.*;
 @Entity
 @Table(name="status")
 public class Status {
+    public Status() {
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

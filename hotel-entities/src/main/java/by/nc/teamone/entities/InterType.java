@@ -10,6 +10,9 @@ import javax.persistence.*;
 @Table(name="type")
 public class InterType {
 
+    public InterType() {
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="id")
