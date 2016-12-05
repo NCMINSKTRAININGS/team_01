@@ -20,7 +20,7 @@ public class UserRoom  implements Serializable{
     @Temporal(value=TemporalType.DATE)
     private Date checkOutDate;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name="user_id")
     private User userId;
 
