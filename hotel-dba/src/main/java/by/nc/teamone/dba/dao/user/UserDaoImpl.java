@@ -1,14 +1,13 @@
 package by.nc.teamone.dba.dao.user;
 
+import by.nc.teamone.dba.dao.BaseDAOImpl;
+import by.nc.teamone.entities.User;
 import org.springframework.stereotype.Repository;
 
-import by.nc.teamone.dba.dao.BaseDaoImpl;
-import by.nc.teamone.entities.User;
-
 @Repository
-public class UserDaoImpl extends BaseDaoImpl<User, Long> implements IUserDao{
+public class UserDAOImpl extends BaseDAOImpl<User, Long> implements IUserDAO{
 
-	public UserDaoImpl() {
+	public UserDAOImpl() {
 		super(User.class);
 	}
 }

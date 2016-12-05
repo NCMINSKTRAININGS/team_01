@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface IBaseDao<T, PK extends Serializable> {
+public interface IBaseDAO<T, PK extends Serializable> {
 
 	List<T> getAll();
 	T get(PK id);

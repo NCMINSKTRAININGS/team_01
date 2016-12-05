@@ -11,18 +11,18 @@ import java.util.List;
 
 @Repository
 @Transactional
-public class BaseDaoImpl<T, PK extends Serializable> implements IBaseDao<T, PK>{
+public class BaseDAOImpl<T, PK extends Serializable> implements IBaseDAO<T, PK>{
 	
 	@Autowired
 	SessionFactory sessionFactory;
 	
 	private Class<T> clazz;
 	
-	public BaseDaoImpl() {
+	public BaseDAOImpl() {
 		super();
 	}
 
-	public BaseDaoImpl(Class<T> clazz){
+	public BaseDAOImpl(Class<T> clazz){
 		this.clazz = clazz;
 	}
 	

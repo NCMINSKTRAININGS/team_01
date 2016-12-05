@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /**
  * Created by Valeria on 04.12.2016.
  */
@@ -11,16 +10,10 @@ import by.nc.teamone.dba.dao.user.IUserDAO;
 import by.nc.teamone.entities.Room;
 import by.nc.teamone.entities.Status;
 import by.nc.teamone.entities.Type;
-=======
-
-import by.nc.teamone.dba.dao.HibernateConfiguration;
-import by.nc.teamone.dba.dao.user.IUserDao;
->>>>>>> a6d92c00b7f9acf34601d275609a2bfcfb66eb23
 import by.nc.teamone.entities.User;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-<<<<<<< HEAD
 import java.util.List;
 
 public class Main {
@@ -36,13 +29,6 @@ public class Main {
         main.addStatus();     // works well
         main.addType();       // works well
         main.addRoom();
-=======
-public class Main {
-
-    public static void main(String[] args){
-        Main main = new Main();
-        main.addUser();
->>>>>>> a6d92c00b7f9acf34601d275609a2bfcfb66eb23
     }
 
     public void addUser(){
@@ -51,7 +37,6 @@ public class Main {
                 AnnotationConfigApplicationContext(HibernateConfiguration.class);
 
         User user = new User();
-<<<<<<< HEAD
         user.setName("Derek");
         user.setSurname("Hinnighan");
         user.setEmail("mrCoolGuy@gmail.com");
@@ -121,8 +106,8 @@ public class Main {
         Room room = new Room();
 
         room.setSeats(2);
-        room.setStatusId(status);
-        room.setTypeId(type);
+        room.setStatus(status);
+        room.setType(type);
 
         IRoomDAO roomDAO = (IRoomDAO) ctx.getBean("roomDAOImpl");
 
@@ -131,23 +116,9 @@ public class Main {
         List<Room> roomList = roomDAO.getAll();
         for (Room room1 : roomList){
             System.out.println("Id: " + room1.getId() + " seats: " + room1.getSeats() +
-                    " statusId: " + room1.getStatusId() + " typeId: " + room1.getTypeId());
+                    " statusId: " + room1.getStatus() + " typeId: " + room1.getType());
         }
 
-=======
-        user.setName("stas");
-        user.setEmail("haha");
-        user.setId(1);
-        user.setLogin("petrus");
-        user.setMoney(100500);
-        user.setPhone("228228");
-        user.setEmail("petius96@gmail.com");
-        user.setRole("boss");
-
-        IUserDao userDao = (IUserDao) ctx.getBean("userDaoImpl");
-
-        userDao.add(user);
->>>>>>> a6d92c00b7f9acf34601d275609a2bfcfb66eb23
     }
 
 }

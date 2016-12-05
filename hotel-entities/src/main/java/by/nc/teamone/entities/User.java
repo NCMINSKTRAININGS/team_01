@@ -1,17 +1,5 @@
 package by.nc.teamone.entities;
 
-<<<<<<< HEAD
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name="user")
-public class User {
-=======
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -20,39 +8,36 @@ import java.util.List;
 @Table(name="user")
 public class User implements Serializable {
 
->>>>>>> a6d92c00b7f9acf34601d275609a2bfcfb66eb23
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="id")
 	private long id;
-	
+
 	@Column(name="login")
 	private String login;
-	
+
 	@Column(name="password")
 	private String password;
-	
+
 	@Column(name="name")
 	private String name;
-	
+
 	@Column(name="surname")
 	private String surname;
-	
+
 	@Column(name="email")
 	private String email;
-	
+
 	@Column(name="phone")
 	private String phone;
-	
+
 	@Column(name="money")
 	private double money;
-	
+
 	@Column(name="role")
 	private String role;
 
-<<<<<<< HEAD
-=======
 	@OneToMany(mappedBy="user", fetch = FetchType.LAZY)
 	private List<Claim> claims;
 
@@ -76,7 +61,6 @@ public class User implements Serializable {
 		this.userRooms = userRooms;
 	}
 
->>>>>>> a6d92c00b7f9acf34601d275609a2bfcfb66eb23
 	public long getId() {
 		return id;
 	}
