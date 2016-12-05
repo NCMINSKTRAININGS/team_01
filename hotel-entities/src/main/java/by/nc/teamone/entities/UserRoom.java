@@ -11,7 +11,6 @@ import java.util.Date;
 @Entity
 @Table(name="user_room")
 public class UserRoom  implements Serializable{
-
     @Column(name="check-in_date")
     @Temporal(value=TemporalType.DATE)
     private Date checkInDate;
@@ -20,11 +19,13 @@ public class UserRoom  implements Serializable{
     @Temporal(value=TemporalType.DATE)
     private Date checkOutDate;
 
-    @OneToOne
+    @Id
+    @ManyToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY)
     @JoinColumn(name="user_id")
     private User userId;
 
-    @OneToOne
+    @Id
+    @ManyToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY)
     @JoinColumn(name="room_id")
     private Room roomId;
 
