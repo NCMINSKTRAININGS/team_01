@@ -2,7 +2,6 @@ package by.nc.teamone.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * Created by Asus on 05.12.2016.
@@ -26,12 +25,10 @@ public class Claim  implements Serializable {
     private Type type;
 
     @Column(name="check-in_date")
-    @Temporal(value=TemporalType.DATE)
-    private Date checkInDate;
+    private String checkInDate;
 
     @Column(name="check-out_date")
-    @Temporal(value=TemporalType.DATE)
-    private Date checkOutDate;
+    private String checkOutDate;
 
     public long getId() {
         return id;
@@ -61,19 +58,19 @@ public class Claim  implements Serializable {
         this.id = id;
     }
 
-    public Date getCheckInDate() {
+    public String getCheckInDate() {
         return checkInDate;
     }
 
-    public void setCheckInDate(Date checkInDate) {
+    public void setCheckInDate(String checkInDate) {
         this.checkInDate = checkInDate;
     }
 
-    public Date getCheckOutDate() {
+    public String getCheckOutDate() {
         return checkOutDate;
     }
 
-    public void setCheckOutDate(Date checkOutDate) {
+    public void setCheckOutDate(String checkOutDate) {
         this.checkOutDate = checkOutDate;
     }
 

@@ -2,7 +2,7 @@ package by.nc.teamone.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Table(name="user")
@@ -39,25 +39,25 @@ public class User implements Serializable {
 	private String role;
 
 	@OneToMany(mappedBy="user", fetch = FetchType.LAZY)
-	private Set<Claim> claims;
+	private List<Claim> claims;
 
 	@OneToMany(mappedBy="user", fetch = FetchType.LAZY)
-	private Set<UserRoom> userRooms ;
+	private List<UserRoom> userRooms ;
 
-	public Set<Claim> getClaims() {
+	public List<Claim> getClaims() {
 		return claims;
 	}
 
 
-	public Set<UserRoom> getUserRooms() {
+	public List<UserRoom> getUserRooms() {
 		return userRooms;
 	}
 
-	public void setClaims(Set<Claim> claims) {
+	public void SetClaims(List<Claim> claims) {
 		this.claims = claims;
 	}
 
-	public void setUserRooms(Set<UserRoom> userRooms) {
+	public void setUserRooms(List<UserRoom> userRooms) {
 		this.userRooms = userRooms;
 	}
 

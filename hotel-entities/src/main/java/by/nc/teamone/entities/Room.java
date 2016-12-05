@@ -28,10 +28,9 @@ public class Room {
     @JoinColumn(name = "type_id")
     private Type type;
 
-
+    @OneToMany(mappedBy = "room", fetch = FetchType.LAZY)
     private List<UserRoom> userRooms = new ArrayList<UserRoom>();
 
-    @OneToMany(mappedBy = "room", fetch = FetchType.LAZY)
     public  List<UserRoom> getUserRooms() {
         return userRooms;
     }

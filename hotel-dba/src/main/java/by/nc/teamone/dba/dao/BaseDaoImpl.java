@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.io.Serializable;
 import java.util.List;
 
-@Repository()
+@Repository
 @Transactional
 public class BaseDaoImpl<T, PK extends Serializable> implements IBaseDao<T, PK>{
 	
