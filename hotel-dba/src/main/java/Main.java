@@ -21,11 +21,11 @@ public class Main {
         user.setName("stas");
         user.setEmail("haha");
         user.setId(1);
-        user.setLogin("МАКСИМУ");
+        user.setLogin("petrus");
         user.setMoney(100500);
-        user.setPhone("ПРУФ");
-        user.setEmail("РУССКОЙ");
-        user.setRole("РАССКЛАДКИ");
+        user.setPhone("228228");
+        user.setEmail("petius96@gmail.com");
+        user.setRole("boss");
 
         IUserDao userDao = (IUserDao) ctx.getBean("userDaoImpl");
 

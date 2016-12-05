@@ -11,18 +11,16 @@ import java.util.Date;
 @Entity
 @Table(name="user_room")
 public class UserRoom  implements Serializable{
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
 
-    @Version
     @Column(name="check-in_date")
+    @Temporal(value=TemporalType.DATE)
     private Date checkInDate;
 
-    @Version
     @Column(name="check-out_date")
+    @Temporal(value=TemporalType.DATE)
     private Date checkOutDate;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name="user_id")
     private User userId;
 

@@ -12,25 +12,28 @@ import java.util.Date;
 @Table(name="claim")
 public class Claim  implements Serializable {
     @Column(name="id")
-    private int id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
 
     @Version
     @Column(name="check-in_date")
+    @Temporal(value=TemporalType.DATE)
     private Date checkInDate;
 
     @Version
     @Column(name="check-out_date")
+    @Temporal(value=TemporalType.DATE)
     private Date checkOutDate;
 
-    @OneToMany
+    @OneToOne
     @JoinColumn(name="user_id")
     private User userId;
 
-    @OneToMany
+    @OneToOne
     @JoinColumn(name="type_id")
     private Type roomId;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
