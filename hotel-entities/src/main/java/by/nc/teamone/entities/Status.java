@@ -18,10 +18,10 @@ public class Status {
     private int id;
 
     @Column(name="status_en")
-    private String status_en;
+    private String statusEn;
 
     @Column(name="status_ru")
-    private String status_ru;
+    private String statusRu;
 
     public int getId() {
         return id;
@@ -31,20 +31,20 @@ public class Status {
         this.id = id;
     }
 
-    public String getStatus_en() {
-        return status_en;
+    public String getStatusEn() {
+        return statusEn;
     }
 
-    public void setStatus_en(String status_en) {
-        this.status_en = status_en;
+    public void setStatusEn(String statusEn) {
+        this.statusEn = statusEn;
     }
 
-    public String getStatus_ru() {
-        return status_ru;
+    public String getStatusRu() {
+        return statusRu;
     }
 
-    public void setStatus_ru(String status_ru) {
-        this.status_ru = status_ru;
+    public void setStatusRu(String statusRu) {
+        this.statusRu = statusRu;
     }
 
 
@@ -52,8 +52,8 @@ public class Status {
     public String toString() {
         return "Status{" +
                 "id=" + id +
-                ", status_en='" + status_en + '\'' +
-                ", status_ru='" + status_ru + '\'' +
+                ", statusEn='" + statusEn + '\'' +
+                ", statusRu='" + statusRu + '\'' +
                 '}';
     }
 
@@ -65,16 +65,16 @@ public class Status {
         Status status = (Status) o;
 
         if (id != status.id) return false;
-        if (status_en != null ? !status_en.equals(status.status_en) : status.status_en != null) return false;
-        return status_ru != null ? status_ru.equals(status.status_ru) : status.status_ru == null;
+        if (statusEn != null ? !statusEn.equals(status.statusEn) : status.statusEn != null) return false;
+        return statusRu != null ? statusRu.equals(status.statusRu) : status.statusRu == null;
 
     }
 
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + (status_en != null ? status_en.hashCode() : 0);
-        result = 31 * result + (status_ru != null ? status_ru.hashCode() : 0);
+        result = 31 * result + (statusEn != null ? statusEn.hashCode() : 0);
+        result = 31 * result + (statusRu != null ? statusRu.hashCode() : 0);
         return result;
     }
 }

@@ -3,7 +3,7 @@
  */
 
 import by.nc.teamone.dba.dao.HibernateConfiguration;
-import by.nc.teamone.dba.dao.user.IUserDao;
+import by.nc.teamone.dba.dao.user.IUserDAO;
 import by.nc.teamone.entities.User;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -30,7 +30,7 @@ public class Main {
         user.setEmail("petius96@gmail.com");
         user.setRole("boss");
 
-        IUserDao userDao = (IUserDao) ctx.getBean("userDaoImpl");
+        IUserDAO userDao = (IUserDAO) ctx.getBean("userDaoImpl");
 
         userDao.add(user);
     }

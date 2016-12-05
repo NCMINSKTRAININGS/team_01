@@ -10,8 +10,8 @@ import javax.persistence.*;
 @Table(name="room")
 public class Room {
 
-    public Room() {
-    }
+//    public Room() {
+//    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,11 +23,11 @@ public class Room {
 
     @OneToOne
     @JoinColumn(name = "status_id")
-    private Status statusId;
+    private int statusId;
 
     @OneToOne
     @JoinColumn(name = "type_id")
-    private InterType typeId;
+    private int typeId;
 
     public int getId() {
         return id;
@@ -45,19 +45,19 @@ public class Room {
         this.seats = seats;
     }
 
-    public Status getStatusId() {
+    public int getStatusId() {
         return statusId;
     }
 
-    public void setStatusId(Status statusId) {
+    public void setStatusId(int statusId) {
         this.statusId = statusId;
     }
 
-    public InterType getTypeId() {
+    public int getTypeId() {
         return typeId;
     }
 
-    public void setTypeId(InterType typeId) {
+    public void setTypeId(int typeId) {
         this.typeId = typeId;
     }
 
@@ -70,8 +70,8 @@ public class Room {
 
         if (id != room.id) return false;
         if (seats != room.seats) return false;
-        if (statusId != null ? !statusId.equals(room.statusId) : room.statusId != null) return false;
-        return typeId != null ? typeId.equals(room.typeId) : room.typeId == null;
+        if (statusId != room.statusId) return false;
+        return typeId == room.typeId;
 
     }
 
@@ -79,8 +79,8 @@ public class Room {
     public int hashCode() {
         int result = id;
         result = 31 * result + seats;
-        result = 31 * result + (statusId != null ? statusId.hashCode() : 0);
-        result = 31 * result + (typeId != null ? typeId.hashCode() : 0);
+        result = 31 * result + statusId;
+        result = 31 * result + typeId;
         return result;
     }
 

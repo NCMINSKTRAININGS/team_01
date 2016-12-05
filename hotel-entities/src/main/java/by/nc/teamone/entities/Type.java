@@ -8,9 +8,9 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="type")
-public class InterType {
+public class Type {
 
-    public InterType() {
+    public Type() {
     }
 
     @Id
@@ -49,11 +49,11 @@ public class InterType {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        InterType interType = (InterType) o;
+        Type type = (Type) o;
 
-        if (id != interType.id) return false;
-        if (typeEn != null ? !typeEn.equals(interType.typeEn) : interType.typeEn != null) return false;
-        return typeRu != null ? typeRu.equals(interType.typeRu) : interType.typeRu == null;
+        if (id != type.id) return false;
+        if (typeEn != null ? !typeEn.equals(type.typeEn) : type.typeEn != null) return false;
+        return typeRu != null ? typeRu.equals(type.typeRu) : type.typeRu == null;
 
     }
 
@@ -72,7 +72,7 @@ public class InterType {
 
     @Override
     public String toString() {
-        return "InterType{" +
+        return "Type{" +
                 "id=" + id +
                 ", typeEn='" + typeEn + '\'' +
                 ", typeRu='" + typeRu + '\'' +

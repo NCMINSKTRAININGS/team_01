@@ -11,7 +11,7 @@
   
 	<artifactId>hotel-entities</artifactId>
 	<name>hotel-entities</name>
-	
+
 	<dependencies>
 		<dependency>
             <groupId>org.hibernate</groupId>
