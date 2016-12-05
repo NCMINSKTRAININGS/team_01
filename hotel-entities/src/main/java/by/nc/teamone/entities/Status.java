@@ -3,9 +3,14 @@ package by.nc.teamone.entities;
 import javax.persistence.*;
 
 /**
+<<<<<<< HEAD
  * Created by Valeria on 04.12.2016.
  */
 
+=======
+ * Created by Asus on 05.12.2016.
+ */
+>>>>>>> a6d92c00b7f9acf34601d275609a2bfcfb66eb23
 @Entity
 @Table(name="status")
 public class Status {
@@ -17,10 +22,17 @@ public class Status {
     @Column(name="id")
     private int id;
 
+<<<<<<< HEAD
     @Column(name="status_en")
     private String statusEn;
 
     @Column(name="status_ru")
+=======
+    @Column(name="statusEn")
+    private String statusEn;
+
+    @Column(name="statusRu")
+>>>>>>> a6d92c00b7f9acf34601d275609a2bfcfb66eb23
     private String statusRu;
 
     public int getId() {
@@ -77,4 +89,8 @@ public class Status {
         result = 31 * result + (statusRu != null ? statusRu.hashCode() : 0);
         return result;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> a6d92c00b7f9acf34601d275609a2bfcfb66eb23

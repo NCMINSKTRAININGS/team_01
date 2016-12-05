@@ -3,9 +3,14 @@ package by.nc.teamone.entities;
 import javax.persistence.*;
 
 /**
+<<<<<<< HEAD
  * Created by Valeria on 04.12.2016.
  */
 
+=======
+ * Created by Asus on 05.12.2016.
+ */
+>>>>>>> a6d92c00b7f9acf34601d275609a2bfcfb66eb23
 @Entity
 @Table(name="type")
 public class Type {
@@ -49,11 +54,19 @@ public class Type {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
+<<<<<<< HEAD
         Type type = (Type) o;
 
         if (id != type.id) return false;
         if (typeEn != null ? !typeEn.equals(type.typeEn) : type.typeEn != null) return false;
         return typeRu != null ? typeRu.equals(type.typeRu) : type.typeRu == null;
+=======
+        Type interType = (Type) o;
+
+        if (id != interType.id) return false;
+        if (typeEn != null ? !typeEn.equals(interType.typeEn) : interType.typeEn != null) return false;
+        return typeRu != null ? typeRu.equals(interType.typeRu) : interType.typeRu == null;
+>>>>>>> a6d92c00b7f9acf34601d275609a2bfcfb66eb23
 
     }
 
@@ -72,10 +85,18 @@ public class Type {
 
     @Override
     public String toString() {
+<<<<<<< HEAD
         return "Type{" +
+=======
+        return "InterType{" +
+>>>>>>> a6d92c00b7f9acf34601d275609a2bfcfb66eb23
                 "id=" + id +
                 ", typeEn='" + typeEn + '\'' +
                 ", typeRu='" + typeRu + '\'' +
                 '}';
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> a6d92c00b7f9acf34601d275609a2bfcfb66eb23
