@@ -1,16 +1,13 @@
 package by.nc.teamone.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table(name="user")
 public class User implements Serializable {
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -40,6 +37,29 @@ public class User implements Serializable {
 	
 	@Column(name="role")
 	private String role;
+
+	@OneToMany(mappedBy="user", fetch = FetchType.LAZY)
+	private Set<Claim> claims;
+
+	@OneToMany(mappedBy="user", fetch = FetchType.LAZY)
+	private Set<UserRoom> userRooms ;
+
+	public Set<Claim> getClaims() {
+		return claims;
+	}
+
+
+	public Set<UserRoom> getUserRooms() {
+		return userRooms;
+	}
+
+	public void setClaims(Set<Claim> claims) {
+		this.claims = claims;
+	}
+
+	public void setUserRooms(Set<UserRoom> userRooms) {
+		this.userRooms = userRooms;
+	}
 
 	public long getId() {
 		return id;

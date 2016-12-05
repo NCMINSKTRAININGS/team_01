@@ -11,18 +11,19 @@ import java.util.Date;
 @Entity
 @Table(name="claim")
 public class Claim  implements Serializable {
+
     @Id
     @Column(name="id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @ManyToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="user_id")
-    private User userId;
+    private User user;
 
     @OneToOne
     @JoinColumn(name="type_id")
-    private Type roomId;
+    private Type type;
 
     @Column(name="check-in_date")
     @Temporal(value=TemporalType.DATE)
@@ -40,21 +41,20 @@ public class Claim  implements Serializable {
         this.id = id;
     }
 
-
-    public User getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(User userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public Type getRoomId() {
-        return roomId;
+    public Type getType() {
+        return type;
     }
 
-    public void setRoomId(Type roomId) {
-        this.roomId = roomId;
+    public void setType(Type type) {
+        this.type = type;
     }
 
     public void setId(long id) {
@@ -85,8 +85,8 @@ public class Claim  implements Serializable {
         Claim claim = (Claim) o;
 
         if (id != claim.id) return false;
-        if (userId != null ? !userId.equals(claim.userId) : claim.userId != null) return false;
-        if (roomId != null ? !roomId.equals(claim.roomId) : claim.roomId != null) return false;
+        if (user != null ? !user.equals(claim.user) : claim.user != null) return false;
+        if (type != null ? !type.equals(claim.type) : claim.type != null) return false;
         if (checkInDate != null ? !checkInDate.equals(claim.checkInDate) : claim.checkInDate != null) return false;
         return checkOutDate != null ? checkOutDate.equals(claim.checkOutDate) : claim.checkOutDate == null;
 
@@ -95,8 +95,8 @@ public class Claim  implements Serializable {
     @Override
     public int hashCode() {
         int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (userId != null ? userId.hashCode() : 0);
-        result = 31 * result + (roomId != null ? roomId.hashCode() : 0);
+        result = 31 * result + (user != null ? user.hashCode() : 0);
+        result = 31 * result + (type != null ? type.hashCode() : 0);
         result = 31 * result + (checkInDate != null ? checkInDate.hashCode() : 0);
         result = 31 * result + (checkOutDate != null ? checkOutDate.hashCode() : 0);
         return result;
@@ -106,8 +106,8 @@ public class Claim  implements Serializable {
     public String toString() {
         return "Claim{" +
                 "id=" + id +
-                ", userId=" + userId +
-                ", roomId=" + roomId +
+                ", user=" + user +
+                ", type=" + type +
                 ", checkInDate=" + checkInDate +
                 ", checkOutDate=" + checkOutDate +
                 '}';

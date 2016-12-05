@@ -1,6 +1,8 @@
 package by.nc.teamone.entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Asus on 05.12.2016.
@@ -10,7 +12,6 @@ import javax.persistence.*;
 public class Room {
     public Room() {
     }
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="id")
@@ -21,11 +22,23 @@ public class Room {
 
     @OneToOne
     @JoinColumn(name = "status_id")
-    private Status statusId;
+    private Status status;
 
     @OneToOne
     @JoinColumn(name = "type_id")
-    private Type typeId;
+    private Type type;
+
+
+    private List<UserRoom> userRooms = new ArrayList<UserRoom>();
+
+    @OneToMany(mappedBy = "room", fetch = FetchType.LAZY)
+    public  List<UserRoom> getUserRooms() {
+        return userRooms;
+    }
+
+    public void setUserRooms(List<UserRoom> userRooms) {
+        this.userRooms = userRooms;
+    }
 
     public int getId() {
         return id;
@@ -43,20 +56,20 @@ public class Room {
         this.seats = seats;
     }
 
-    public Status getStatusId() {
-        return statusId;
+    public Status getStatus() {
+        return status;
     }
 
-    public void setStatusId(Status statusId) {
-        this.statusId = statusId;
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
-    public Type getTypeId() {
-        return typeId;
+    public Type getType() {
+        return type;
     }
 
-    public void setTypeId(Type typeId) {
-        this.typeId = typeId;
+    public void setType(Type type) {
+        this.type = type;
     }
 
     @Override
@@ -68,8 +81,8 @@ public class Room {
 
         if (id != room.id) return false;
         if (seats != room.seats) return false;
-        if (statusId != null ? !statusId.equals(room.statusId) : room.statusId != null) return false;
-        return typeId != null ? typeId.equals(room.typeId) : room.typeId == null;
+        if (status != null ? !status.equals(room.status) : room.status != null) return false;
+        return type != null ? type.equals(room.type) : room.type == null;
 
     }
 
@@ -77,8 +90,8 @@ public class Room {
     public int hashCode() {
         int result = id;
         result = 31 * result + seats;
-        result = 31 * result + (statusId != null ? statusId.hashCode() : 0);
-        result = 31 * result + (typeId != null ? typeId.hashCode() : 0);
+        result = 31 * result + (status != null ? status.hashCode() : 0);
+        result = 31 * result + (type != null ? type.hashCode() : 0);
         return result;
     }
 
@@ -87,8 +100,8 @@ public class Room {
         return "Room{" +
                 "id=" + id +
                 ", seats=" + seats +
-                ", statusId=" + statusId +
-                ", typeId=" + typeId +
+                ", status=" + status +
+                ", type=" + type +
                 '}';
     }
 }

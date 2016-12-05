@@ -20,29 +20,29 @@ public class UserRoom  implements Serializable{
     private Date checkOutDate;
 
     @Id
-    @ManyToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY)
+    @ManyToOne( fetch = FetchType.LAZY)
     @JoinColumn(name="user_id")
-    private User userId;
+    private User user;
 
     @Id
-    @ManyToOne(cascade = {CascadeType.REFRESH}, fetch = FetchType.LAZY)
+    @ManyToOne( fetch = FetchType.LAZY)
     @JoinColumn(name="room_id")
-    private Room roomId;
+    private Room room;
 
-    public User getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(User userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public Room getRoomId() {
-        return roomId;
+    public Room getRoom() {
+        return room;
     }
 
-    public void setRoomId(Room roomId) {
-        this.roomId = roomId;
+    public void setRoom(Room room) {
+        this.room = room;
     }
 
     public Date getCheckInDate() {
@@ -65,8 +65,8 @@ public class UserRoom  implements Serializable{
     public int hashCode() {
         int result = checkInDate != null ? checkInDate.hashCode() : 0;
         result = 31 * result + (checkOutDate != null ? checkOutDate.hashCode() : 0);
-        result = 31 * result + (userId != null ? userId.hashCode() : 0);
-        result = 31 * result + (roomId != null ? roomId.hashCode() : 0);
+        result = 31 * result + (user != null ? user.hashCode() : 0);
+        result = 31 * result + (room != null ? room.hashCode() : 0);
         return result;
     }
 
@@ -81,8 +81,8 @@ public class UserRoom  implements Serializable{
             return false;
         if (checkOutDate != null ? !checkOutDate.equals(userRoom.checkOutDate) : userRoom.checkOutDate != null)
             return false;
-        if (userId != null ? !userId.equals(userRoom.userId) : userRoom.userId != null) return false;
-        return roomId != null ? roomId.equals(userRoom.roomId) : userRoom.roomId == null;
+        if (user != null ? !user.equals(userRoom.user) : userRoom.user != null) return false;
+        return room != null ? room.equals(userRoom.room) : userRoom.room == null;
 
     }
 
@@ -91,8 +91,8 @@ public class UserRoom  implements Serializable{
         return "UserRoom{" +
                 "checkInDate='" + checkInDate + '\'' +
                 ", checkOutDate='" + checkOutDate + '\'' +
-                ", userId='" + userId + '\'' +
-                ", roomId='" + roomId + '\'' +
+                ", user='" + user + '\'' +
+                ", room='" + room + '\'' +
                 '}';
     }
 
