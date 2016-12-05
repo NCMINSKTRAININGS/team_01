@@ -5,10 +5,9 @@ import by.nc.teamone.entities.User;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class UserDAOImpl extends BaseDAOImpl<User, Long> implements IUserDAO {
+public class UserDAOImpl extends BaseDAOImpl<User, Long> implements IUserDAO{
 
 	public UserDAOImpl() {
 		super(User.class);
 	}
-
 }

@@ -10,8 +10,8 @@ import javax.persistence.*;
 @Table(name="room")
 public class Room {
 
-//    public Room() {
-//    }
+    public Room() {
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,11 +23,11 @@ public class Room {
 
     @OneToOne
     @JoinColumn(name = "status_id")
-    private int statusId;
+    private Status statusId;
 
     @OneToOne
     @JoinColumn(name = "type_id")
-    private int typeId;
+    private Type type;
 
     public int getId() {
         return id;
@@ -45,20 +45,20 @@ public class Room {
         this.seats = seats;
     }
 
-    public int getStatusId() {
+    public Status getStatusId() {
         return statusId;
     }
 
-    public void setStatusId(int statusId) {
+    public void setStatusId(Status statusId) {
         this.statusId = statusId;
     }
 
-    public int getTypeId() {
-        return typeId;
+    public Type getTypeId() {
+        return type;
     }
 
-    public void setTypeId(int typeId) {
-        this.typeId = typeId;
+    public void setTypeId(Type typeId) {
+        this.type = typeId;
     }
 
     @Override
@@ -70,8 +70,8 @@ public class Room {
 
         if (id != room.id) return false;
         if (seats != room.seats) return false;
-        if (statusId != room.statusId) return false;
-        return typeId == room.typeId;
+        if (statusId != null ? !statusId.equals(room.statusId) : room.statusId != null) return false;
+        return type != null ? type.equals(room.type) : room.type == null;
 
     }
 
@@ -79,8 +79,8 @@ public class Room {
     public int hashCode() {
         int result = id;
         result = 31 * result + seats;
-        result = 31 * result + statusId;
-        result = 31 * result + typeId;
+        result = 31 * result + (statusId != null ? statusId.hashCode() : 0);
+        result = 31 * result + (type != null ? type.hashCode() : 0);
         return result;
     }
 
@@ -90,7 +90,7 @@ public class Room {
                 "id=" + id +
                 ", seats=" + seats +
                 ", statusId=" + statusId +
-                ", typeId=" + typeId +
+                ", typeId=" + type +
                 '}';
     }
 }
