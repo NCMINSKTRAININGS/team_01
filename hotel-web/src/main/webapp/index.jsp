@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Valeria
-  Date: 04.12.2016
-  Time: 18:07
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -12,5 +5,8 @@
 </head>
 <body>
 Я index
+    <form action="user/registration">
+        <input type="submit" value="go to registration">
+    </form>
 </body>
 </html>

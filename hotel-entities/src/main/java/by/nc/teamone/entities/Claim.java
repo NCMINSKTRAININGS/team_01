@@ -24,10 +24,10 @@ public class Claim  implements Serializable {
     @JoinColumn(name="type_id")
     private Type type;
 
-    @Column(name="check-in_date")
+    @Column(name="check_in_date")
     private String checkInDate;
 
-    @Column(name="check-out_date")
+    @Column(name="check_out_date")
     private String checkOutDate;
 
     public long getId() {

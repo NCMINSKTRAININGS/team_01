@@ -2,31 +2,29 @@ package by.nc.teamone.entities;
 
 import javax.persistence.*;
 
-/**
- * Created by Asus on 05.12.2016.
- */
 @Entity
 @Table(name="status")
 public class Status {
-    public Status() {
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="id")
-    private int id;
+    @Column(name="status_id")
+    private long id;
 
-    @Column(name="statusEn")
+    @Column(name="status_en")
     private String statusEn;
 
-    @Column(name="statusRu")
+    @Column(name="status_ru")
     private String statusRu;
 
-    public int getId() {
+    @OneToOne(mappedBy = "status")
+    private Room room;
+
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -46,14 +44,12 @@ public class Status {
         this.statusRu = statusRu;
     }
 
+    public Room getRoom() {
+        return room;
+    }
 
-    @Override
-    public String toString() {
-        return "Status{" +
-                "id=" + id +
-                ", statusEn='" + statusEn + '\'' +
-                ", statusRu='" + statusRu + '\'' +
-                '}';
+    public void setRoom(Room room) {
+        this.room = room;
     }
 
     @Override
@@ -65,15 +61,27 @@ public class Status {
 
         if (id != status.id) return false;
         if (statusEn != null ? !statusEn.equals(status.statusEn) : status.statusEn != null) return false;
-        return statusRu != null ? statusRu.equals(status.statusRu) : status.statusRu == null;
+        if (statusRu != null ? !statusRu.equals(status.statusRu) : status.statusRu != null) return false;
+        return room != null ? room.equals(status.room) : status.room == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result = id;
+        int result = (int) (id ^ (id >>> 32));
         result = 31 * result + (statusEn != null ? statusEn.hashCode() : 0);
         result = 31 * result + (statusRu != null ? statusRu.hashCode() : 0);
+        result = 31 * result + (room != null ? room.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Status{" +
+                "id=" + id +
+                ", statusEn='" + statusEn + '\'' +
+                ", statusRu='" + statusRu + '\'' +
+                ", room=" + room +
+                '}';
     }
 }

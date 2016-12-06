@@ -4,16 +4,14 @@ package by.nc.teamone.entities;
 import javax.persistence.*;
 import java.io.Serializable;
 
-/**
- * Created by Asus on 04.12.2016.
- */
 @Entity
 @Table(name="user_room")
 public class UserRoom  implements Serializable{
-    @Column(name="check-in_date")
+
+    @Column(name="check_in_date")
     private String checkInDate;
 
-    @Column(name="check-out_date")
+    @Column(name="check_out_date")
     private String checkOutDate;
 
     @Id

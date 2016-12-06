@@ -7,8 +7,7 @@ import java.util.List;
 @Entity
 @Table(name="room")
 public class Room {
-    public Room() {
-    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="id")
@@ -26,7 +25,7 @@ public class Room {
     private Type type;
 
     @OneToMany(mappedBy = "room", fetch = FetchType.LAZY)
-    private List<UserRoom> userRooms = new ArrayList<UserRoom>();
+    private List<UserRoom> userRooms;
 
     public  List<UserRoom> getUserRooms() {
         return userRooms;

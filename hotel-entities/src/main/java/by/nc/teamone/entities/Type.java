@@ -2,20 +2,14 @@ package by.nc.teamone.entities;
 
 import javax.persistence.*;
 
-/**
- * Created by Asus on 05.12.2016.
- */
 @Entity
 @Table(name="type")
 public class Type {
 
-    public Type() {
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="id")
-    private int id;
+    @Column(name="type_id")
+    private long id;
 
     @Column(name="type_en")
     private String typeEn;
@@ -23,11 +17,14 @@ public class Type {
     @Column(name="type_ru")
     private String typeRu;
 
-    public int getId() {
+    @OneToOne(mappedBy = "type")
+    private Room room;
+
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -43,38 +40,48 @@ public class Type {
         return typeRu;
     }
 
+    public void setTypeRu(String typeRu) {
+        this.typeRu = typeRu;
+    }
+
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Type interType = (Type) o;
+        Type type = (Type) o;
 
-        if (id != interType.id) return false;
-        if (typeEn != null ? !typeEn.equals(interType.typeEn) : interType.typeEn != null) return false;
-        return typeRu != null ? typeRu.equals(interType.typeRu) : interType.typeRu == null;
+        if (id != type.id) return false;
+        if (typeEn != null ? !typeEn.equals(type.typeEn) : type.typeEn != null) return false;
+        if (typeRu != null ? !typeRu.equals(type.typeRu) : type.typeRu != null) return false;
+        return room != null ? room.equals(type.room) : type.room == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result = id;
+        int result = (int) (id ^ (id >>> 32));
         result = 31 * result + (typeEn != null ? typeEn.hashCode() : 0);
         result = 31 * result + (typeRu != null ? typeRu.hashCode() : 0);
+        result = 31 * result + (room != null ? room.hashCode() : 0);
         return result;
-    }
-
-    public void setTypeRu(String typeRu) {
-        this.typeRu = typeRu;
-
     }
 
     @Override
     public String toString() {
-        return "InterType{" +
+        return "Type{" +
                 "id=" + id +
                 ", typeEn='" + typeEn + '\'' +
                 ", typeRu='" + typeRu + '\'' +
+                ", room=" + room +
                 '}';
     }
 }
