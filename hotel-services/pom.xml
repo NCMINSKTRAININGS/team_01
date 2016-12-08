@@ -13,22 +13,20 @@
 	<name>hotel-services</name>
 
 	<dependencies>
+	
+		<dependency>
+			<groupId>by.nc.teamone</groupId>
+			<artifactId>hotel-dba</artifactId>
+		</dependency>
+	
 		<dependency>
 			<groupId>by.nc.teamone</groupId>
 			<artifactId>hotel-entities</artifactId>
-			<version>${hotel.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>by.nc.teamone</groupId>
 			<artifactId>hotel-utils</artifactId>
-			<version>${hotel.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>by.nc.teamone</groupId>
-			<artifactId>hotel-dba</artifactId>
-			<version>${hotel.version}</version>
 		</dependency>
 	</dependencies>
 </project>

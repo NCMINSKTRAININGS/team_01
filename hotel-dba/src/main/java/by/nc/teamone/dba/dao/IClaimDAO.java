@@ -7,6 +7,6 @@ import by.nc.teamone.entities.Claim;
 /**
  * Created by Asus on 05.12.2016.
  */
-public interface IClaimDao extends IBaseDAO<Claim,Long> {
+public interface IClaimDAO extends IBaseDAO<Claim,Long> {
 
 }

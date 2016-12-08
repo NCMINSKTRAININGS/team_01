@@ -11,7 +11,9 @@ import java.io.Serializable;
 @Table(name="claim")
 public class Claim  implements Serializable {
 
-    @Id
+	private static final long serialVersionUID = 1L;
+
+	@Id
     @Column(name="id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;

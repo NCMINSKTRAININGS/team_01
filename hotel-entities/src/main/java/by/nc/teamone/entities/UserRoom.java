@@ -8,7 +8,9 @@ import java.io.Serializable;
 @Table(name="user_room")
 public class UserRoom  implements Serializable{
 
-    @Column(name="check_in_date")
+	private static final long serialVersionUID = 1L;
+
+	@Column(name="check_in_date")
     private String checkInDate;
 
     @Column(name="check_out_date")
