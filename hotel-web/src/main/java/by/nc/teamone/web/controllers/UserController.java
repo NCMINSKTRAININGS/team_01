@@ -34,6 +34,13 @@ public class UserController {
         return view;
     }
 
+    @RequestMapping(value = "/logIn", method = RequestMethod.POST)
+    public ModelAndView goToBich(){
+        ModelAndView view = new ModelAndView();
+        view.setViewName("definition-registration");
+        return view;
+    }
+
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public ModelAndView addUser(@ModelAttribute("user") User user){
         facade.addUser(user);

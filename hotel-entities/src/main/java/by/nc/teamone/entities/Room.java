@@ -1,20 +1,8 @@
 package by.nc.teamone.entities;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
 @Entity
 @Table(name="room")
@@ -37,6 +25,9 @@ public class Room implements Serializable{
     @OneToOne
     @JoinColumn(name = "type_id")
     private Type type;
+
+	@Column(name = "coast")
+	private int coast;
 
     @OneToMany(mappedBy = "room", fetch = FetchType.LAZY)
     private List<UserRoom> userRooms;
@@ -106,6 +97,14 @@ public class Room implements Serializable{
 		this.imageList = imageList;
 	}
 
+	public int getCoast() {
+		return coast;
+	}
+
+	public void setCoast(int coast) {
+		this.coast = coast;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -166,4 +165,5 @@ public class Room implements Serializable{
 		return "Room [id=" + id + ", seats=" + seats + ", status=" + status + ", type=" + type + ", userRooms="
 				+ userRooms + ", imageList=" + imageList + ", equipmentList=" + equipmentList + "]";
 	}
+
 }
