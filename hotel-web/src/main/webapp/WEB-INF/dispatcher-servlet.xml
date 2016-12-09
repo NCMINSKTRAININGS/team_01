@@ -11,6 +11,7 @@
                            http://www.springframework.org/schema/context/spring-context.xsd">
 
 
+
     <import resource="classpath*:transaction-config.xml"/>
 
     <mvc:resources mapping="/resources/**" location="assets"/>

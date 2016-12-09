@@ -7,4 +7,7 @@
     <definition name="definition-registration" template="/WEB-INF/view/layouts/default-registration.jsp">
         <put-attribute name="main" value="/WEB-INF/view/registration.jsp"/>
     </definition>
+    <definition name="definition-logIn" template="/WEB-INF/view/layouts/default-logIn.jsp">
+        <put-attribute name="main" value="/WEB-INF/view/logIn.jsp"/>
+    </definition>
 </tiles-definitions>

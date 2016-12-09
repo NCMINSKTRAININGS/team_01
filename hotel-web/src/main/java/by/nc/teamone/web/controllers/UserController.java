@@ -27,10 +27,18 @@ public class UserController {
         view.setViewName("definition-registration");
         return view;
     }
+    @RequestMapping(value = "/logIn", method = RequestMethod.GET)
+    public ModelAndView goToLogIn(){
+        ModelAndView view = new ModelAndView();
+        view.setViewName("definition-logIn");
+        return view;
+    }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public ModelAndView addUser(@ModelAttribute("user") User user){
         facade.addUser(user);
         return new ModelAndView("definition-registration");
     }
+
+    
 }
