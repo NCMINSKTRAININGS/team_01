@@ -17,7 +17,7 @@
     	<mysql-connector.version>5.1.40</mysql-connector.version>
     	<dbcp.version>1.4</dbcp.version>
     	<spring.version>4.3.3.RELEASE</spring.version>
-    	<spring-security.version>4.2.0.RELEASE</spring-security.version>
+    	<spring-security.version>4.1.3.RELEASE</spring-security.version>
     	<tiles.version>3.0.7</tiles.version>
     	<log4j.version>1.2.17</log4j.version>
     	<junit.version>4.12</junit.version>
@@ -72,6 +72,7 @@
 				<groupId>mysql</groupId>
 				<artifactId>mysql-connector-java</artifactId>
 				<version>${mysql-connector.version}</version>
+				<scope>runtime</scope>
 			</dependency>
 	
 			<dependency>
@@ -116,62 +117,34 @@
 				<version>${spring.version}</version>
 			</dependency>
 	
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-jdbc</artifactId>
-				<version>${spring.version}</version>
-			</dependency>
+
 	
 			<dependency>
 				<groupId>commons-dbcp</groupId>
 				<artifactId>commons-dbcp</artifactId>
 				<version>${dbcp.version}</version>
 			</dependency>
-			
+
+
 			<!-- Web -->
+
 			<dependency>
-	    		<groupId>by.nc.teamone</groupId>
-	    		<artifactId>hotel-entities</artifactId>
-				<version>${hotel.version}</version>
-	    	</dependency>
-	
-	    	<dependency>
-	    		<groupId>by.nc.teamone</groupId>
-	    		<artifactId>hotel-utils</artifactId>
-				<version>${hotel.version}</version>
-	    	</dependency>
-	    	
-	    	<dependency>
-	    		<groupId>by.nc.teamone</groupId>
-	    		<artifactId>hotel-services</artifactId>
-				<version>${hotel.version}</version>
-	    	</dependency>
-	
-	        <!--<dependency>-->
-	            <!--<groupId>org.springframework.security</groupId>-->
-	            <!--<artifactId>spring-security-core</artifactId>-->
-	            <!--<version>${spring-security.version}</version>-->
-	        <!--</dependency>-->
-	
-	        <!--<dependency>-->
-	            <!--<groupId>org.springframework.security</groupId>-->
-	            <!--<artifactId>spring-security-web</artifactId>-->
-	            <!--<version>${spring-security.version}</version>-->
-	        <!--</dependency>-->
-	
-	        <!--<dependency>-->
-	            <!--<groupId>org.springframework.security</groupId>-->
-	            <!--<artifactId>spring-security-config</artifactId>-->
-	            <!--<version>${spring-security.version}</version>-->
-	        <!--</dependency>-->
-	
-	        <!--<dependency>-->
-	            <!--<groupId>org.springframework.security</groupId>-->
-	            <!--<artifactId>spring-security-taglibs</artifactId>-->
-	            <!--<version>${spring-security.version}</version>-->
-	        <!--</dependency>-->
-	
-	        <dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-web</artifactId>
+				<version>4.1.3.RELEASE</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-config</artifactId>
+				<version>4.1.3.RELEASE</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-core</artifactId>
+				<version>4.1.3.RELEASE</version>
+			</dependency>
+
+			<dependency>
 	            <groupId>org.springframework</groupId>
 	            <artifactId>spring-web</artifactId>
 	            <version>${spring.version}</version>
