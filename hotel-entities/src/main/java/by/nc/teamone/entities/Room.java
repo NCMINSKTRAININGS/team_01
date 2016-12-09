@@ -41,6 +41,9 @@ public class Room implements Serializable{
     @OneToMany(mappedBy = "room", fetch = FetchType.LAZY)
     private List<UserRoom> userRooms;
     
+    @OneToMany(mappedBy="room")
+    private List<Image> imageList;
+    
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name="room_equipment",
     	joinColumns=@JoinColumn(name="room_id"),
@@ -95,8 +98,29 @@ public class Room implements Serializable{
 		this.equipmentList = equipmentList;
 	}
 
+    public List<Image> getImageList() {
+		return imageList;
+	}
 
-    @Override
+	public void setImageList(List<Image> imageList) {
+		this.imageList = imageList;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((equipmentList == null) ? 0 : equipmentList.hashCode());
+		result = prime * result + id;
+		result = prime * result + ((imageList == null) ? 0 : imageList.hashCode());
+		result = prime * result + seats;
+		result = prime * result + ((status == null) ? 0 : status.hashCode());
+		result = prime * result + ((type == null) ? 0 : type.hashCode());
+		result = prime * result + ((userRooms == null) ? 0 : userRooms.hashCode());
+		return result;
+	}
+
+	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
@@ -111,6 +135,11 @@ public class Room implements Serializable{
 		} else if (!equipmentList.equals(other.equipmentList))
 			return false;
 		if (id != other.id)
+			return false;
+		if (imageList == null) {
+			if (other.imageList != null)
+				return false;
+		} else if (!imageList.equals(other.imageList))
 			return false;
 		if (seats != other.seats)
 			return false;
@@ -132,22 +161,9 @@ public class Room implements Serializable{
 		return true;
 	}
 
-    @Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((equipmentList == null) ? 0 : equipmentList.hashCode());
-		result = prime * result + id;
-		result = prime * result + seats;
-		result = prime * result + ((status == null) ? 0 : status.hashCode());
-		result = prime * result + ((type == null) ? 0 : type.hashCode());
-		result = prime * result + ((userRooms == null) ? 0 : userRooms.hashCode());
-		return result;
-	}
-
-    @Override
+	@Override
 	public String toString() {
 		return "Room [id=" + id + ", seats=" + seats + ", status=" + status + ", type=" + type + ", userRooms="
-				+ userRooms + ", equipmentList=" + equipmentList + "]";
+				+ userRooms + ", imageList=" + imageList + ", equipmentList=" + equipmentList + "]";
 	}
 }

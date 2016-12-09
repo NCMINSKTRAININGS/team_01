@@ -3,11 +3,14 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
        xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
             http://www.springframework.org/schema/beans/spring-beans.xsd
             http://www.springframework.org/schema/context
             http://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/jdbc
+			http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
             http://www.springframework.org/schema/util
             http://www.springframework.org/schema/util/spring-util.xsd">
 
@@ -15,11 +18,13 @@
     <context:annotation-config />
     <context:component-scan base-package="by.nc.teamone.dba"/>
     
-    
+    <jdbc:initialize-database data-source="dataSource">
+		<jdbc:script location="classpath*:data.sql"/>
+	</jdbc:initialize-database>
 
 
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-        <property name="url" value="jdbc:mysql://localhost:3306/hotel"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/hotel?characterEncoding=UTF-8"/>
         <property name="username" value="root"/>
         <property name="password" value="1234"/>
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
