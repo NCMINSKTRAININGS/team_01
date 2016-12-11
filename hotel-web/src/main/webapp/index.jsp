@@ -7,17 +7,32 @@
 <body>
 Я index а ты кто?
 
-    <form action="user/registration">
+	<form method="post" class="signin" action="j_spring_security_check">
+	
+		<table>
+			<tr>
+				<td>Login: </td>
+				<td><input id="username_or_email" name="username" type="text" /></td>
+			</tr>
+			
+			<tr>
+				<td>Password: </td>
+				<td><input id="password" name="password" type="password" /></td>
+			</tr>
+			
+			<tr align="right">
+				<td colspan="2">
+					<input id="remember_me" name="_spring_security_remember_me" type="checkbox"/>
+					Remember me
+					<input name="commit" type="submit" value="Sign In" />
+				</td>
+			</tr>
+		</table>
+	
+	</form>
+
+    <form action="registration">
         <input type="submit" value="go to registration">
     </form>
-
-<form action="user/login">
-    <input type="submit" value="go to login">
-</form>
-
-<form action="user/main">
-    <input type="submit" value="go to main">
-</form>
-
 </body>
 </html>

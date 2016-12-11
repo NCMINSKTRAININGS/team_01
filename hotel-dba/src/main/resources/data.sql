@@ -11,4 +11,4 @@ insert into equipment(id, name_en, name_ru) VALUES(2, 'Air conditioning', 'Ко�
 -- maybe more
 
 insert into USER(id, login, password, name, surname, email, phone, money, role , enabled)
-  VALUES(100500, 'PETRUS', 'bigboss', 'Stas', 'Petrusev', 'petius96@gmail.com', '+375447425182', '100500', 'ROLE_ADMIN', true)
+  VALUES(1, 'PETRUS', 'bigboss', 'Stas', 'Petrusev', 'petius96@gmail.com', '+375447425182', '100500', 'ROLE_ADMIN', true)

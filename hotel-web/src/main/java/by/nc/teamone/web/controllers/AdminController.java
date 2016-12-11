@@ -8,10 +8,10 @@ import org.springframework.web.servlet.ModelAndView;
 import by.nc.teamone.services.IFacade;
 
 @RestController
-@RequestMapping(value = "/user")
-public class UserController {
-
-    @Autowired
+@RequestMapping(value = "/admin")
+public class AdminController {
+	
+	@Autowired
     private IFacade facade;
-
+	
 }

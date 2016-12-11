@@ -4,14 +4,25 @@
         "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
-    <definition name="definition-registration" template="/WEB-INF/view/layouts/default-registration.jsp">
-        <put-attribute name="main" value="/WEB-INF/view/registration.jsp"/>
+    
+    <definition name="definition-user" template="/WEB-INF/view/layouts/default-user.jsp">
+    	<put-attribute name="header" value="/WEB-INF/view/common/header.jsp"/>
+        <put-attribute name="main" value="/WEB-INF/view/user/main.jsp"/>
+        <put-attribute name="menu" value="/WEB-INF/view/user/menu.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/view/common/footer.jsp"/>
     </definition>
-    <definition name="definition-login" template="/WEB-INF/view/layouts/default-login.jsp">
-        <put-attribute name="main" value="/WEB-INF/view/login.jsp"/>
+    
+    <definition name="definition-admin" template="/WEB-INF/view/layouts/default-admin.jsp">
+    	<put-attribute name="header" value="/WEB-INF/view/common/header.jsp"/>
+        <put-attribute name="main" value="/WEB-INF/view/admin/main.jsp"/>
+        <put-attribute name="menu" value="/WEB-INF/view/admin/menu.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/view/common/footer.jsp"/>
     </definition>
-    <definition name="main-user" template="/WEB-INF/view/layouts/user/default-user-main.jsp">
-        <put-attribute name="footer" value="/WEB-INF/view/footer.jsp"/>
-        <put-attribute name="main" value="/WEB-INF/view/main.jsp"/>
+    
+     <definition name="definition-registration" template="/WEB-INF/view/layouts/default-registration.jsp">
+    	<put-attribute name="header" value="/WEB-INF/view/common/header.jsp"/>
+        <put-attribute name="main" value="/WEB-INF/view/registration/main.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/view/common/footer.jsp"/>
     </definition>
+     
 </tiles-definitions>

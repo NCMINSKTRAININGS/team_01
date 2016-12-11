@@ -4,13 +4,18 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Registration page</title>
+		<title>Admin page</title>
 	</head>
 	<body>
+		
+		<form action="j_spring_security_logout">
+    		<input type="submit" value="LOGOUT">
+		</form>
 	
-		<h4>Registration</h4>
+		<h2>Admin page</h2>
 		
 		<tiles:insertAttribute name="header"/>
+		<tiles:insertAttribute name="menu"/>
 		<tiles:insertAttribute name="main"/>
 		<tiles:insertAttribute name="footer"/>
 		

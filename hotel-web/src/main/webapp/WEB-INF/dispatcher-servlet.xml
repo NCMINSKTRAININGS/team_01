@@ -14,7 +14,7 @@
 
     <import resource="classpath*:transaction-config.xml"/>
 
-    <mvc:resources mapping="/resources/**" location="assets"/>
+    <mvc:resources mapping="/resources/**" location="/assets/"/>
     <mvc:annotation-driven/>
     <context:component-scan base-package="by.nc.teamone.web"/>
 
