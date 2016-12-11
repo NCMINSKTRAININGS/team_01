@@ -7,7 +7,11 @@
     <definition name="definition-registration" template="/WEB-INF/view/layouts/default-registration.jsp">
         <put-attribute name="main" value="/WEB-INF/view/registration.jsp"/>
     </definition>
-    <definition name="definition-logIn" template="/WEB-INF/view/layouts/default-logIn.jsp">
-        <put-attribute name="main" value="/WEB-INF/view/logIn.jsp"/>
+    <definition name="definition-login" template="/WEB-INF/view/layouts/default-login.jsp">
+        <put-attribute name="main" value="/WEB-INF/view/login.jsp"/>
+    </definition>
+    <definition name="main-user" template="/WEB-INF/view/layouts/user/default-user-main.jsp">
+        <put-attribute name="footer" value="/WEB-INF/view/footer.jsp"/>
+        <put-attribute name="main" value="/WEB-INF/view/main.jsp"/>
     </definition>
 </tiles-definitions>

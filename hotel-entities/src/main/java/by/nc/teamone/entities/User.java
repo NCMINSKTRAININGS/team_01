@@ -39,6 +39,9 @@ public class User implements Serializable {
 	@Column(name="role")
 	private String role;
 
+	@Column(name="enabled")
+	private boolean enabled;
+
 	@OneToMany(mappedBy="user", fetch = FetchType.LAZY)
 	private List<Claim> claims;
 
@@ -134,6 +137,13 @@ public class User implements Serializable {
 		this.role = role;
 	}
 
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -208,4 +218,5 @@ public class User implements Serializable {
 		return "User [id=" + id + ", login=" + login + ", password=" + password + ", name=" + name + ", surname="
 				+ surname + ", email=" + email + ", phone=" + phone + ", money=" + money + ", role=" + role + "]";
 	}
+
 }

@@ -2,9 +2,9 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <html>
 <head>
-    <title>Registration</title>
+    <title>Title</title>
 </head>
 <body>
-<tiles:insertAttribute name="main"/>
+-----------------------------------------just footer by team_1----------------------------------------
 </body>
 </html>

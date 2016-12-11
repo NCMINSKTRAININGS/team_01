@@ -20,6 +20,7 @@ public class UserManagerImpl implements IUserManager {
     @Override
     public void addUser(User user) {
         user.setRole(UserRole.USER.getRole());
+        user.setEnabled(true);
         userDAO.add(user);
     }
 }
