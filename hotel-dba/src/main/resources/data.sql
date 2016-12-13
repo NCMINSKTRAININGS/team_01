@@ -11,4 +11,6 @@ insert into equipment(id, name_en, name_ru) VALUES(2, 'Air conditioning', 'Ко�
 -- maybe more
 
 insert into USER(id, login, password, name, surname, email, phone, money, role , enabled)
-  VALUES(1, 'PETRUS', 'bigboss', 'Stas', 'Petrusev', 'petius96@gmail.com', '+375447425182', '100500', 'ROLE_ADMIN', true)
+  VALUES(2, 'valeria', 'password', 'Valeria', 'Shpakovskaya', 'shpakovskaya.valeriya.14@gmail.com', '+375257245180', '500', 'ROLE_ADMIN', true);
+
+insert into ROOM(id, coast, seats, status_id, type_id) VALUES (1, 82, 2, 1, 2);

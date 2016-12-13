@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Valeria
@@ -11,14 +12,34 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="<c:url value="/resources/js/jquery-3.1.1.min.js"/>"></script>
+    <script src="<c:url value="/resources/js/requests/userRequest.js"/>"></script>
 </head>
 <body>
 
-<h4>add room</h4>
+    <div align="center">
 
-<hr/>
-Coast:
-<%--<input type="text" id="coast" name="coast" />--%>
+        <hr/>
 
-</body>
+        <h5>Register new room</h5>
+
+        Coast:
+        <input type="text" id="coast" name="coast" />
+
+        Seats:
+        <input type="text" id="seats" name="seats" />
+
+        Status_id:
+        <input type="text" id="status_id" name="status_id" />
+
+        Type_id:
+        <input type="text" id="type_id" name="type_id" />
+
+        <input type="button" value="Register the Room" onclick="registerRoom()"/>
+
+        <hr/>
+
+    </div>
+
+    </body>
 </html>
