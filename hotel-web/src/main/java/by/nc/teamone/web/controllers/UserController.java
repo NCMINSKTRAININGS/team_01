@@ -1,9 +1,9 @@
 package by.nc.teamone.web.controllers;
 
-import by.nc.teamone.entities.Claim;
+import by.nc.teamone.entities.models.ClaimModel;
 import by.nc.teamone.services.IFacade;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,10 +16,6 @@ public class UserController {
     @Autowired
     private IFacade facade;
 
-    @ModelAttribute("claim")
-    public Claim construct(){
-        return new Claim();
-    }
 
     @RequestMapping(value = "/addRequest", method = RequestMethod.GET)
     public ModelAndView addRequestGet(){
@@ -29,9 +25,9 @@ public class UserController {
         return modelAndView;
     }
     @RequestMapping(value = "/addRequest", method = RequestMethod.POST)
-    public ModelAndView addRequestPost(@ModelAttribute("claim") Claim claim){
+    public ModelAndView addRequestPost(@RequestBody ClaimModel claimModel){
+        facade.addClaim(claimModel);
         ModelAndView modelAndView = new ModelAndView("definition-user");
-        facade.addClaim(claim);
         return modelAndView;
     }
 

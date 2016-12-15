@@ -1,7 +1,7 @@
 package by.nc.teamone.services;
 
-import by.nc.teamone.entities.Claim;
 import by.nc.teamone.entities.Type;
+import by.nc.teamone.entities.models.ClaimModel;
 import by.nc.teamone.entities.models.UserModel;
 import by.nc.teamone.services.managers.IClaimManager;
 import by.nc.teamone.services.managers.ITypeManager;
@@ -34,8 +34,8 @@ public class FacadeImpl implements IFacade{
     }
 
     @Override
-    public void addClaim(Claim claim){
-        claimManager.addClaim(claim);
+    public void addClaim(ClaimModel claimModel){
+        claimManager.addClaim(claimModel);
     }
 
 }

@@ -19,6 +19,7 @@ public class TypeManagerImpl implements ITypeManager{
     @Autowired
     private ITypeDAO typeDAO;
 
+
     @Override
     public List<Type> getAllType(){
         return typeDAO.getAll();

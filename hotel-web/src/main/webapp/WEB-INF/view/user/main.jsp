@@ -5,6 +5,8 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<script src="<c:url value="/resources/js/jquery-3.1.1.min.js"/>"></script>
+		<script src="<c:url value="/resources/js/requests/addClaimRequest.js"/>"></script>
 		<style>
 			<%@ include file="/assets/css/style.css" %>
 		</style>
@@ -13,29 +15,28 @@
 	<div class = 'wrapper'>
 		<c:choose>
 			<c:when test="${userCommand == 'newRequest'}">
-			<sf:form action="addRequest" method="POST" modelAttribute="claim">
-			<fieldset>
-			<div class="addNewRequest">
-					<ul class="dropdown">
-							<li class="dropdown-top">
-								<p class="dropdown-top">Enter Type</p>
-								<ul class="dropdown-inside">
-										<c:forEach  var="k" begin="0" end="${type.size()-1}">
-											<li class = "floatType">
-												<c:out value="${type[k].getTypeEn()}"/>
-												<sf:radiobutton path="type" class="button"  value="${type[k].getId()}"/>
-											</li>
-										</c:forEach>
+			<form>
+				<input type="hidden" name="command" value="addClaimRequest"/>
+				<div class="addNewRequest">
+						<ul class="dropdown">
+								<li class="dropdown-top">
+									<p class="dropdown-top">Enter Type</p>
+									<ul class="dropdown-inside">
+											<c:forEach  var="k" begin="0" end="${type.size()-1}">
+												<li class = "floatType">
+													<c:out value="${type[k].getTypeEn()}"/>
+													<input type="radio" class="button"  value="${type[k].getId()}"/`>
+												</li>
+											</c:forEach>
 
-								</ul>
-							</li>
-						dateIn<sf:input name="check-in_date"  path="checkInDate"/>
-						dateOut<sf:input  name="check-out_date" path ="checkOutDate" />
-					</ul>
+									</ul>
+								</li>
+							dateIn <input type="text" name="checkInDate"  id="checkInDate"/>
+							dateOut <input type="text" name="checkOutDate" id ="checkOutDate" />
+						</ul>
 				</div>
-				<input type="submit" value="Add new request" />
-				</fieldset>
-			</sf:form>
+				<input type="button" value="Add new request" onclick="addClaimRequest()"/>
+			</form>
 			</c:when>
 			<c:when test="${userCommand == null}">
 				<a href = "/user/addRequest?userCommand=newRequest">Go to new Request</a>

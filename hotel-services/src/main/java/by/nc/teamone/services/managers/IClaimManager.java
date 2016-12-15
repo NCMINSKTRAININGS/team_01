@@ -1,8 +1,8 @@
 package by.nc.teamone.services.managers;
 
-import by.nc.teamone.entities.Claim;
+import by.nc.teamone.entities.models.ClaimModel;
 
 
 public interface IClaimManager {
-    void addClaim(Claim claim);
+    void addClaim(ClaimModel claimModel);
 }

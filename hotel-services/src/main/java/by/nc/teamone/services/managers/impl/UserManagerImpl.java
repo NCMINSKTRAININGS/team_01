@@ -25,7 +25,6 @@ public class UserManagerImpl implements IUserManager {
 
     @Override
     public void addUser(UserModel userModel) {
-  	
     	User user = userModelTransformer.buildEntity(userModel);
     	user.setRole(UserRole.USER.getRole());
     	user.setEnabled(true);
