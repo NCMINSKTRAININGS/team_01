@@ -1,7 +1,11 @@
-package by.nc.teamone.services.managers.impl;
+package by.nc.teamone.services.managers;
 
-/**
- * Created by Asus on 13.12.2016.
- */
+import by.nc.teamone.entities.Type;
+
+import java.util.List;
+
 public interface ITypeManager {
+
+    List<Type> getAllType();
+
 }

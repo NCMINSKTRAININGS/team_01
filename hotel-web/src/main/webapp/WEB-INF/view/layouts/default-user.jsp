@@ -8,7 +8,7 @@
 	</head>
 	<body>
 	
-		<form action="j_spring_security_logout">
+		<form action="/j_spring_security_logout">
     		<input type="submit" value="LOGOUT">
 		</form>
 	

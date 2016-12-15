@@ -5,9 +5,7 @@ import by.nc.teamone.entities.Room;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 
-/**
- * Created by Valeria on 05.12.2016.
- */
+
 @Scope("singleton")
 @Repository
 public class RoomDAOImpl extends BaseDAOImpl<Room, Long> implements IRoomDAO {

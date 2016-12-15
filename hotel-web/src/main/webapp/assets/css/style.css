@@ -1,0 +1,56 @@
+.wrapper{
+    margin-top: 100px;
+    height: auto;
+    width: 80%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 500px;
+}
+
+.button{
+    height: 20px;
+    width: 60px;
+    float: left;
+    padding-left: 5px;
+    margin-left: 5px;
+}
+.addNewRequest{
+    height: 80%;
+    padding-bottom: 50px;
+}
+.typeForRequest{
+    height: 80%;
+    width: 50%;
+    float: left;
+}
+ul.dropdown li { position: relative; }
+ul.dropdown,
+ul.dropdown-inside {
+    list-style-type: none;
+    padding: 0;
+}
+ul.dropdown-inside {
+    position: absolute;
+    left: -9999px;
+}
+ul.dropdown li.dropdown-top {
+    display: inline;
+    float: left;
+    margin: 0 1px 0 0;
+}
+ul.dropdown li.dropdown-top p {
+    float: left;
+    padding-left: 20px;
+    display: block;
+}
+ul.dropdown p.dropdown-top { }
+ul.dropdown li.dropdown-top:hover .dropdown-inside {
+    padding-top: 50px;
+    width: 800px;
+    display: block;
+    left: 0;
+}
+
+.floatType{
+    float: left;
+}

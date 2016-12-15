@@ -1,9 +1,8 @@
 package by.nc.teamone.web.controllers;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
+import by.nc.teamone.entities.models.UserModel;
+import by.nc.teamone.services.IFacade;
+import by.nc.teamone.web.utils.CheckRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -13,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import by.nc.teamone.entities.models.UserModel;
-import by.nc.teamone.services.IFacade;
-import by.nc.teamone.web.utils.CheckRoles;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 @RestController
 @RequestMapping(value="/")
@@ -26,7 +25,7 @@ public class GuestController {
 	
 	@Autowired
 	private CheckRoles checkRoles;
-	
+
 	@RequestMapping(value = "/registration", method = RequestMethod.GET)
     public ModelAndView goToRegistration(){
         ModelAndView view = new ModelAndView();
@@ -39,7 +38,7 @@ public class GuestController {
         facade.addUser(userModel);
         return new ModelAndView("/index.jsp");
     }
-    
+
     @RequestMapping(value = "/main", method = RequestMethod.GET)
     public ModelAndView goToUserPage(Authentication authentication){
     	
@@ -47,11 +46,12 @@ public class GuestController {
         List<String> roles = new ArrayList<String>();
         for (GrantedAuthority a : authorities)
             roles.add(a.getAuthority());
-        
+
         if (checkRoles.isAdmin(roles)) {
         	return new ModelAndView("definition-admin");
         } else if (checkRoles.isUser(roles)) {
-        	return new ModelAndView("definition-user");
+            ModelAndView modelAndView = new ModelAndView("definition-user");
+        	return modelAndView;
         } else return new ModelAndView("/index.jsp");
     }
 }

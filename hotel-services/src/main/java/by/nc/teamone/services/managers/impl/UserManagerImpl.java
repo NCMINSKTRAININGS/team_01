@@ -27,9 +27,10 @@ public class UserManagerImpl implements IUserManager {
     public void addUser(UserModel userModel) {
   	
     	User user = userModelTransformer.buildEntity(userModel);
-  	
     	user.setRole(UserRole.USER.getRole());
     	user.setEnabled(true);
     	userDAO.add(user);
   }
+
+
 }

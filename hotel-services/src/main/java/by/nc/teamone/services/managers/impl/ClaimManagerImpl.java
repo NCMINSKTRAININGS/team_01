@@ -1,26 +1,23 @@
 package by.nc.teamone.services.managers.impl;
 
-import by.nc.teamone.dba.dao.ITypeDAO;
-import by.nc.teamone.entities.Type;
-import by.nc.teamone.services.managers.ITypeManager;
+import by.nc.teamone.dba.dao.IClaimDAO;
+import by.nc.teamone.entities.Claim;
+import by.nc.teamone.services.managers.IClaimManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
-
 @Service
 @Transactional
 @Scope("singleton")
-public class TypeManagerImpl implements ITypeManager{
+public class ClaimManagerImpl implements IClaimManager {
 
     @Autowired
-    private ITypeDAO typeDAO;
+    private IClaimDAO claimDAO;
 
     @Override
-    public List<Type> getAllType(){
-        return typeDAO.getAll();
+    public void addClaim(Claim claim) {
+        claimDAO.add(claim);
     }
 }

@@ -3,10 +3,6 @@ package by.nc.teamone.entities;
 import javax.persistence.*;
 import java.io.Serializable;
 
-/**
- * Created by Asus on 05.12.2016.
- */
-
 @Entity
 @Table(name="claim")
 public class Claim  implements Serializable {
