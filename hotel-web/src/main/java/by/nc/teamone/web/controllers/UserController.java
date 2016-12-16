@@ -3,6 +3,7 @@ package by.nc.teamone.web.controllers;
 import by.nc.teamone.entities.models.ClaimModel;
 import by.nc.teamone.services.IFacade;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,6 +21,8 @@ public class UserController {
     @RequestMapping(value = "/addRequest", method = RequestMethod.GET)
     public ModelAndView addRequestGet(){
         ModelAndView modelAndView = new ModelAndView("definition-user");
+        String name = SecurityContextHolder.getContext().getAuthentication().getName();
+        modelAndView.addObject("name", name);
         modelAndView.addObject("type", facade.getAllType());
         modelAndView.addObject("userCommand", "newRequest");
         return modelAndView;

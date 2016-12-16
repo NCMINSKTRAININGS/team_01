@@ -25,14 +25,15 @@
 											<c:forEach  var="k" begin="0" end="${type.size()-1}">
 												<li class = "floatType">
 													<c:out value="${type[k].getTypeEn()}"/>
-													<input type="radio" class="button"  value="${type[k].getId()}"/`>
+													<input type="radio" class="button" name="type" id="type" value="${type[k].getId()}"/>
 												</li>
 											</c:forEach>
 
 									</ul>
 								</li>
-							dateIn <input type="text" name="checkInDate"  id="checkInDate"/>
-							dateOut <input type="text" name="checkOutDate" id ="checkOutDate" />
+							dateIn <input type="text" name="checkInDate"  id="checkInDate" />
+							dateOut <input type="text" name="checkOutDate" id="checkOutDate"/>
+							<input type="hidden" name="login" id="login" value="${name}"/>
 						</ul>
 				</div>
 				<input type="button" value="Add new request" onclick="addClaimRequest()"/>

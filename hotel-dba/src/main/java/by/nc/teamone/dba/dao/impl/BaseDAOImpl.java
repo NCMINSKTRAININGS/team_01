@@ -19,7 +19,7 @@ public class BaseDAOImpl<T, PK extends Serializable> implements IBaseDAO<T, PK> 
 	@Autowired
 	SessionFactory sessionFactory;
 	
-	private Class<T> clazz;
+	protected Class<T> clazz;
 	
 	public BaseDAOImpl() {
 		super();
