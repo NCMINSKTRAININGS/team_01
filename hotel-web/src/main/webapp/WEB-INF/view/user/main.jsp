@@ -11,10 +11,10 @@
 			<%@ include file="/assets/css/style.css" %>
 		</style>
 	</head>
-	<body>
-	<div class = 'wrapper'>
+	<body onload = "getAllData()">
+	<div class = 'wrapper' >
 		<c:choose>
-			<c:when test="${userCommand == 'newRequest'}">
+			<c:when test="${command == 'newRequest'}">
 			<form>
 				<input type="hidden" name="command" value="addClaimRequest"/>
 				<div class="addNewRequest">
@@ -40,7 +40,7 @@
 			</form>
 			</c:when>
 			<c:when test="${userCommand == null}">
-				<a href = "/user/addRequest?userCommand=newRequest">Go to new Request</a>
+				<button id="go" >Go to new Request</button>
 			</c:when>
 		</c:choose>
 	</div>

@@ -15,7 +15,21 @@
     <import resource="classpath*:transaction-config.xml"/>
 
     <mvc:resources mapping="/resources/**" location="/assets/"/>
+    <mvc:annotation-driven content-negotiation-manager="contentNegotiationManager" />
+
+    <bean id="contentNegotiationManager"
+          class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+        <property name="favorPathExtension" value="false" />
+        <property name="favorParameter" value="true" />
+        <property name="mediaTypes">
+            <value>
+                json=application/json
+            </value>
+        </property>
+    </bean>
+
     <mvc:annotation-driven/>
+
     <context:component-scan base-package="by.nc.teamone.web"/>
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">

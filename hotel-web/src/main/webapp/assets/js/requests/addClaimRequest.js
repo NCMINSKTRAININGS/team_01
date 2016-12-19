@@ -1,3 +1,5 @@
+
+
 function addClaimRequest() {
     var claim = {
         checkInDate: document.getElementById('checkInDate').value,
@@ -15,3 +17,20 @@ function addClaimRequest() {
         success: location.href = '/main'
     });
 }
+$(document).on("click", "#go", function() {
+    $.ajax({
+        url: 'addRequest2',
+        type: 'POST',
+        dataType: 'json',
+        data: null,
+        contentType: 'application/json',
+        success: function(data){
+            alert(data);
+            alert(data.responseText);
+            //$("div.ajax").append(data);
+        },
+        error: function (jqXhr, textStatus, errorThrown) {
+            alert("Ошибка '" + jqXhr.status + "' (textStatus: '" + textStatus + "', errorThrown: '" + errorThrown + "')");
+        }
+    });
+});
