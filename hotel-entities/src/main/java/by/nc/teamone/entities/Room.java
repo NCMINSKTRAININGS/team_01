@@ -11,18 +11,18 @@ public class Room implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
 
 	@Column(name="seats")
 	private int seats;
 
-	@OneToOne(targetEntity = Status.class)
+	@OneToOne
 	@JoinColumn(name = "status_id")
 	private Status status;
 
-	@OneToOne(targetEntity = Type.class)
+	@OneToOne
 	@JoinColumn(name = "type_id")
 	private Type type;
 

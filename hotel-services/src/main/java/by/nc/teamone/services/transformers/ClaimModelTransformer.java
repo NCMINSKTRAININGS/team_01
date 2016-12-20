@@ -23,7 +23,8 @@ public class ClaimModelTransformer {
         claim.setCheckInDate(claimModel.checkInDate);
         claim.setCheckOutDate(claimModel.checkOutDate);
         claim.setType(typeDAO.get(claimModel.type));
-        claim.setUser(userDAO.getByLogin(claimModel.login));
+        claim.setUser(userDAO.get(claimModel.id));
+
         return claim;
     }
 }
