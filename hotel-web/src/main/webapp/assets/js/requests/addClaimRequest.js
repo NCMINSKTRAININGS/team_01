@@ -9,28 +9,37 @@ function addClaimRequest() {
     };
 
     $.ajax({
-        url: 'addRequest',
+        url: '/user/addRequest',
         type: 'POST',
         dataType: 'json',
         contentType: 'application/json',
         data: JSON.stringify(claim),
-        success: location.href = '/main'
+        success: alert("OK")
+
     });
 }
-$(document).on("click", "#go", function() {
+
+var types = null;
+var k = 0;
+function getAllData() {
+    alert();
     $.ajax({
-        url: 'addRequest2',
-        type: 'POST',
+        url: '/user/addRequest2',
         dataType: 'json',
-        data: null,
         contentType: 'application/json',
-        success: function(data){
-            alert(data);
-            alert(data.responseText);
-            //$("div.ajax").append(data);
+        success: function(jsondata) {
+            alert(jsondata);
+            //еб*лово(
+            types= JSON.parse(jsondata.Type);
+            alert(types);
+            types= JSON.parse(jsondata);
+            alert(jsondata.Type);
+            alert(types);
+            //конец еб*лова)00)0
+
         },
-        error: function (jqXhr, textStatus, errorThrown) {
+            error: function (jqXhr, textStatus, errorThrown) {
             alert("Ошибка '" + jqXhr.status + "' (textStatus: '" + textStatus + "', errorThrown: '" + errorThrown + "')");
         }
     });
-});
+}

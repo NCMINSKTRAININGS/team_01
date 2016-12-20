@@ -51,6 +51,8 @@ public class GuestController {
         	return new ModelAndView("definition-admin");
         } else if (checkRoles.isUser(roles)) {
             ModelAndView modelAndView = new ModelAndView("definition-user");
+            modelAndView.addObject("type", facade.getAllType());
+            modelAndView.addObject("name", "Stas"); // temp
         	return modelAndView;
         } else return new ModelAndView("/index.jsp");
     }

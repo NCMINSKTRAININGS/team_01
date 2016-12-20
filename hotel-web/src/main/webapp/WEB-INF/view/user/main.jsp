@@ -11,10 +11,9 @@
 			<%@ include file="/assets/css/style.css" %>
 		</style>
 	</head>
-	<body onload = "getAllData()">
-	<div class = 'wrapper' >
-		<c:choose>
-			<c:when test="${command == 'newRequest'}">
+	<body >
+	<div class = 'wrapper' id="wrapper" >
+
 			<form>
 				<input type="hidden" name="command" value="addClaimRequest"/>
 				<div class="addNewRequest">
@@ -35,14 +34,11 @@
 							dateOut <input type="text" name="checkOutDate" id="checkOutDate"/>
 							<input type="hidden" name="login" id="login" value="${name}"/>
 						</ul>
+
 				</div>
 				<input type="button" value="Add new request" onclick="addClaimRequest()"/>
 			</form>
-			</c:when>
-			<c:when test="${userCommand == null}">
-				<button id="go" >Go to new Request</button>
-			</c:when>
-		</c:choose>
+
 	</div>
 	</body>
 </html>

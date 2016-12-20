@@ -14,8 +14,17 @@
 
     <import resource="classpath*:transaction-config.xml"/>
 
+
     <mvc:resources mapping="/resources/**" location="/assets/"/>
     <mvc:annotation-driven content-negotiation-manager="contentNegotiationManager" />
+
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
 
     <bean id="contentNegotiationManager"
           class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
