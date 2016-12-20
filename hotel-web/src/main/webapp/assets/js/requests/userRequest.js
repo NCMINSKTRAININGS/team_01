@@ -8,7 +8,7 @@ function registration() {
 		email: document.getElementById('email').value,
 		phone: document.getElementById('phone').value
 	};
-	
+
 	$.ajax({
 		url: 'registration',
 		type: 'POST',

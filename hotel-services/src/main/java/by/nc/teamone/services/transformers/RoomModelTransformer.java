@@ -19,6 +19,8 @@ public class RoomModelTransformer {
         room.setStatus(model.status_id);
         room.setType(model.type_id);
 
+        System.out.println("RoomModelTransformer buildEntity()");
+
         return room;
     }
 }

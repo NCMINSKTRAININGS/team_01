@@ -18,9 +18,12 @@ public class FacadeImpl implements IFacade{
 
     @Override
     public void addUser(UserModel userModel){
+
+        System.out.println("FacadeImpl addUser");
         userManager.addUser(userModel);
     }
 
+    @Override
     public void addRoom(RoomModel roomModel){
         roomManager.addRoom(roomModel);
     }

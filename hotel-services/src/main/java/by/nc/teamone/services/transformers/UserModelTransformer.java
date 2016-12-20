@@ -18,7 +18,15 @@ public class UserModelTransformer{
 		user.setSurname(model.surname);
 		user.setEmail(model.email);
 		user.setPhone(model.phone);
-		
+
+		System.out.println("UserModelTransformer buildEntity()");
+		System.out.println("login: " + model.login);
+		System.out.println("password: " + model.password1);
+		System.out.println("name: " + model.name);
+		System.out.println("surname: " + model.surname);
+		System.out.println("email: " + model.email);
+		System.out.println("phone: " + model.phone);
+
 		return user;
 	}
 }

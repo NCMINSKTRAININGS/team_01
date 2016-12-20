@@ -25,11 +25,14 @@ public class UserManagerImpl implements IUserManager {
 
     @Override
     public void addUser(UserModel userModel) {
-  	
+
+
     	User user = userModelTransformer.buildEntity(userModel);
   	
     	user.setRole(UserRole.USER.getRole());
     	user.setEnabled(true);
     	userDAO.add(user);
+
+        System.out.println("UserManagerImpl addUser(UserModel)");
   }
 }

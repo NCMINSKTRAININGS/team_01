@@ -1,9 +1,8 @@
 package by.nc.teamone.web.controllers;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
+import by.nc.teamone.entities.models.UserModel;
+import by.nc.teamone.services.IFacade;
+import by.nc.teamone.web.utils.CheckRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -13,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import by.nc.teamone.entities.models.UserModel;
-import by.nc.teamone.services.IFacade;
-import by.nc.teamone.web.utils.CheckRoles;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 @RestController
 @RequestMapping(value="/")
@@ -29,6 +28,7 @@ public class GuestController {
 	
 	@RequestMapping(value = "/registration", method = RequestMethod.GET)
     public ModelAndView goToRegistration(){
+        System.out.println("GuestController goToRegistration GET");
         ModelAndView view = new ModelAndView();
         view.setViewName("definition-registration");
         return view;
@@ -36,13 +36,16 @@ public class GuestController {
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public ModelAndView addUser(@RequestBody UserModel userModel){
+        System.out.println("GuestController addUser POST");
         facade.addUser(userModel);
         return new ModelAndView("/index.jsp");
     }
     
     @RequestMapping(value = "/main", method = RequestMethod.GET)
     public ModelAndView goToUserPage(Authentication authentication){
-    	
+
+        System.out.println("GuestController goToUserPage GET");
+
         Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
         List<String> roles = new ArrayList<String>();
         for (GrantedAuthority a : authorities)

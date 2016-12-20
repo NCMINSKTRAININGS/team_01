@@ -22,6 +22,9 @@ public class RoomModel{
         this.seats = seats;
         this.status_id = status_id;
         this.type_id = type_id;
+
+        System.out.println("RoomModel");
+
     }
 
 }

@@ -29,6 +29,8 @@ public class UserModel {
 		this.surname = surname;
 		this.email = email;
 		this.phone = phone;
+
+		System.out.println("UserModel");
 	}
 	
 	

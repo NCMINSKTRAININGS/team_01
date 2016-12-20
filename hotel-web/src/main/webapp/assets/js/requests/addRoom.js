@@ -10,7 +10,7 @@ function registerRoom() {
     };
 
     $.ajax({
-        url: 'main',
+        url: '//main',
         type: 'POST',
         dataType: 'json',
         contentType: 'application/json',
