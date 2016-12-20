@@ -28,6 +28,7 @@ public class GuestController {
 
 	@RequestMapping(value = "/registration", method = RequestMethod.GET)
     public ModelAndView goToRegistration(){
+        System.out.println("GuestController goToRegistration GET");
         ModelAndView view = new ModelAndView();
         view.setViewName("definition-registration");
         return view;
@@ -35,13 +36,16 @@ public class GuestController {
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public ModelAndView addUser(@RequestBody UserModel userModel){
+        System.out.println("GuestController addUser POST");
         facade.addUser(userModel);
         return new ModelAndView("/index.jsp");
     }
 
     @RequestMapping(value = "/main", method = RequestMethod.GET)
     public ModelAndView goToUserPage(Authentication authentication){
-    	
+
+        System.out.println("GuestController goToUserPage GET");
+
         Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
         List<String> roles = new ArrayList<String>();
         for (GrantedAuthority a : authorities)

@@ -11,77 +11,77 @@ public class Room implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="id")
-    private int id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="id")
+	private int id;
 
-    @Column(name="seats")
-    private int seats;
+	@Column(name="seats")
+	private int seats;
 
-    @OneToOne
-    @JoinColumn(name = "status_id")
-    private Status status;
+	@OneToOne(targetEntity = Status.class)
+	@JoinColumn(name = "status_id")
+	private Status status;
 
-    @OneToOne
-    @JoinColumn(name = "type_id")
-    private Type type;
+	@OneToOne(targetEntity = Type.class)
+	@JoinColumn(name = "type_id")
+	private Type type;
 
 	@Column(name = "coast")
 	private int coast;
 
-    @OneToMany(mappedBy = "room", fetch = FetchType.LAZY)
-    private List<UserRoom> userRooms;
-    
-    @OneToMany(mappedBy="room")
-    private List<Image> imageList;
-    
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name="room_equipment",
-    	joinColumns=@JoinColumn(name="room_id"),
-    	inverseJoinColumns=@JoinColumn(name="equipment_id"))
-    private List<Equipment> equipmentList;
+	@OneToMany(mappedBy = "room", fetch = FetchType.LAZY)
+	private List<UserRoom> userRooms;
+
+	@OneToMany(mappedBy="room")
+	private List<Image> imageList;
+
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name="room_equipment",
+			joinColumns=@JoinColumn(name="room_id"),
+			inverseJoinColumns=@JoinColumn(name="equipment_id"))
+	private List<Equipment> equipmentList;
 
 	public  List<UserRoom> getUserRooms() {
-        return userRooms;
-    }
+		return userRooms;
+	}
 
-    public void setUserRooms(List<UserRoom> userRooms) {
-        this.userRooms = userRooms;
-    }
+	public void setUserRooms(List<UserRoom> userRooms) {
+		this.userRooms = userRooms;
+	}
 
-    public int getId() {
-        return id;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public int getSeats() {
-        return seats;
-    }
+	public int getSeats() {
+		return seats;
+	}
 
-    public void setSeats(int seats) {
-        this.seats = seats;
-    }
+	public void setSeats(int seats) {
+		this.seats = seats;
+	}
 
-    public Status getStatus() {
-        return status;
-    }
+	public Status getStatus() {
+		return status;
+	}
 
-    public void setStatus(Status status) {
-        this.status = status;
-    }
+	public void setStatus(Status status) {
+		this.status = status;
+	}
 
-    public Type getType() {
-        return type;
-    }
+	public Type getType() {
+		return type;
+	}
 
-    public void setType(Type type) {
-        this.type = type;
-    }
-    
-    public List<Equipment> getEquipmentList() {
+	public void setType(Type type) {
+		this.type = type;
+	}
+
+	public List<Equipment> getEquipmentList() {
 		return equipmentList;
 	}
 
@@ -89,7 +89,7 @@ public class Room implements Serializable{
 		this.equipmentList = equipmentList;
 	}
 
-    public List<Image> getImageList() {
+	public List<Image> getImageList() {
 		return imageList;
 	}
 
@@ -106,58 +106,34 @@ public class Room implements Serializable{
 	}
 
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((equipmentList == null) ? 0 : equipmentList.hashCode());
-		result = prime * result + id;
-		result = prime * result + ((imageList == null) ? 0 : imageList.hashCode());
-		result = prime * result + seats;
-		result = prime * result + ((status == null) ? 0 : status.hashCode());
-		result = prime * result + ((type == null) ? 0 : type.hashCode());
-		result = prime * result + ((userRooms == null) ? 0 : userRooms.hashCode());
-		return result;
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		Room room = (Room) o;
+
+		if (id != room.id) return false;
+		if (seats != room.seats) return false;
+		if (coast != room.coast) return false;
+		if (status != null ? !status.equals(room.status) : room.status != null) return false;
+		if (type != null ? !type.equals(room.type) : room.type != null) return false;
+		if (userRooms != null ? !userRooms.equals(room.userRooms) : room.userRooms != null) return false;
+		if (imageList != null ? !imageList.equals(room.imageList) : room.imageList != null) return false;
+		return equipmentList != null ? equipmentList.equals(room.equipmentList) : room.equipmentList == null;
+
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Room other = (Room) obj;
-		if (equipmentList == null) {
-			if (other.equipmentList != null)
-				return false;
-		} else if (!equipmentList.equals(other.equipmentList))
-			return false;
-		if (id != other.id)
-			return false;
-		if (imageList == null) {
-			if (other.imageList != null)
-				return false;
-		} else if (!imageList.equals(other.imageList))
-			return false;
-		if (seats != other.seats)
-			return false;
-		if (status == null) {
-			if (other.status != null)
-				return false;
-		} else if (!status.equals(other.status))
-			return false;
-		if (type == null) {
-			if (other.type != null)
-				return false;
-		} else if (!type.equals(other.type))
-			return false;
-		if (userRooms == null) {
-			if (other.userRooms != null)
-				return false;
-		} else if (!userRooms.equals(other.userRooms))
-			return false;
-		return true;
+	public int hashCode() {
+		int result = id;
+		result = 31 * result + seats;
+		result = 31 * result + (status != null ? status.hashCode() : 0);
+		result = 31 * result + (type != null ? type.hashCode() : 0);
+		result = 31 * result + coast;
+		result = 31 * result + (userRooms != null ? userRooms.hashCode() : 0);
+		result = 31 * result + (imageList != null ? imageList.hashCode() : 0);
+		result = 31 * result + (equipmentList != null ? equipmentList.hashCode() : 0);
+		return result;
 	}
 
 	@Override
