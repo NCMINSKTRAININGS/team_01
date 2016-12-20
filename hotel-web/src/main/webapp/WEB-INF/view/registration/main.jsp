@@ -44,7 +44,7 @@
 			</tr>
 			<tr>
 				<td colspan="2" align="center">
-					<input type="button" value="Registration" onclick="registration()"/>	
+					<input type="button" value="Registration" onclick="registration()"/>
 				</td>
 			</tr>
 		</table>

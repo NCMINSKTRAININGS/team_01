@@ -1,6 +1,8 @@
 package by.nc.teamone.services.managers.impl;
 
 import by.nc.teamone.dba.dao.IRoomDAO;
+import by.nc.teamone.dba.dao.IStatusDAO;
+import by.nc.teamone.dba.dao.ITypeDAO;
 import by.nc.teamone.entities.Room;
 import by.nc.teamone.entities.models.RoomModel;
 import by.nc.teamone.services.managers.IRoomManager;
@@ -23,13 +25,20 @@ public class RoomManagerImpl implements IRoomManager {
     private IRoomDAO roomDAO;
 
     @Autowired
+    private ITypeDAO typeDAO;
+
+    @Autowired
+    private IStatusDAO statusDAO;
+
+    @Autowired
     private RoomModelTransformer roomModelTransformer;
 
     @Override
     public void addRoom(RoomModel roomModel) {
 
         Room room = roomModelTransformer.buildEntity(roomModel);
-
+        room.setStatus(statusDAO.get(roomModel.status_id));
+        room.setType(typeDAO.get(roomModel.type_id));
         roomDAO.add(room);
 
         System.out.println("RoomManagerImpl addRoom(RoomModel)");

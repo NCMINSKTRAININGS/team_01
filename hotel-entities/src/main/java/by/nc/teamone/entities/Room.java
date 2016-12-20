@@ -20,11 +20,11 @@ public class Room implements Serializable{
 
 	@OneToOne(targetEntity = Status.class)
 	@JoinColumn(name = "status_id")
-	private int status;
+	private Status status;
 
 	@OneToOne(targetEntity = Type.class)
 	@JoinColumn(name = "type_id")
-	private int type;
+	private Type type;
 
 	@Column(name = "coast")
 	private int coast;
@@ -65,19 +65,19 @@ public class Room implements Serializable{
 		this.seats = seats;
 	}
 
-	public int getStatus() {
+	public Status getStatus() {
 		return status;
 	}
 
-	public void setStatus(int status) {
+	public void setStatus(Status status) {
 		this.status = status;
 	}
 
-	public int getType() {
+	public Type getType() {
 		return type;
 	}
 
-	public void setType(int type) {
+	public void setType(Type type) {
 		this.type = type;
 	}
 
@@ -114,9 +114,9 @@ public class Room implements Serializable{
 
 		if (id != room.id) return false;
 		if (seats != room.seats) return false;
-		if (status != room.status) return false;
-		if (type != room.type) return false;
 		if (coast != room.coast) return false;
+		if (status != null ? !status.equals(room.status) : room.status != null) return false;
+		if (type != null ? !type.equals(room.type) : room.type != null) return false;
 		if (userRooms != null ? !userRooms.equals(room.userRooms) : room.userRooms != null) return false;
 		if (imageList != null ? !imageList.equals(room.imageList) : room.imageList != null) return false;
 		return equipmentList != null ? equipmentList.equals(room.equipmentList) : room.equipmentList == null;
@@ -127,8 +127,8 @@ public class Room implements Serializable{
 	public int hashCode() {
 		int result = id;
 		result = 31 * result + seats;
-		result = 31 * result + status;
-		result = 31 * result + type;
+		result = 31 * result + (status != null ? status.hashCode() : 0);
+		result = 31 * result + (type != null ? type.hashCode() : 0);
 		result = 31 * result + coast;
 		result = 31 * result + (userRooms != null ? userRooms.hashCode() : 0);
 		result = 31 * result + (imageList != null ? imageList.hashCode() : 0);

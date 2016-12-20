@@ -16,19 +16,18 @@ public class AdminController {
     @Autowired
     private IFacade facade;
 
-    @RequestMapping(value = "//main", method = RequestMethod.GET)
+    @RequestMapping(value = "/main", method = RequestMethod.GET)
     public ModelAndView goToRegistrationRoom() {
         ModelAndView view = new ModelAndView();
         view.setViewName("definition-admin");
-        System.out.println("AdminController GET Admin");
+        System.out.println("AdminController goToRegistrationRoom GET");
         return view;
     }
 
-    @RequestMapping(value = "//main", method = RequestMethod.POST)
-    public ModelAndView addRoom(@RequestBody RoomModel roomModel) {
+    @RequestMapping(value = "/main", method = RequestMethod.POST)
+    public void addRoom(@RequestBody RoomModel roomModel) {
         facade.addRoom(roomModel);
-        System.out.println("AdminController POST Admin");
-        return new ModelAndView("/index.jsp");
+        System.out.println("AdminController addRoom POST");
 
     }
 }

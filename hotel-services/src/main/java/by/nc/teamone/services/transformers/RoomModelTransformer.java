@@ -16,8 +16,6 @@ public class RoomModelTransformer {
 
         room.setCoast(model.coast);
         room.setSeats(model.seats);
-        room.setStatus(model.status_id);
-        room.setType(model.type_id);
 
         System.out.println("RoomModelTransformer buildEntity()");
 

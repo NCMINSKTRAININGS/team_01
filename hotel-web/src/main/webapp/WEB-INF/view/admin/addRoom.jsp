@@ -20,7 +20,7 @@
         <div align="center">
 
             <hr/>
-            <form>
+            <form action="/admin/main" method="post">
                     <h5>Register new room</h5>
 
                     Coast:
@@ -35,7 +35,7 @@
                     Type_id:
                     <input type="text" id="type_id" name="type_id" />
 
-                    <input type="button" value="Register the Room" onclick="registerRoom()"/>
+                    <input type="button" value="Register the Room" onclick="addRoom()"/>
             </form>
             <hr/>
 

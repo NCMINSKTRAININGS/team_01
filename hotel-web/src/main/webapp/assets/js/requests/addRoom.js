@@ -1,7 +1,7 @@
 /**
  * Created by Valeria on 13.12.2016.
  */
-function registerRoom() {
+function addRoom() {
     var room = {
         coast: document.getElementById('coast').value,
         seats: document.getElementById('seats').value,
@@ -10,11 +10,11 @@ function registerRoom() {
     };
 
     $.ajax({
-        url: '//main',
+        url: '/admin/main',
         type: 'POST',
         dataType: 'json',
         contentType: 'application/json',
         data: JSON.stringify(room),
-        success: location.href = 'index.jsp'
+        success: alert("OK")
     });
 }
