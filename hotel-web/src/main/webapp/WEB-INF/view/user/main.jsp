@@ -14,6 +14,13 @@
 	<body >
 	<div class = 'wrapper' id="wrapper" >
 		<c:choose>
+			<c:when test="${command == 'findAll' && claim.size() > 0}">
+				<c:forEach  var="k" begin="0" end="${claim.size()-1}">
+					<li class = "floatType">
+						<c:out value="${claim[k].getCheckInDate()}"/>
+					</li>
+				</c:forEach>
+			</c:when>
 			<c:when test="${command == 'addClaim'}">
 			<form>
 				<input type="hidden" name="command" value="addClaimRequest"/>

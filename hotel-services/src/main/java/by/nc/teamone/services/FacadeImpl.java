@@ -1,5 +1,6 @@
 package by.nc.teamone.services;
 
+import by.nc.teamone.entities.Claim;
 import by.nc.teamone.entities.Type;
 import by.nc.teamone.entities.User;
 import by.nc.teamone.entities.models.ClaimModel;
@@ -61,4 +62,8 @@ public class FacadeImpl implements IFacade{
         roomManager.addRoom(roomModel);
     }
 
+    @Override
+    public List<Claim> getAllClaim() {
+        return claimManager.getAllClaim();
+    }
 }

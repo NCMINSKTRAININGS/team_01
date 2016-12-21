@@ -18,14 +18,8 @@ function addClaimRequest() {
 
 
 function addClaimCommand(cmnd) {
-    var command = {
-        command : cmnd
-    };
+
     $.ajax({
-        type: 'POST',
-        dataType: 'json',
-        contentType: 'application/json',
-        data: JSON.stringify(command),
-        success: location.href = '/user/getCommand'
+        success: location.href = '/user/main/' + cmnd
     })
 }
