@@ -10,6 +10,8 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional
 @Scope("singleton")
@@ -25,5 +27,10 @@ public class ClaimManagerImpl implements IClaimManager {
     public void addClaim(ClaimModel claimModel) {
         Claim claim = claimModelTransformer.buildEntity(claimModel);
         claimDAO.add(claim);
+    }
+
+    @Override
+    public List<Claim> getAllClaim() {
+        return claimDAO.getAll();
     }
 }

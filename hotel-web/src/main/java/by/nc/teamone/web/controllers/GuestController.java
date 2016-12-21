@@ -57,7 +57,7 @@ public class GuestController {
         	return modelAndView;
         } else if (checkRoles.isUser(roles)) {
             ModelAndView modelAndView = new ModelAndView("definition-user");
-            modelAndView.addObject("type", facade.getAllType());
+            //modelAndView.addObject("type", facade.getAllType());
             String name = SecurityContextHolder.getContext().getAuthentication().getName();
             modelAndView.addObject("user", facade.getUserByName(name));
         	return modelAndView;
