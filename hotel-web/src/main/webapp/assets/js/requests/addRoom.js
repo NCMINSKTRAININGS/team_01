@@ -18,7 +18,6 @@ function addRoom() {
 var types = null;
 var k = 0;
 function getAllData() {
-    alert();
     $.ajax({
         url: '/user/addRequest2',
         dataType: 'json',

@@ -16,6 +16,7 @@
     	<put-attribute name="header" value="/WEB-INF/view/common/header.jsp"/>
         <put-attribute name="main" value="/WEB-INF/view/admin/main.jsp"/>
         <put-attribute name="room" value="/WEB-INF/view/admin/addRoom.jsp"/>
+        <put-attribute name="claims" value="/WEB-INF/view/admin/watchClaims.jsp"/>
         <put-attribute name="menu" value="/WEB-INF/view/admin/menu.jsp"/>
         <put-attribute name="footer" value="/WEB-INF/view/common/footer.jsp"/>
     </definition>
