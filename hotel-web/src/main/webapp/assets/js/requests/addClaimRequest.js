@@ -1,5 +1,3 @@
-
-
 function addClaimRequest() {
     var claim = {
         checkInDate: document.getElementById('checkInDate').value,
@@ -15,6 +13,19 @@ function addClaimRequest() {
         contentType: 'application/json',
         data: JSON.stringify(claim),
         success: alert("OK")
-
     });
+}
+
+
+function addClaimCommand(cmnd) {
+    var command = {
+        command : cmnd
+    };
+    $.ajax({
+        type: 'POST',
+        dataType: 'json',
+        contentType: 'application/json',
+        data: JSON.stringify(command),
+        success: location.href = '/user/getCommand'
+    })
 }
