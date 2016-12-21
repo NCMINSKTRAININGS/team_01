@@ -26,6 +26,7 @@ public class ClaimManagerImpl implements IClaimManager {
     @Override
     public void addClaim(ClaimModel claimModel) {
         Claim claim = claimModelTransformer.buildEntity(claimModel);
+        claim.setStatus("In processing");
         claimDAO.add(claim);
     }
 

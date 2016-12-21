@@ -20,6 +20,7 @@
 						<c:out value="Type = ${claim[k].getType().getTypeEn()}   "/>
 						<c:out value="check in date${claim[k].getCheckInDate()}   "/>
 						<c:out value="check out date${claim[k].getCheckOutDate()}   "/>
+						<c:out value="STATUS = ${claim[k].getStatus()}   "/>
 					</div>
 					<hr/>
 				</c:forEach>
