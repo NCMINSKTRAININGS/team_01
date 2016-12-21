@@ -28,6 +28,11 @@ public class FacadeImpl implements IFacade{
     @Autowired
     IClaimManager claimManager;
 
+    @Override
+    public List<ClaimModel> getClaimByIdUser(Long id) {
+        return userManager.getClaimByIdUser(id);
+    }
+
     @Autowired
     IRoomManager roomManager;
 
@@ -42,7 +47,6 @@ public class FacadeImpl implements IFacade{
     }
 
     @Override
-
     public List<TypeModel> getAllTypeModel(){
         return typeManager.getAllTypeModel();
     }
@@ -66,4 +70,10 @@ public class FacadeImpl implements IFacade{
     public List<Claim> getAllClaim() {
         return claimManager.getAllClaim();
     }
+
+    @Override
+    public User getUserById(Long id) {
+        return userManager.getUserById(id);
+    }
+
 }

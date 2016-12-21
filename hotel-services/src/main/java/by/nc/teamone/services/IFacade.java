@@ -26,4 +26,9 @@ public interface IFacade {
 
     List<Claim> getAllClaim();
 
+    User getUserById(Long id);
+
+    List<ClaimModel> getClaimByIdUser(Long id);
+
+
 }
