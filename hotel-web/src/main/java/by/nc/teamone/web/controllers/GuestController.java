@@ -29,7 +29,6 @@ public class GuestController {
 
 	@RequestMapping(value = "/registration", method = RequestMethod.GET)
     public ModelAndView goToRegistration(){
-        System.out.println("GuestController goToRegistration GET");
         ModelAndView view = new ModelAndView();
         view.setViewName("definition-registration");
         return view;
@@ -37,7 +36,6 @@ public class GuestController {
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public ModelAndView addUser(@RequestBody UserModel userModel){
-        System.out.println("GuestController addUser POST");
         facade.addUser(userModel);
         return new ModelAndView("/index.jsp");
     }
@@ -45,7 +43,6 @@ public class GuestController {
     @RequestMapping(value = "/main", method = RequestMethod.GET)
     public ModelAndView goToUserPage(Authentication authentication){
 
-        System.out.println("GuestController goToUserPage GET");
         Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
         List<String> roles = new ArrayList<String>();
         for (GrantedAuthority a : authorities)
@@ -57,7 +54,6 @@ public class GuestController {
         	return modelAndView;
         } else if (checkRoles.isUser(roles)) {
             ModelAndView modelAndView = new ModelAndView("definition-user");
-            //modelAndView.addObject("type", facade.getAllType());
             String name = SecurityContextHolder.getContext().getAuthentication().getName();
             modelAndView.addObject("user", facade.getUserByName(name));
         	return modelAndView;

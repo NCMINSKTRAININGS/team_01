@@ -14,7 +14,7 @@ public class Claim  implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @JoinColumn(name="user_id")
     private User user;
 
@@ -22,6 +22,9 @@ public class Claim  implements Serializable {
     @JoinColumn(name="type_id")
     private Type type;
 
+    @Column(name="status")
+    private String status;
+    
     @Column(name="check_in_date")
     private String checkInDate;
 
@@ -32,7 +35,7 @@ public class Claim  implements Serializable {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -52,8 +55,12 @@ public class Claim  implements Serializable {
         this.type = type;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getCheckInDate() {
@@ -82,6 +89,7 @@ public class Claim  implements Serializable {
         if (id != claim.id) return false;
         if (user != null ? !user.equals(claim.user) : claim.user != null) return false;
         if (type != null ? !type.equals(claim.type) : claim.type != null) return false;
+        if (status != null ? !status.equals(claim.status) : claim.status != null) return false;
         if (checkInDate != null ? !checkInDate.equals(claim.checkInDate) : claim.checkInDate != null) return false;
         return checkOutDate != null ? checkOutDate.equals(claim.checkOutDate) : claim.checkOutDate == null;
 
@@ -92,6 +100,7 @@ public class Claim  implements Serializable {
         int result = (int) (id ^ (id >>> 32));
         result = 31 * result + (user != null ? user.hashCode() : 0);
         result = 31 * result + (type != null ? type.hashCode() : 0);
+        result = 31 * result + (status != null ? status.hashCode() : 0);
         result = 31 * result + (checkInDate != null ? checkInDate.hashCode() : 0);
         result = 31 * result + (checkOutDate != null ? checkOutDate.hashCode() : 0);
         return result;
@@ -103,11 +112,9 @@ public class Claim  implements Serializable {
                 "id=" + id +
                 ", user=" + user +
                 ", type=" + type +
-                ", checkInDate=" + checkInDate +
-                ", checkOutDate=" + checkOutDate +
+                ", status='" + status + '\'' +
+                ", checkInDate='" + checkInDate + '\'' +
+                ", checkOutDate='" + checkOutDate + '\'' +
                 '}';
     }
-
-
-
 }

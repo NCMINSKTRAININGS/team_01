@@ -42,16 +42,15 @@ public class User implements Serializable {
 	@Column(name="enabled")
 	private boolean enabled;
 
-	@OneToMany(mappedBy="user", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy="user", cascade = CascadeType.ALL , fetch = FetchType.LAZY)
 	private List<Claim> claims;
 
-	@OneToMany(mappedBy="user", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy="user")
 	private List<UserRoom> userRooms ;
 
 	public List<Claim> getClaims() {
 		return claims;
 	}
-
 
 	public List<UserRoom> getUserRooms() {
 		return userRooms;
