@@ -16,10 +16,16 @@
 		<c:choose>
 			<c:when test="${command == 'findAll' && claim.size() > 0}">
 				<c:forEach  var="k" begin="0" end="${claim.size()-1}">
-					<li class = "floatType">
-						<c:out value="${claim[k].getCheckInDate()}"/>
-					</li>
+					<div class = "data_string">
+						<c:out value="Type = ${claim[k].getType().getTypeEn()}   "/>
+						<c:out value="check in date${claim[k].getCheckInDate()}   "/>
+						<c:out value="check out date${claim[k].getCheckOutDate()}   "/>
+					</div>
+					<hr/>
 				</c:forEach>
+			</c:when>
+			<c:when test="${command == 'findAll' && claim.size() == 0}">
+				<c:out value="Claims absend"/>
 			</c:when>
 			<c:when test="${command == 'addClaim'}">
 			<form>

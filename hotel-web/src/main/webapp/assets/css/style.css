@@ -63,3 +63,9 @@ ul.dropdown li.dropdown-top:hover .dropdown-inside {
     width: auto;
     background: #b5632f;
 }
+
+.data_string{
+    height: 20px;
+    padding-top: 5px;
+    text-align: left;
+}
