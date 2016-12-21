@@ -18,28 +18,3 @@ function addClaimRequest() {
 
     });
 }
-
-var types = null;
-var k = 0;
-function getAllData() {
-    alert();
-    $.ajax({
-        url: '/user/addRequest2',
-        dataType: 'json',
-        contentType: 'application/json',
-        success: function(jsondata) {
-            alert(jsondata);
-            //еб*лово(
-            types= JSON.parse(jsondata.Type);
-            alert(types);
-            types= JSON.parse(jsondata);
-            alert(jsondata.Type);
-            alert(types);
-            //конец еб*лова)00)0
-
-        },
-            error: function (jqXhr, textStatus, errorThrown) {
-            alert("Ошибка '" + jqXhr.status + "' (textStatus: '" + textStatus + "', errorThrown: '" + errorThrown + "')");
-        }
-    });
-}

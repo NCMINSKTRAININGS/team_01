@@ -30,7 +30,6 @@ public class UserModel {
 		this.email = email;
 		this.phone = phone;
 
-		System.out.println("UserModel");
 	}
 	
 	

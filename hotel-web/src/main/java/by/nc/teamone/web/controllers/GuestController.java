@@ -51,7 +51,9 @@ public class GuestController {
             roles.add(a.getAuthority());
 
         if (checkRoles.isAdmin(roles)) {
-        	return new ModelAndView("definition-admin");
+            ModelAndView modelAndView = new ModelAndView("definition-admin");
+            modelAndView.addObject("type", facade.getAllType());
+        	return modelAndView;
         } else if (checkRoles.isUser(roles)) {
             ModelAndView modelAndView = new ModelAndView("definition-user");
             modelAndView.addObject("type", facade.getAllType());
