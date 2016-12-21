@@ -1,5 +1,6 @@
 package by.nc.teamone.services;
 
+import by.nc.teamone.entities.Claim;
 import by.nc.teamone.entities.User;
 import by.nc.teamone.entities.models.ClaimModel;
 import by.nc.teamone.entities.models.RoomModel;
@@ -22,5 +23,7 @@ public interface IFacade {
     void addRoom(RoomModel roomModel);
 
     User getUserByName(String name);
+
+    List<Claim> getAllClaim();
 
 }

@@ -13,7 +13,21 @@
 	</head>
 	<body >
 	<div class = 'wrapper' id="wrapper" >
-
+		<c:choose>
+			<c:when test="${command == 'findAll' && claim.size() > 0}">
+				<c:forEach  var="k" begin="0" end="${claim.size()-1}">
+					<div class = "data_string">
+						<c:out value="Type = ${claim[k].getType().getTypeEn()}   "/>
+						<c:out value="check in date${claim[k].getCheckInDate()}   "/>
+						<c:out value="check out date${claim[k].getCheckOutDate()}   "/>
+					</div>
+					<hr/>
+				</c:forEach>
+			</c:when>
+			<c:when test="${command == 'findAll' && claim.size() == 0}">
+				<c:out value="Claims absend"/>
+			</c:when>
+			<c:when test="${command == 'addClaim'}">
 			<form>
 				<input type="hidden" name="command" value="addClaimRequest"/>
 				<div class="addNewRequest">
@@ -38,7 +52,13 @@
 				</div>
 				<input type="button" value="Add new request" onclick="addClaimRequest()"/>
 			</form>
+			</c:when>
+			<c:when test="${command == null}">
+				<input type="button" value="Add claim" onclick="addClaimCommand('addClaim')"/>
+				<input type="button" value="Find all" onclick="addClaimCommand('findAll')"/>
+			</c:when>
 
+		</c:choose>
 	</div>
 	</body>
 </html>
