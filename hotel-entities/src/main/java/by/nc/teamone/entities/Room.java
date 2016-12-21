@@ -18,11 +18,11 @@ public class Room implements Serializable{
 	@Column(name="seats")
 	private int seats;
 
-	@OneToOne(targetEntity = Status.class)
+	@OneToOne
 	@JoinColumn(name = "status_id")
 	private Status status;
 
-	@OneToOne(targetEntity = Type.class)
+	@OneToOne
 	@JoinColumn(name = "type_id")
 	private Type type;
 

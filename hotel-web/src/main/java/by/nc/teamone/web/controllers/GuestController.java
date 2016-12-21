@@ -45,7 +45,6 @@ public class GuestController {
     public ModelAndView goToUserPage(Authentication authentication){
 
         System.out.println("GuestController goToUserPage GET");
-
         Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
         List<String> roles = new ArrayList<String>();
         for (GrantedAuthority a : authorities)
@@ -56,7 +55,7 @@ public class GuestController {
         } else if (checkRoles.isUser(roles)) {
             ModelAndView modelAndView = new ModelAndView("definition-user");
             modelAndView.addObject("type", facade.getAllType());
-            modelAndView.addObject("name", "Stas"); // temp
+            modelAndView.addObject("name", 200500); // temp
         	return modelAndView;
         } else return new ModelAndView("/index.jsp");
     }

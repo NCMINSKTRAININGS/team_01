@@ -11,14 +11,12 @@ public class Type {
     @Column(name="type_id")
     private long id;
 
-    @Column(name="type_en")
+    @Column(name = "type_en")
     private String typeEn;
 
-    @Column(name="type_ru")
+    @Column(name = "type_ru")
     private String typeRu;
 
-    @OneToOne(mappedBy = "type")
-    private Room room;
 
     public long getId() {
         return id;
@@ -44,12 +42,13 @@ public class Type {
         this.typeRu = typeRu;
     }
 
-    public Room getRoom() {
-        return room;
-    }
-
-    public void setRoom(Room room) {
-        this.room = room;
+    @Override
+    public String toString() {
+        return "Type{" +
+                "id=" + id +
+                ", typeEn='" + typeEn + '\'' +
+                ", typeRu='" + typeRu + '\'' +
+                '}';
     }
 
     @Override
@@ -61,8 +60,7 @@ public class Type {
 
         if (id != type.id) return false;
         if (typeEn != null ? !typeEn.equals(type.typeEn) : type.typeEn != null) return false;
-        if (typeRu != null ? !typeRu.equals(type.typeRu) : type.typeRu != null) return false;
-        return room != null ? room.equals(type.room) : type.room == null;
+        return typeRu != null ? typeRu.equals(type.typeRu) : type.typeRu == null;
 
     }
 
@@ -71,17 +69,6 @@ public class Type {
         int result = (int) (id ^ (id >>> 32));
         result = 31 * result + (typeEn != null ? typeEn.hashCode() : 0);
         result = 31 * result + (typeRu != null ? typeRu.hashCode() : 0);
-        result = 31 * result + (room != null ? room.hashCode() : 0);
         return result;
-    }
-
-    @Override
-    public String toString() {
-        return "Type{" +
-                "id=" + id +
-                ", typeEn='" + typeEn + '\'' +
-                ", typeRu='" + typeRu + '\'' +
-                ", room=" + room +
-                '}';
     }
 }
