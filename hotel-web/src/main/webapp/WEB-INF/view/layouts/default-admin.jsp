@@ -7,14 +7,11 @@
 		<title>Admin page</title>
 	</head>
 	<body>
-		
-		<form action="j_spring_security_logout">
-    		<input type="submit" value="LOGOUT">
-		</form>
-	
-		<h2>Admin page</h2>
-		
+
 		<tiles:insertAttribute name="header"/>
+
+		<h2>Admin page</h2>
+
 		<tiles:insertAttribute name="menu"/>
 		<tiles:insertAttribute name="main"/>
 		<tiles:insertAttribute name="room"/>

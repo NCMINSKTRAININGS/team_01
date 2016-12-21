@@ -2,8 +2,7 @@ function addRoom() {
     var room = {
         coast: document.getElementById('coast').value,
         seats: document.getElementById('seats').value,
-        status_id: document.getElementById('status_id').value,
-        type_id: document.getElementById('type_id').value
+        type_id: $('input:radio[name=type]:checked').val()
     };
 
     $.ajax({

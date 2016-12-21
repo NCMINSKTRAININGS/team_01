@@ -5,18 +5,16 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	</head>
-	<body>
-	<c:choose>
-		<c:when test="${name != null}">
-			<c:out value="${name}"/>
-		</c:when>
-	</c:choose>
-
-	<h4>header</h4>
-
-		
-		
-		
-	
+	<body >
+	<div class="cloud">
+		<form action="/j_spring_security_logout">
+			<input type="submit" value="LOGOUT">
+		</form>
+		<c:choose>
+			<c:when test="${user != null}">
+				<c:out value="${user.getLogin()}"/>
+			</c:when>
+		</c:choose>
+	</div>
 	</body>
 </html>
