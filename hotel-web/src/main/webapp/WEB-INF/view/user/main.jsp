@@ -32,7 +32,7 @@
 								</li>
 							dateIn <input type="text" name="checkInDate"  id="checkInDate" />
 							dateOut <input type="text" name="checkOutDate" id="checkOutDate"/>
-							<input type="hidden" name="login" id="login" value="${name}"/>
+							<input type="hidden" name="login" id="login" value="${user.getId()}"/>
 						</ul>
 
 				</div>

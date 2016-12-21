@@ -10,7 +10,8 @@
             <%@ include file="/assets/css/style.css" %>
         </style>
     </head>
-    <body class="wrapper">
+    <body >
+    <div class = "wrapper">
 
         <div align="center">
 
@@ -43,6 +44,6 @@
             </form>
 
         </div>
-
+    </div>
     </body>
 </html>

@@ -6,6 +6,7 @@ import by.nc.teamone.web.utils.CheckRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -57,7 +58,8 @@ public class GuestController {
         } else if (checkRoles.isUser(roles)) {
             ModelAndView modelAndView = new ModelAndView("definition-user");
             modelAndView.addObject("type", facade.getAllType());
-            modelAndView.addObject("name", 200500); // temp
+            String name = SecurityContextHolder.getContext().getAuthentication().getName();
+            modelAndView.addObject("user", facade.getUserByName(name));
         	return modelAndView;
         } else return new ModelAndView("/index.jsp");
     }
