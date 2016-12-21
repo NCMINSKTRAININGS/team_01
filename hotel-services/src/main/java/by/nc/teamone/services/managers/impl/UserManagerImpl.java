@@ -35,7 +35,6 @@ public class UserManagerImpl implements IUserManager {
     @Override
     public User getUserByName(String name) {
         User user = userDAO.getByLogin(name);
-        user.setPassword(null);
         return user;
     }
 }

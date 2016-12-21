@@ -13,7 +13,8 @@
 	</head>
 	<body >
 	<div class = 'wrapper' id="wrapper" >
-
+		<c:choose>
+			<c:when test="${command == 'addClaim'}">
 			<form>
 				<input type="hidden" name="command" value="addClaimRequest"/>
 				<div class="addNewRequest">
@@ -38,7 +39,13 @@
 				</div>
 				<input type="button" value="Add new request" onclick="addClaimRequest()"/>
 			</form>
+			</c:when>
+			<c:when test="${command == null}">
+				<input type="button" value="Add claim" onclick="addClaimCommand('addClaim')"/>
+				<input type="button" value="Find all" onclick="addClaimCommand('findAll')"/>
+			</c:when>
 
+		</c:choose>
 	</div>
 	</body>
 </html>
