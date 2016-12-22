@@ -12,7 +12,7 @@
 <head>
     <script src="<c:url value="/resources/js/jquery-3.1.1.min.js"/>"></script>
     <script src="<c:url value="/resources/js/requests/addClaimRequest.js"/>"></script>
-    <script src="<c:url value="/resources/js/requests/claimssWatch.js"/>"></script>
+    <script src="<c:url value="/resources/js/requests/claimsWatch.js"/>"></script>
 </head>
 <body>
     <hr/>
@@ -27,7 +27,7 @@
     <br/>
     <div>
         <c:choose>
-            <c:when test="${command == 'findClaims' && claims.size() > 0}">
+            <c:when test="${command == 'showClaims' && claims.size() > 0}">
                 <c:forEach  var="k" begin="0" end="${claims.size()-1}">
                     <div class = "data_string">
                         <c:out value="Type = ${claims[k].getTypeObj().getTypeEn()}   "/>
@@ -39,7 +39,7 @@
                 </c:forEach>
             </c:when>
             <c:when test="${command == null}">
-                <input type="button" value="watch claims" onclick="watchClaims('addClaim')"/>
+                <input type="button" value="watch claims" onclick="watchClaims('showClaims')"/>
             </c:when>
         </c:choose>
 

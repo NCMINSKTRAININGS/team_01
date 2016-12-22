@@ -18,8 +18,7 @@ public class AdminController {
         ModelAndView view = new ModelAndView();
         view.setViewName("definition-admin");
         view.addObject("command", command);
-        System.out.println("AdminController goToRegistrationRoom GET" + facade.getAllClaim());
-        if (command.equals("addClaim")) {
+        if (command.equals("showClaims")) {
             view.addObject("claims", facade.getAllClaim());
         }
         return view;
