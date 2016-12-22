@@ -15,18 +15,20 @@ public class AdminController {
 
     @RequestMapping(value = "/main/{command}", method = RequestMethod.GET)
     public ModelAndView goToRegistrationRoom(@PathVariable("command") String command) {
-        ModelAndView view = new ModelAndView();
-        view.setViewName("definition-admin");
-        view.addObject("command", command);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("definition-admin");
+        modelAndView.addObject("command", command);
         if (command.equals("showClaims")) {
-            view.addObject("claims", facade.getAllClaim());
+            modelAndView.addObject("claims", facade.getAllClaim());
         }
-        return view;
+        if (command.equals("addRoom")){
+            modelAndView.addObject("type", facade.getAllType());
+        }
+        return modelAndView;
     }
 
     @RequestMapping(value = "/main", method = RequestMethod.POST)
     public void addRoom(@RequestBody RoomModel roomModel) {
         facade.addRoom(roomModel);
-        System.out.println("AdminController addRoom POST");
     }
 }

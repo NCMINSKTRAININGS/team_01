@@ -15,7 +15,10 @@
 </head>
 <body>
 <div align="center">
-    <hr/>
+    <c:choose>
+        <c:when test="${command == 'showClaims' && claims.size() > 0}">
+
+        <hr/>
     <br/>
 
     <h3>Claims acceptance</h3>
@@ -25,21 +28,22 @@
     <hr/>
 
     <br/>
-
-        <c:choose>
-            <c:when test="${command == 'showClaims' && claims.size() > 0}">
-                <c:forEach  var="k" begin="0" end="${claims.size()-1}">
-                    <div >
-                        <c:out value="Type = ${claims[k].getType().getTypeEn()}   "/>
-                        <c:out value="check in date${claims[k].getCheckInDate()}   "/>
-                        <c:out value="check out date${claims[k].getCheckOutDate()}   "/>
-                        <c:out value="STATUS = ${claims[k].getStatus()}   "/>
-                    </div>
-                    <hr/>
-                </c:forEach>
+            <c:forEach  var="k" begin="0" end="${claims.size()-1}">
+                <div >
+                    <c:out value="Type = ${claims[k].getType().getTypeEn()}   "/>
+                    <c:out value="check in date${claims[k].getCheckInDate()}   "/>
+                    <c:out value="check out date${claims[k].getCheckOutDate()}   "/>
+                    <c:out value="STATUS = ${claims[k].getStatus()}   "/>
+                </div>
+                <hr/>
+            </c:forEach>
+        </c:when>
+            <c:when test="${claims.size() == 0}">
+                claims absent
             </c:when>
             <c:when test="${command == null}">
                 <input type="button" value="watch claims" onclick="watchClaims('showClaims')"/>
+                <input type="button" value="AddRoom" onclick="watchClaims('addRoom')"/>
             </c:when>
         </c:choose>
 

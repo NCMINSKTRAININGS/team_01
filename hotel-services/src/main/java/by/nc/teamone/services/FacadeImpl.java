@@ -62,7 +62,7 @@ public class FacadeImpl implements IFacade{
     }
 
     @Override
-    public List<Claim> getAllClaim() {
+    public List<ClaimModel> getAllClaim() {
         return claimManager.getAllClaim();
     }
 

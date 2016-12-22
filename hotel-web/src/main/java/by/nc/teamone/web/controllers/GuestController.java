@@ -47,16 +47,17 @@ public class GuestController {
         List<String> roles = new ArrayList<String>();
         for (GrantedAuthority a : authorities)
             roles.add(a.getAuthority());
+        String name = SecurityContextHolder.getContext().getAuthentication().getName();
 
         if (checkRoles.isAdmin(roles)) {
             ModelAndView modelAndView = new ModelAndView("definition-admin");
-            modelAndView.addObject("type", facade.getAllType());
+            modelAndView.addObject("user", facade.getUserByName(name));
         	return modelAndView;
         } else if (checkRoles.isUser(roles)) {
             ModelAndView modelAndView = new ModelAndView("definition-user");
-            String name = SecurityContextHolder.getContext().getAuthentication().getName();
             modelAndView.addObject("user", facade.getUserByName(name));
-        	return modelAndView;
+
+            return modelAndView;
         } else return new ModelAndView("/index.jsp");
     }
 }

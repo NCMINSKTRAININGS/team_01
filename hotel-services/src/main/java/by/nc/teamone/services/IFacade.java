@@ -1,6 +1,5 @@
 package by.nc.teamone.services;
 
-import by.nc.teamone.entities.Claim;
 import by.nc.teamone.entities.Type;
 import by.nc.teamone.entities.User;
 import by.nc.teamone.entities.models.ClaimModel;
@@ -21,7 +20,7 @@ public interface IFacade {
 
     User getUserByName(String name);
 
-    List<Claim> getAllClaim();
+    List<ClaimModel> getAllClaim();
 
     User getUserById(Long id);
 
