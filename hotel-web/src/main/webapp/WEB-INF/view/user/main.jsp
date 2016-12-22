@@ -12,7 +12,7 @@
 		</style>
 	</head>
 	<body >
-	<div class = 'wrapper' id="wrapper" >
+	<div class = 'wrapper' id="wrapper">
 		<c:choose>
 			<c:when test="${command == 'findAll' && claim.size() > 0}">
 				<c:forEach  var="k" begin="0" end="${claim.size()-1}">

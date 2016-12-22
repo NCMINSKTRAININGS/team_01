@@ -23,6 +23,8 @@ public class UserController {
     @RequestMapping(value = "/main/{command}/{id}", method = RequestMethod.GET)
     public ModelAndView goToUserPage(@PathVariable("command") String command,
                                      @PathVariable("id") Long id) {
+        System.out.println("UserController goToUserPage GET");
+
         ModelAndView modelAndView = new ModelAndView("definition-user");
 
         modelAndView.addObject("user", facade.getUserById(id));

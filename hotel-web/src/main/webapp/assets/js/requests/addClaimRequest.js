@@ -16,9 +16,9 @@ function addClaimRequest() {
     });
 }
 
-function addClaimCommand(cmnd , id) {
+function addClaimCommand(cmnd, id) {
 
     $.ajax({
-        success: location.href = '/user/main/' + cmnd+'/' + id
+        success: location.href = '/user/main/' + cmnd + '/' + id
     })
 }
