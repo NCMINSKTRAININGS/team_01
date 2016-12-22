@@ -29,6 +29,13 @@ public class Room implements Serializable{
 	@Column(name = "coast")
 	private int coast;
 
+	@Column(name = "claim")
+	private boolean claim;
+
+	@ManyToOne
+	@JoinColumn(name="address_id")
+	private Address address;
+
 	@OneToMany(mappedBy = "room", fetch = FetchType.LAZY)
 	private List<UserRoom> userRooms;
 
@@ -115,6 +122,7 @@ public class Room implements Serializable{
 		if (id != room.id) return false;
 		if (seats != room.seats) return false;
 		if (coast != room.coast) return false;
+		if (claim != room.claim) return false;
 		if (status != null ? !status.equals(room.status) : room.status != null) return false;
 		if (type != null ? !type.equals(room.type) : room.type != null) return false;
 		if (userRooms != null ? !userRooms.equals(room.userRooms) : room.userRooms != null) return false;
@@ -130,6 +138,7 @@ public class Room implements Serializable{
 		result = 31 * result + (status != null ? status.hashCode() : 0);
 		result = 31 * result + (type != null ? type.hashCode() : 0);
 		result = 31 * result + coast;
+		result = 31 * result + (claim ? 1 : 0);
 		result = 31 * result + (userRooms != null ? userRooms.hashCode() : 0);
 		result = 31 * result + (imageList != null ? imageList.hashCode() : 0);
 		result = 31 * result + (equipmentList != null ? equipmentList.hashCode() : 0);
@@ -138,8 +147,16 @@ public class Room implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Room [id=" + id + ", seats=" + seats + ", status=" + status + ", type=" + type + ", userRooms="
-				+ userRooms + ", imageList=" + imageList + ", equipmentList=" + equipmentList + "]";
+		return "Room{" +
+				"id=" + id +
+				", seats=" + seats +
+				", status=" + status +
+				", type=" + type +
+				", coast=" + coast +
+				", claim=" + claim +
+				", userRooms=" + userRooms +
+				", imageList=" + imageList +
+				", equipmentList=" + equipmentList +
+				'}';
 	}
-
 }
