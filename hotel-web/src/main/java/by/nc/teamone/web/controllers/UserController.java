@@ -1,7 +1,9 @@
 package by.nc.teamone.web.controllers;
 
+import by.nc.teamone.constants.EntityConstants;
 import by.nc.teamone.entities.models.ClaimModel;
 import by.nc.teamone.services.IFacade;
+import by.nc.teamone.web.constants.WebConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -20,18 +22,18 @@ public class UserController {
     }
 
 
-    @RequestMapping(value = "/main/{command}/{id}", method = RequestMethod.GET)
-    public ModelAndView goToUserPage(@PathVariable("command") String command,
+    @RequestMapping(value = WebConstants.MAIN+"/{"+WebConstants.COMMAND+"}/{id}", method = RequestMethod.GET)
+    public ModelAndView goToUserPage(@PathVariable(WebConstants.COMMAND) String command,
                                      @PathVariable("id") Long id) {
         ModelAndView modelAndView = new ModelAndView("definition-user");
 
-        modelAndView.addObject("user", facade.getUserById(id));
-        modelAndView.addObject("command", command);
+        modelAndView.addObject(EntityConstants.USER, facade.getUserById(id));
+        modelAndView.addObject(WebConstants.COMMAND, command);
         if (command.equals("addClaim")) {
-            modelAndView.addObject("type", facade.getAllType());
+            modelAndView.addObject(EntityConstants.TYPE, facade.getAllType());
         }
         else if (command.equals("findAll")){
-            modelAndView.addObject("claim", facade.getClaimByIdUser(id));
+            modelAndView.addObject(EntityConstants.CLAIM, facade.getClaimByIdUser(id));
         }
         return modelAndView;
     }

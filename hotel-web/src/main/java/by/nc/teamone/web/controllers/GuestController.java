@@ -1,7 +1,9 @@
 package by.nc.teamone.web.controllers;
 
+import by.nc.teamone.constants.EntityConstants;
 import by.nc.teamone.entities.models.UserModel;
 import by.nc.teamone.services.IFacade;
+import by.nc.teamone.web.constants.WebConstants;
 import by.nc.teamone.web.utils.CheckRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -37,10 +39,10 @@ public class GuestController {
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public ModelAndView addUser(@RequestBody UserModel userModel){
         facade.addUser(userModel);
-        return new ModelAndView("/index.jsp");
+        return new ModelAndView(WebConstants.INDEX);
     }
 
-    @RequestMapping(value = "/main", method = RequestMethod.GET)
+    @RequestMapping(value = WebConstants.MAIN, method = RequestMethod.GET)
     public ModelAndView goToUserPage(Authentication authentication){
 
         Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
@@ -50,13 +52,13 @@ public class GuestController {
 
         if (checkRoles.isAdmin(roles)) {
             ModelAndView modelAndView = new ModelAndView("definition-admin");
-            modelAndView.addObject("type", facade.getAllType());
+            modelAndView.addObject(EntityConstants.TYPE, facade.getAllType());
         	return modelAndView;
         } else if (checkRoles.isUser(roles)) {
             ModelAndView modelAndView = new ModelAndView("definition-user");
             String name = SecurityContextHolder.getContext().getAuthentication().getName();
-            modelAndView.addObject("user", facade.getUserByName(name));
+            modelAndView.addObject(EntityConstants.USER, facade.getUserByName(name));
         	return modelAndView;
-        } else return new ModelAndView("/index.jsp");
+        } else return new ModelAndView(WebConstants.INDEX);
     }
 }

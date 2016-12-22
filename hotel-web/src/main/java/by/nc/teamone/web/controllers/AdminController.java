@@ -2,6 +2,7 @@ package by.nc.teamone.web.controllers;
 
 import by.nc.teamone.entities.models.RoomModel;
 import by.nc.teamone.services.IFacade;
+import by.nc.teamone.web.constants.WebConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,18 +17,15 @@ public class AdminController {
     @Autowired
     private IFacade facade;
 
-    @RequestMapping(value = "/main", method = RequestMethod.GET)
+    @RequestMapping(value = WebConstants.MAIN, method = RequestMethod.GET)
     public ModelAndView goToRegistrationRoom() {
         ModelAndView view = new ModelAndView();
         view.setViewName("definition-admin");
-        System.out.println("AdminController goToRegistrationRoom GET");
         return view;
     }
 
-    @RequestMapping(value = "/main", method = RequestMethod.POST)
+    @RequestMapping(value = WebConstants.MAIN, method = RequestMethod.POST)
     public void addRoom(@RequestBody RoomModel roomModel) {
         facade.addRoom(roomModel);
-
-        System.out.println("AdminController addRoom POST");
     }
 }

@@ -27,6 +27,5 @@ public interface IFacade {
 
     List<ClaimModel> getClaimByIdUser(Long id);
 
-
 }
 

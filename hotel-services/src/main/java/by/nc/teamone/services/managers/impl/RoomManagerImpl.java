@@ -12,10 +12,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- * Created by Valeria on 13.12.2016.
- */
-
 @Service
 @Transactional
 @Scope("singleton")
