@@ -29,4 +29,14 @@ public class ClaimModelTransformer {
         user.getClaims().add(claim);
         return claim;
     }
+
+    public ClaimModel buildModel(Claim claim){
+        ClaimModel claimModel = new ClaimModel();
+        claimModel.setCheckInDate(claim.getCheckInDate());
+        claimModel.setCheckOutDate(claim.getCheckOutDate());
+        claimModel.setTypeObj( claim.getType());
+        claimModel.setId( claim.getId());
+        claimModel.setStatus(claim.getStatus());
+        return claimModel;
+    }
 }

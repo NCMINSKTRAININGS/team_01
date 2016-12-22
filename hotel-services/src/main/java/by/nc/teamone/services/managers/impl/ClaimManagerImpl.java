@@ -28,5 +28,5 @@ public class ClaimManagerImpl implements IClaimManager {
 
         claimDAO.add(claim);
     }
-    
+
 }

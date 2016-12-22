@@ -7,6 +7,7 @@ import by.nc.teamone.entities.enums.UserRole;
 import by.nc.teamone.entities.models.ClaimModel;
 import by.nc.teamone.entities.models.UserModel;
 import by.nc.teamone.services.managers.IUserManager;
+import by.nc.teamone.services.transformers.ClaimModelTransformer;
 import by.nc.teamone.services.transformers.UserModelTransformer;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,17 +29,15 @@ public class UserManagerImpl implements IUserManager {
     @Autowired
     private UserModelTransformer userModelTransformer;
 
+    @Autowired
+    ClaimModelTransformer claimModelTransformer;
+
     @Override
     public List<UserModel> getAllUsers() {
         List<User> users = userDAO.getAll();
         List<UserModel> userModels = new ArrayList<UserModel>();
         for (User iter:users){
-            UserModel userModel = new UserModel();
-            userModel.setLogin(iter.getLogin());
-            userModel.setEmail(iter.getEmail());
-            userModel.setName(iter.getName());
-            userModel.setId(iter.getId());
-            userModels.add(userModel);
+            userModels.add(userModelTransformer.buildModel(iter));
         }
         return userModels;
     }
@@ -48,13 +47,7 @@ public class UserManagerImpl implements IUserManager {
         User user = userDAO.get(id);
         List<ClaimModel> claimModels = new ArrayList<ClaimModel>();
         for (Claim iter:user.getClaims()){
-            ClaimModel claimModel = new ClaimModel();
-            claimModel.setCheckInDate(iter.getCheckInDate());
-            claimModel.setCheckOutDate(iter.getCheckOutDate());
-            claimModel.setTypeObj( iter.getType());
-            claimModel.setId( iter.getId());
-            claimModel.setStatus(iter.getStatus());
-            claimModels.add(claimModel);
+            claimModels.add(claimModelTransformer.buildModel(iter));
         }
         return claimModels;
     }
