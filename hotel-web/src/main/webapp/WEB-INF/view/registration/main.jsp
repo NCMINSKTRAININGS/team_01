@@ -8,47 +8,46 @@
     <script src="<c:url value="/resources/js/requests/userRequest.js"/>"></script>
 </head>
 <body>
-    <form>
-		<input type="hidden" name="command" value="registration"/>
-		
+
+    <sf:form action="" method="POST" modelAttribute="userModel">
 		<table align="center">
 			<tr>
 				<td>Login:</td>
-				<td><input type="text" name="login" id="login"/></td>
+				<td><sf:input path="login"/></td>
 			</tr>
 			<tr>
 				<td>Password:</td>
-				<td><input type="password" name="password1" id="password1"/></td>
+				<td><sf:password path="password1"/></td>
 			</tr>
 			
 			<tr>
 				<td>Password:</td>
-				<td><input type="password" name="password2" id="password2"/></td>
+				<td><sf:input path="password2"/></td>
 			</tr>
 			
 			<tr>
 				<td>Name:</td>
-				<td><input type="text" name="name" id="name"/></td>
+				<td><sf:input path="name"/></td>
 			</tr>
 			<tr>
 				<td>Surname:</td>
-				<td><input type="text" name="surname" id="surname"/></td>
+				<td><sf:input path="surname"/></td>
 			</tr>
 			<tr>
 				<td>Email:</td>
-				<td><input type="text" name="email" id="email"/></td>
+				<td><sf:input path="email"/></td>
 			</tr>
 			<tr>
 				<td>Phone:</td>
-				<td><input type="text" name="phone" id="phone"/></td>
+				<td><sf:input path="phone"/></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center">
-					<input type="button" value="Registration" onclick="registration()"/>
+					<input type="submit" value="Registration">
 				</td>
 			</tr>
 		</table>
-	</form>
+	</sf:form>
 </body>
 </html>
 

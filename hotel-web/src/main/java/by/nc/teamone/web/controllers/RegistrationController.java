@@ -1,25 +1,26 @@
 package by.nc.teamone.web.controllers;
 
-import by.nc.teamone.entities.models.UserModel;
-import by.nc.teamone.services.IFacade;
-import by.nc.teamone.web.utils.CheckRoles;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-@RestController
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import by.nc.teamone.entities.models.UserModel;
+import by.nc.teamone.services.IFacade;
+import by.nc.teamone.web.utils.CheckRoles;
+
+@Controller
 @RequestMapping(value="/")
-public class GuestController {
+public class RegistrationController {
 	
 	@Autowired
 	private IFacade facade;
@@ -27,18 +28,23 @@ public class GuestController {
 	@Autowired
 	private CheckRoles checkRoles;
 
+	@ModelAttribute("userModel")
+    public UserModel construct(){
+    	return new UserModel();
+    }
+    
 	@RequestMapping(value = "/registration", method = RequestMethod.GET)
-    public ModelAndView goToRegistration(){
-        ModelAndView view = new ModelAndView();
-        view.setViewName("definition-registration");
-        return view;
-    }
+	public ModelAndView goToRegistration(){
+		ModelAndView view = new ModelAndView();
+		view.setViewName("definition-registration");
+		return view;
+	}
 
-    @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public ModelAndView addUser(@RequestBody UserModel userModel){
-        facade.addUser(userModel);
-        return new ModelAndView("/index.jsp");
-    }
+	@RequestMapping(value = "/registration", method = RequestMethod.POST)
+	public ModelAndView addUser(@ModelAttribute("userModel") UserModel userModel){
+		facade.addUser(userModel);
+		return new ModelAndView("definition-index");
+	}
 
     @RequestMapping(value = "/main", method = RequestMethod.GET)
     public ModelAndView goToUserPage(Authentication authentication){
@@ -56,8 +62,11 @@ public class GuestController {
         } else if (checkRoles.isUser(roles)) {
             ModelAndView modelAndView = new ModelAndView("definition-user");
             modelAndView.addObject("user", facade.getUserByName(name));
-
             return modelAndView;
-        } else return new ModelAndView("/index.jsp");
+        } else if (checkRoles.isLandlord(roles)) {
+        	ModelAndView modelAndView = new ModelAndView("definition-landlord");
+	        modelAndView.addObject("user", facade.getUserByName(name));
+	        return modelAndView;
+        } else return new ModelAndView("definition-index");
     }
 }

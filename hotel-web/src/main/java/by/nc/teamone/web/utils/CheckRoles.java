@@ -7,17 +7,21 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class CheckRoles {
 	
-	 public boolean isUser(List<String> roles) {
-	        if (roles.contains("ROLE_USER")) {
-	            return true;
-	        }
-	        return false;
-	    }
-	 
-    public boolean isAdmin(List<String> roles) {
-        if (roles.contains("ROLE_ADMIN")) {
+	public boolean isUser(List<String> roles) {
+        if (roles.contains("ROLE_USER"))
             return true;
-        }
         return false;
-    }
+	}
+	 
+	public boolean isAdmin(List<String> roles) {
+		if (roles.contains("ROLE_ADMIN"))
+			return true;
+		return false;
+	}
+	
+	public boolean isLandlord(List<String> roles) {
+		if (roles.contains("ROLE_LANDLORD"))
+			return true;
+		return false;
+	}
 }

@@ -1,5 +1,6 @@
 package by.nc.teamone.services;
 
+import by.nc.teamone.entities.Equipment;
 import by.nc.teamone.entities.Type;
 import by.nc.teamone.entities.User;
 import by.nc.teamone.entities.models.ClaimModel;
@@ -11,22 +12,16 @@ import java.util.List;
 public interface IFacade {
 
     void addUser(UserModel userModel);
-
-    List<Type> getAllType();
-
-    void addClaim(ClaimModel claimModel);
-
-    void addRoom(RoomModel roomModel);
-
     User getUserByName(String name);
-
-
     User getUserById(Long id);
-
+    List<UserModel> getAllUsers();
+    
+    void addRoom(RoomModel roomModel);
+    
+    void addClaim(ClaimModel claimModel);
     List<ClaimModel> getClaimByIdUser(Long id);
 
-    List<UserModel> getAllUsers();
-
-
+    List<Type> getAllType();
+    List<Equipment> getAllEquipment();   
 }
 

@@ -21,10 +21,25 @@
         <put-attribute name="footer" value="/WEB-INF/view/common/footer.jsp"/>
     </definition>
     
-     <definition name="definition-registration" template="/WEB-INF/view/layouts/default-registration.jsp">
+     <definition name="definition-landlord" template="/WEB-INF/view/layouts/default-landlord.jsp">
+    	<put-attribute name="header" value="/WEB-INF/view/common/header.jsp"/>
+        <put-attribute name="main" value="/WEB-INF/view/landlord/main.jsp"/>
+        <put-attribute name="menu" value="/WEB-INF/view/landlord/menu.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/view/common/footer.jsp"/>
+    </definition>
+    
+    <definition name="definition-registration" template="/WEB-INF/view/layouts/default-registration.jsp">
     	<put-attribute name="header" value="/WEB-INF/view/common/header.jsp"/>
         <put-attribute name="main" value="/WEB-INF/view/registration/main.jsp"/>
         <put-attribute name="footer" value="/WEB-INF/view/common/footer.jsp"/>
+    </definition>
+    
+    <definition name="definition-addroom" template="/WEB-INF/view/layouts/default-room.jsp">
+        <put-attribute name="main" value="/WEB-INF/view/landlord/addroom/main.jsp"/>
+    </definition>
+    
+    <definition name="definition-index" template="/WEB-INF/view/layouts/default-index.jsp">
+    	<put-attribute name="main" value="/index.jsp"/>
     </definition>
      
 </tiles-definitions>
