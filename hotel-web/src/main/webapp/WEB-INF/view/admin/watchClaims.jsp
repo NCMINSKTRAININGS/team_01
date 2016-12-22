@@ -11,26 +11,26 @@
 <html>
 <head>
     <script src="<c:url value="/resources/js/jquery-3.1.1.min.js"/>"></script>
-    <script src="<c:url value="/resources/js/requests/addClaimRequest.js"/>"></script>
     <script src="<c:url value="/resources/js/requests/claimsWatch.js"/>"></script>
 </head>
 <body>
+<div align="center">
     <hr/>
     <br/>
 
-    CLAIMS ACCEPTANCE
+    <h3>Claims acceptance</h3>
 
     <br/>
     <br/>
     <hr/>
 
     <br/>
-    <div>
+
         <c:choose>
             <c:when test="${command == 'showClaims' && claims.size() > 0}">
                 <c:forEach  var="k" begin="0" end="${claims.size()-1}">
-                    <div class = "data_string">
-                        <c:out value="Type = ${claims[k].getTypeObj().getTypeEn()}   "/>
+                    <div >
+                        <c:out value="Type = ${claims[k].getType().getTypeEn()}   "/>
                         <c:out value="check in date${claims[k].getCheckInDate()}   "/>
                         <c:out value="check out date${claims[k].getCheckOutDate()}   "/>
                         <c:out value="STATUS = ${claims[k].getStatus()}   "/>

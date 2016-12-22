@@ -14,6 +14,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="<c:url value="/resources/js/jquery-3.1.1.min.js"/>"></script>
         <script src="<c:url value="/resources/js/requests/addRoom.js"/>"></script>
+        <script src="<c:url value="/resources/js/requests/addClaimRequest.js"/>"></script>
     </head>
     <body >
     <div>
