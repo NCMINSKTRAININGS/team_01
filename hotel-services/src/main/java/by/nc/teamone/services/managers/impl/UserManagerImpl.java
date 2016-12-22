@@ -29,6 +29,21 @@ public class UserManagerImpl implements IUserManager {
     private UserModelTransformer userModelTransformer;
 
     @Override
+    public List<UserModel> getAllUsers() {
+        List<User> users = userDAO.getAll();
+        List<UserModel> userModels = new ArrayList<UserModel>();
+        for (User iter:users){
+            UserModel userModel = new UserModel();
+            userModel.setLogin(iter.getLogin());
+            userModel.setEmail(iter.getEmail());
+            userModel.setName(iter.getName());
+            userModel.setId(iter.getId());
+            userModels.add(userModel);
+        }
+        return userModels;
+    }
+
+    @Override
     public List<ClaimModel> getClaimByIdUser(Long id) {
         User user = userDAO.get(id);
         List<ClaimModel> claimModels = new ArrayList<ClaimModel>();
@@ -43,6 +58,8 @@ public class UserManagerImpl implements IUserManager {
         }
         return claimModels;
     }
+
+
 
 
     @Override

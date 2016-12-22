@@ -15,24 +15,14 @@ function addRoom() {
     });
 }
 
-var types = null;
-var k = 0;
-function getAllData() {
+function setCommandAdmin(cmnd) {
     $.ajax({
-        url: '/user/addRequest2',
-        dataType: 'json',
-        contentType: 'application/json',
-        success: function(jsondata) {
-            alert(jsondata);
-            types= JSON.parse(jsondata.Type);
-            alert(types);
-            types= JSON.parse(jsondata);
-            alert(jsondata.Type);
-            alert(types);
+        success: location.href = '/admin/main/' + cmnd
+    })
+}
 
-        },
-        error: function (jqXhr, textStatus, errorThrown) {
-            alert("Ошибка '" + jqXhr.status + "' (textStatus: '" + textStatus + "', errorThrown: '" + errorThrown + "')");
-        }
-    });
+function getClaimByUser(cmnd , id) {
+    $.ajax({
+        success: location.href = '/admin/main/' + cmnd + '/' + id
+    })
 }

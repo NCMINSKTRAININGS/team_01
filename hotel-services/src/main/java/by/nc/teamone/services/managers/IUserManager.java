@@ -15,6 +15,8 @@ public interface IUserManager {
     User getUserById(Long id);
 
     List<ClaimModel> getClaimByIdUser(Long id);
+
+    List<UserModel> getAllUsers();
 }
 
 

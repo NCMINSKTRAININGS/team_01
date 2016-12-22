@@ -1,6 +1,5 @@
 package by.nc.teamone.services;
 
-import by.nc.teamone.entities.Claim;
 import by.nc.teamone.entities.Type;
 import by.nc.teamone.entities.User;
 import by.nc.teamone.entities.models.ClaimModel;
@@ -23,6 +22,11 @@ public class FacadeImpl implements IFacade{
 
     @Autowired
     ITypeManager typeManager;
+
+    @Override
+    public List<UserModel> getAllUsers() {
+        return userManager.getAllUsers();
+    }
 
     @Autowired
     IClaimManager claimManager;

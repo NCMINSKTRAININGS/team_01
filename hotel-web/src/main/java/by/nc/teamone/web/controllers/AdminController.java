@@ -14,20 +14,34 @@ public class AdminController {
     private IFacade facade;
 
     @RequestMapping(value = "/main/{command}", method = RequestMethod.GET)
-    public ModelAndView goToRegistrationRoom(@PathVariable("command") String command) {
+    public ModelAndView goToAdminPage(@PathVariable("command") String command) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("definition-admin");
         modelAndView.addObject("command", command);
-        if (command.equals("showClaims")) {
-            modelAndView.addObject("claims", facade.getAllClaim());
+        if (command.equals("showUsers")) {
+            modelAndView.addObject("users", facade.getAllUsers());
         }
         if (command.equals("addRoom")){
-            modelAndView.addObject("type", facade.getAllType());
+            modelAndView.addObject("users", facade.getAllUsers());
         }
         return modelAndView;
     }
 
-    @RequestMapping(value = "/main", method = RequestMethod.POST)
+    @RequestMapping(value = "/main/{command}/{id}", method = RequestMethod.GET)
+    public ModelAndView goToAdminClaimPage(@PathVariable("command") String command,
+                                           @PathVariable("id") Long id) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("definition-admin");
+        modelAndView.addObject("command", command);
+        if (command.equals("showClaims")){
+            modelAndView.addObject("claims", facade.getClaimByIdUser(id));
+            modelAndView.addObject("user", facade.getUserById(id));
+        }
+        return modelAndView;
+    }
+
+
+        @RequestMapping(value = "/main", method = RequestMethod.POST)
     public void addRoom(@RequestBody RoomModel roomModel) {
         facade.addRoom(roomModel);
     }

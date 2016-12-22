@@ -11,23 +11,22 @@
 <html>
 <head>
     <script src="<c:url value="/resources/js/jquery-3.1.1.min.js"/>"></script>
-    <script src="<c:url value="/resources/js/requests/claimsWatch.js"/>"></script>
+    <script src="<c:url value="/resources/js/requests/addRoom.js"/>"></script>
 </head>
 <body>
 <div align="center">
     <c:choose>
         <c:when test="${command == 'showClaims' && claims.size() > 0}">
+            <hr/>
+            <br/>
 
-        <hr/>
-    <br/>
+            <h3>Claims acceptance</h3>
 
-    <h3>Claims acceptance</h3>
+            <br/>
+            <br/>
+            <hr/>
 
-    <br/>
-    <br/>
-    <hr/>
-
-    <br/>
+            <br/>
             <c:forEach  var="k" begin="0" end="${claims.size()-1}">
                 <div >
                     <c:out value="Type = ${claims[k].getType().getTypeEn()}   "/>
@@ -38,13 +37,25 @@
                 <hr/>
             </c:forEach>
         </c:when>
-            <c:when test="${claims.size() == 0}">
-                claims absent
+
+            <c:when test="${command == 'showUsers' && users.size() > 0}">
+                <c:forEach  var="k" begin="0" end="${users.size()-1}">
+                    <div >
+                        <c:out value="Name = ${users[k].getName()}   "/>
+                        <c:out value="Login ${users[k].getLogin()}   "/>
+                        <c:out value="Email${users[k].getEmail()}   "/>
+                        <input type="button" value="settings" onclick="getClaimByUser('showClaims', ${users[k].getId()})"/>
+                    </div>
+                </c:forEach>
             </c:when>
-            <c:when test="${command == null}">
-                <input type="button" value="watch claims" onclick="watchClaims('showClaims')"/>
-                <input type="button" value="AddRoom" onclick="watchClaims('addRoom')"/>
-            </c:when>
+
+        <c:when test="${claims.size() == 0}">
+            claims absent
+        </c:when>
+        <c:when test="${command == null}">
+            <input type="button" value="watch users" onclick="setCommandAdmin('showUsers')"/>
+            <input type="button" value="AddRoom" onclick="setCommandAdmin('addRoom')"/>
+        </c:when>
         </c:choose>
 
     </div>
