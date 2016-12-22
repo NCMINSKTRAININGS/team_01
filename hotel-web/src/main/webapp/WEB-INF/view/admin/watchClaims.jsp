@@ -28,7 +28,7 @@
 
             <br/>
             <c:forEach  var="k" begin="0" end="${claims.size()-1}">
-                <div >
+                <div  >
                     <c:out value="Type = ${claims[k].getType().getTypeEn()}   "/>
                     <c:out value="check in date${claims[k].getCheckInDate()}   "/>
                     <c:out value="check out date${claims[k].getCheckOutDate()}   "/>

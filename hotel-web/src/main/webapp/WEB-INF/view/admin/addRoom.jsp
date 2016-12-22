@@ -14,7 +14,6 @@
     <c:choose>
     <c:when test="${command == 'addRoom'}">
     <div>
-
         <div align="center">
 
             <hr/>
@@ -37,7 +36,6 @@
                         <br/>
                     </div>
                 <br/>
-
                 <input type="button" value="Register the Room" onclick="addRoom()"/>
 
             </form>

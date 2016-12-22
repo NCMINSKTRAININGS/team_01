@@ -19,10 +19,10 @@ public class AdminController {
         modelAndView.setViewName("definition-admin");
         modelAndView.addObject("command", command);
         if (command.equals("showUsers")) {
-            modelAndView.addObject("users", facade.getAllUsers());
+            modelAndView.addObject("users", facade.getAllUsers()); // will doing command in utils
         }
         if (command.equals("addRoom")){
-            modelAndView.addObject("users", facade.getAllUsers());
+            modelAndView.addObject("type", facade.getAllType()); // command in utils
         }
         return modelAndView;
     }
@@ -33,7 +33,7 @@ public class AdminController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("definition-admin");
         modelAndView.addObject("command", command);
-        if (command.equals("showClaims")){
+        if (command.equals("showClaims")){ // will doing command in utils
             modelAndView.addObject("claims", facade.getClaimByIdUser(id));
             modelAndView.addObject("user", facade.getUserById(id));
         }
