@@ -10,9 +10,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Service
 @Transactional
 @Scope("singleton")
@@ -31,20 +28,5 @@ public class ClaimManagerImpl implements IClaimManager {
 
         claimDAO.add(claim);
     }
-
-    @Override
-    public List<ClaimModel> getAllClaim() {
-        List<ClaimModel> claimModels = new ArrayList<ClaimModel>();
-        for (Claim iter:claimDAO.getAll()){
-            ClaimModel claimModel = new ClaimModel();
-            claimModel.setCheckInDate(iter.getCheckInDate());
-            claimModel.setCheckOutDate(iter.getCheckOutDate());
-            claimModel.setTypeObj( iter.getType());
-            claimModel.setId( iter.getId());
-            claimModel.setStatus(iter.getStatus());
-            claimModels.add(claimModel);
-        }
-        return claimModels;
-
-    }
+    
 }

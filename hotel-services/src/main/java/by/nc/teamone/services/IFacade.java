@@ -20,7 +20,6 @@ public interface IFacade {
 
     User getUserByName(String name);
 
-    List<ClaimModel> getAllClaim();
 
     User getUserById(Long id);
 

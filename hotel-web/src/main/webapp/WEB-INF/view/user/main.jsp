@@ -42,23 +42,20 @@
 													<input type="radio" class="button" name="type" id="type" value="${type[k].getId()}"/>
 												</li>
 											</c:forEach>
-
 									</ul>
 								</li>
 							dateIn <input type="text" name="checkInDate"  id="checkInDate" />
 							dateOut <input type="text" name="checkOutDate" id="checkOutDate"/>
 							<input type="hidden" name="login" id="login" value="${user.getId()}"/>
 						</ul>
-
 				</div>
 				<input type="button" value="Add new request" onclick="addClaimRequest()"/>
 			</form>
 			</c:when>
 			<c:when test="${command == null}">
 				<input type="button" value="Add claim" onclick="addClaimCommand('addClaim','${user.getId()}')"/>
-				<input type="button" value="Find all" onclick="addClaimCommand('findAll',	'${user.getId()}')"/>
+				<input type="button" value="Find all" onclick="addClaimCommand('findAll','${user.getId()}')"/>
 			</c:when>
-
 		</c:choose>
 	</div>
 	</body>

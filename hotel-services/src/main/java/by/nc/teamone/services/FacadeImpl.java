@@ -65,10 +65,7 @@ public class FacadeImpl implements IFacade{
         roomManager.addRoom(roomModel);
     }
 
-    @Override
-    public List<ClaimModel> getAllClaim() {
-        return claimManager.getAllClaim();
-    }
+
 
     @Override
     public User getUserById(Long id) {
