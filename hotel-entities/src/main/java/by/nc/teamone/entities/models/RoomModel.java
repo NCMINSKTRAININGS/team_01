@@ -9,17 +9,31 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class RoomModel{
     public int coast;
     public int seats;
-    public long type_id;
+    public long type;
 
+    public RoomModel() {
+	}
+    
     @JsonCreator
     public RoomModel(@JsonProperty("coast")int coast,
                      @JsonProperty("seats")int seats,
-                     @JsonProperty("type_id")long type_id) {
+                     @JsonProperty("type")long type) {
 
         this.coast = coast;
         this.seats = seats;
-        this.type_id = type_id;
+        this.type = type;
 
     }
 
+	public int getCoast() {
+		return coast;
+	}
+
+	public int getSeats() {
+		return seats;
+	}
+
+	public long getType() {
+		return type;
+	}
 }

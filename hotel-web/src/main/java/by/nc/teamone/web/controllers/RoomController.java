@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import by.nc.teamone.entities.models.UserModel;
+import by.nc.teamone.entities.models.RoomModel;
 import by.nc.teamone.services.IFacade;
 
 @Controller
@@ -18,21 +18,21 @@ public class RoomController {
 	private IFacade facade;
 	
 	@ModelAttribute("roomModel")
-    public UserModel construct(){
-    	return new UserModel();
+    public RoomModel construct(){
+    	return new RoomModel();
     }
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView goToAddRoom(){
 		ModelAndView view = new ModelAndView();
 		view.addObject("equipments", facade.getAllEquipment());
-		view.addObject("types", facade.getAllType());
+		view.addObject("typeList", facade.getAllType());
 		view.setViewName("definition-addroom");
 		return view;
 	}
 	
 	@RequestMapping(value="/addRoom", method = RequestMethod.POST)
-	public ModelAndView addRoom(){
+	public ModelAndView addRoom(@ModelAttribute("roomModel") RoomModel roomModel){
 		ModelAndView view = new ModelAndView();
 		view.setViewName("definition-landlord");
 		return view;
