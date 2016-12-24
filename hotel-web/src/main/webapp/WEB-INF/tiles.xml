@@ -37,7 +37,12 @@
     <definition name="definition-addroom" template="/WEB-INF/view/layouts/default-room.jsp">
         <put-attribute name="main" value="/WEB-INF/view/landlord/addroom/main.jsp"/>
     </definition>
-    
+
+    <definition name="definition-addclaim" template="/WEB-INF/view/layouts/default-claim.jsp">
+        <put-attribute name="main" value="/WEB-INF/view/user/addclaim/main.jsp"/>
+    </definition>
+
+
     <definition name="definition-index" template="/WEB-INF/view/layouts/default-index.jsp">
     	<put-attribute name="main" value="/index.jsp"/>
     </definition>

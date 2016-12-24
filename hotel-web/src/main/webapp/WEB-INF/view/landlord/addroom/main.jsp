@@ -21,8 +21,8 @@
 				<td><sf:input path="seats"/></td>
 			</tr>
 			
-			<c:forEach var = "types" items ="${typeList}" varStatus= "loopIndex">	
-				<input type="radio" name="type" value="${types.typeEn}"/>
+			<c:forEach var = "types" items ="${typeList}" varStatus= "loopIndex">
+				<input id="type" type="radio" name="type" value="${types.getId()}"/>
 			</c:forEach>
 			
 			

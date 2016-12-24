@@ -19,7 +19,6 @@ public class ClaimModelTransformer {
     IUserDAO userDAO;
 
     public Claim buildEntity(ClaimModel claimModel){
-
         Claim claim = new Claim();
         claim.setCheckInDate(claimModel.checkInDate);
         claim.setCheckOutDate(claimModel.checkOutDate);

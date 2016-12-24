@@ -1,8 +1,6 @@
 package by.nc.teamone.entities.models;
 
 import by.nc.teamone.entities.Type;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ClaimModel {
 
@@ -10,23 +8,10 @@ public class ClaimModel {
     public String checkOutDate;
     public Long type;
     public Long id;
-    public Type typeObj;
     public String status;
-
+    public Type typeObj; // возможно не понадобиться, потом полечу когда будем на вьюху отображать все claim
 
     public ClaimModel(){
-    }
-
-    @JsonCreator
-    public ClaimModel(@JsonProperty("checkInDate")String checkInDate,
-                      @JsonProperty("checkOutDate")String checkOutDate ,
-                      @JsonProperty("type_room") Long type,
-                      @JsonProperty("login") Long id)
-    {
-        this.checkInDate = checkInDate;
-        this.checkOutDate = checkOutDate;
-        this.type = type;
-        this.id = id;
     }
 
     public String getStatus() {

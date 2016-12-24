@@ -64,7 +64,7 @@ public class FacadeImpl implements IFacade{
     
     @Override
 	public void addClaim(ClaimModel claimModel) {
-		// TODO Auto-generated method stub
+		claimManager.addClaim(claimModel);
 		
 	}
     

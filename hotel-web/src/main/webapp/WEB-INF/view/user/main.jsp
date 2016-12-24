@@ -9,6 +9,8 @@
 		
 	</head>
 	<body >
-		
+	<form action="claim">
+		<input type="submit" value="Add claim">
+	</form>
 	</body>
 </html>
