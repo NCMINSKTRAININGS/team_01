@@ -5,8 +5,8 @@ import by.nc.teamone.entities.Equipment;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 
-@Repository
 @Scope("singleton")
+@Repository
 public class EquipmentDAOImpl extends BaseDAOImpl<Equipment, Long> implements IEquipmentDAO{
 	public EquipmentDAOImpl(){
 		super(Equipment.class);

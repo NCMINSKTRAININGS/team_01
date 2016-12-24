@@ -3,14 +3,11 @@ package by.nc.teamone.services;
 import by.nc.teamone.entities.Equipment;
 import by.nc.teamone.entities.Type;
 import by.nc.teamone.entities.User;
+import by.nc.teamone.entities.models.AddressModel;
 import by.nc.teamone.entities.models.ClaimModel;
 import by.nc.teamone.entities.models.RoomModel;
 import by.nc.teamone.entities.models.UserModel;
-import by.nc.teamone.services.managers.IClaimManager;
-import by.nc.teamone.services.managers.IEquipmentManager;
-import by.nc.teamone.services.managers.IRoomManager;
-import by.nc.teamone.services.managers.ITypeManager;
-import by.nc.teamone.services.managers.IUserManager;
+import by.nc.teamone.services.managers.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -33,6 +30,9 @@ public class FacadeImpl implements IFacade{
     
     @Autowired
     IEquipmentManager equipmentManager;
+
+    @Autowired
+    IAddressManager addressManager;
     
     
     // ---------------User
@@ -84,5 +84,11 @@ public class FacadeImpl implements IFacade{
     @Override
     public List<Equipment> getAllEquipment(){
         return equipmentManager.getAllEquipment();
+    }
+
+    //----------------Address
+    @Override
+    public List<AddressModel> getAllAddress(){
+        return addressManager.getAllAddress();
     }
 }

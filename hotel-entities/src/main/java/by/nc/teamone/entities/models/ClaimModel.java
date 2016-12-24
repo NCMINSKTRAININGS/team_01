@@ -18,7 +18,6 @@ public class ClaimModel {
         return status;
     }
 
-
     public String getCheckInDate() {
         return checkInDate;
     }

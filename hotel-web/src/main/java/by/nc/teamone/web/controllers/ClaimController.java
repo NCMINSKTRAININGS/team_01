@@ -24,16 +24,17 @@ public class ClaimController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView goToAddUser(){
+    public ModelAndView goToAddClaim(){
         ModelAndView view = new ModelAndView();
         view.addObject("typeList", facade.getAllType());
+        view.addObject("addressList", facade.getAllAddress());
         view.setViewName("definition-addclaim");
         return view;
     }
 
 
     @RequestMapping(value="/addClaim", method = RequestMethod.POST)
-    public ModelAndView addRoom(@ModelAttribute("addClaim") ClaimModel claimModel){
+    public ModelAndView addClaim(@ModelAttribute("addClaim") ClaimModel claimModel){
         ModelAndView view = new ModelAndView();
         claimModel.setId(facade.getUserByName(SecurityContextHolder.getContext().getAuthentication().getName()).getId());
         facade.addClaim(claimModel);

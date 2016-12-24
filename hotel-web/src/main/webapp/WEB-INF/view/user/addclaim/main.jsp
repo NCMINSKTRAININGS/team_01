@@ -20,13 +20,21 @@
             <td>Check out date</td>
             <td><sf:input path="checkOutDate"/></td>
         </tr>
-
-        <c:forEach var = "types" items ="${typeList}" varStatus= "loopIndex">
-            <tr><c:out value="${types.getTypeEn()}"/></tr>
-            <sf:radiobutton  name="type" value="${types.getId()}" path="type"/>
-        </c:forEach>
-
-
+        <tr>
+            <c:forEach var = "address" items="${addressList}">
+                    <td><c:out value="${address.getStreetEn()}"/>:<c:out value="${address.getNumber()}"/>
+                        <input type = "checkbox" name="type" value="${address.getId()}" path="address"/>
+                    </td>
+            </c:forEach>
+        </tr>
+        <tr>
+            <c:forEach var = "types" items ="${typeList}" varStatus= "loopIndex">
+                <td>
+                    <c:out value="${types.getTypeEn()}"/>
+                    <sf:radiobutton  name="type" value="${types.getId()}" path="type"/>
+                </td>
+            </c:forEach>
+        </tr>
         <tr>
             <td colspan="2" align="center">
                 <input type="submit" value="Add Claim">
