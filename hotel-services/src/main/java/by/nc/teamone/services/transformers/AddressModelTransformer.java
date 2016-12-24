@@ -9,10 +9,10 @@ import org.springframework.stereotype.Repository;
 public class AddressModelTransformer {
     public AddressModel buildEntity (Address address){
         AddressModel addressModel = new AddressModel();
-        addressModel.setId(address.getId());
-        addressModel.setStreetEn(address.getStreetEn());
-        addressModel.setStreetRu(address.getStreetRu());
-        addressModel.setNumber(address.getNumber());
+        addressModel.id = address.getId();
+        addressModel.streetEn = address.getStreetEn();
+        addressModel.streetRu = address.getStreetRu();
+        addressModel.number = address.getNumber();
         return addressModel;
     }
 

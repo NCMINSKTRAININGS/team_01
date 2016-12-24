@@ -39,6 +39,7 @@ public class RoomManagerImpl implements IRoomManager {
         Room room = roomModelTransformer.buildEntity(roomModel);
         room.setStatus(statusDAO.get(1L));
         room.setType(typeDAO.get(roomModel.type));
+        room.setClaim(true);
         roomDAO.add(room);
 
     }

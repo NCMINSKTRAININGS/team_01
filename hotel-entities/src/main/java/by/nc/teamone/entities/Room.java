@@ -13,7 +13,7 @@ public class Room implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
-	private int id;
+	private long id;
 
 	@Column(name="seats")
 	private int seats;
@@ -56,7 +56,7 @@ public class Room implements Serializable{
 		this.userRooms = userRooms;
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
@@ -111,38 +111,88 @@ public class Room implements Serializable{
 	public void setCoast(int coast) {
 		this.coast = coast;
 	}
+	
+	public boolean isClaim() {
+		return claim;
+	}
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
+	public void setClaim(boolean claim) {
+		this.claim = claim;
+	}
 
-		Room room = (Room) o;
+	public Address getAddress() {
+		return address;
+	}
 
-		if (id != room.id) return false;
-		if (seats != room.seats) return false;
-		if (coast != room.coast) return false;
-		if (claim != room.claim) return false;
-		if (status != null ? !status.equals(room.status) : room.status != null) return false;
-		if (type != null ? !type.equals(room.type) : room.type != null) return false;
-		if (userRooms != null ? !userRooms.equals(room.userRooms) : room.userRooms != null) return false;
-		if (imageList != null ? !imageList.equals(room.imageList) : room.imageList != null) return false;
-		return equipmentList != null ? equipmentList.equals(room.equipmentList) : room.equipmentList == null;
-
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 	@Override
 	public int hashCode() {
-		int result = id;
-		result = 31 * result + seats;
-		result = 31 * result + (status != null ? status.hashCode() : 0);
-		result = 31 * result + (type != null ? type.hashCode() : 0);
-		result = 31 * result + coast;
-		result = 31 * result + (claim ? 1 : 0);
-		result = 31 * result + (userRooms != null ? userRooms.hashCode() : 0);
-		result = 31 * result + (imageList != null ? imageList.hashCode() : 0);
-		result = 31 * result + (equipmentList != null ? equipmentList.hashCode() : 0);
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((address == null) ? 0 : address.hashCode());
+		result = prime * result + (claim ? 1231 : 1237);
+		result = prime * result + coast;
+		result = prime * result + ((equipmentList == null) ? 0 : equipmentList.hashCode());
+		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + ((imageList == null) ? 0 : imageList.hashCode());
+		result = prime * result + seats;
+		result = prime * result + ((status == null) ? 0 : status.hashCode());
+		result = prime * result + ((type == null) ? 0 : type.hashCode());
+		result = prime * result + ((userRooms == null) ? 0 : userRooms.hashCode());
 		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Room other = (Room) obj;
+		if (address == null) {
+			if (other.address != null)
+				return false;
+		} else if (!address.equals(other.address))
+			return false;
+		if (claim != other.claim)
+			return false;
+		if (coast != other.coast)
+			return false;
+		if (equipmentList == null) {
+			if (other.equipmentList != null)
+				return false;
+		} else if (!equipmentList.equals(other.equipmentList))
+			return false;
+		if (id != other.id)
+			return false;
+		if (imageList == null) {
+			if (other.imageList != null)
+				return false;
+		} else if (!imageList.equals(other.imageList))
+			return false;
+		if (seats != other.seats)
+			return false;
+		if (status == null) {
+			if (other.status != null)
+				return false;
+		} else if (!status.equals(other.status))
+			return false;
+		if (type == null) {
+			if (other.type != null)
+				return false;
+		} else if (!type.equals(other.type))
+			return false;
+		if (userRooms == null) {
+			if (other.userRooms != null)
+				return false;
+		} else if (!userRooms.equals(other.userRooms))
+			return false;
+		return true;
 	}
 
 	@Override

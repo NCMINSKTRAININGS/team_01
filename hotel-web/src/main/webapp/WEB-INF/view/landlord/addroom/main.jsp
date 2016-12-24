@@ -10,31 +10,52 @@
 
 		<h4>main</h4>
 		
-		<sf:form action="" method="POST" modelAttribute="roomModel">
-		<table align="center">
-			<tr>
-				<td>Coast:</td>
-				<td><sf:input path="coast"/></td>
-			</tr>
-			<tr>
-				<td>Seats:</td>
-				<td><sf:input path="seats"/></td>
-			</tr>
+		<sf:form action="room/addRoom" method="POST" modelAttribute="roomModel">
+			<table align="center">
+				<tr>
+					<td>Coast:</td>
+					<td><sf:input path="coast"/></td>
+				</tr>
+				<tr>
+					<td>Seats:</td>
+					<td><sf:input path="seats"/></td>
+				</tr>
+				
+				<tr>
+					<td>StreetEn:</td>
+					<td><sf:input path="streetEn"/></td>
+				</tr>
+				
+				<tr>
+					<td>StreetRu:</td>
+					<td><sf:input path="streetRu"/></td>
+				</tr>
+				
+				<tr>
+					<td>Number:</td>
+					<td><sf:input path="number"/></td>
+				</tr>
 			
-			<c:forEach var = "types" items ="${typeList}" varStatus= "loopIndex">
-				<input id="type" type="radio" name="type" value="${types.getId()}"/>
-			</c:forEach>
+				<tr>
+					<td>Type of room</td>
+					<td>
+					
+						<select name="type">
+							<option value="0">!--Type of room--!</option>
+							<c:forEach var = "type" items ="${typeList}" varStatus= "loopIndex">	
+								<option value="${type.id}">${type.typeEn}</option>
+							</c:forEach>
+						</select>
+					
+					</td>	
+				</tr>
 			
-			
-			<tr>
-				<td colspan="2" align="center">
-					<input type="submit" value="Add Room">
-				</td>
-			</tr>
-		</table>
-	</sf:form>
-		
-		
-
+				<tr>
+					<td colspan="2" align="center">
+						<input type="submit" value="Add Room">
+					</td>
+				</tr>
+			</table>
+		</sf:form>
 	</body>
 </html>
