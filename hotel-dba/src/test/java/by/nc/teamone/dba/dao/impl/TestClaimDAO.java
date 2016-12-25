@@ -1,6 +1,7 @@
 package by.nc.teamone.dba.dao.impl;
 
 import by.nc.teamone.dba.dao.IClaimDAO;
+import by.nc.teamone.dba.dao.ITestDAO;
 import by.nc.teamone.entities.Claim;
 import org.junit.After;
 import org.junit.Assert;
@@ -17,7 +18,7 @@ import java.util.List;
 @Transactional(transactionManager = "txManager")
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"/test-config.xml"})
-public class TestClaimDAO  {
+public class TestClaimDAO implements ITestDAO {
 
     @Autowired
     private IClaimDAO claimDAO;
@@ -40,8 +41,8 @@ public class TestClaimDAO  {
     @After
     public void deleteValues(){
         newClaim1 = null;
+        newClaim2 = null;
     }
-
 
     @Test
     public void add(){
@@ -71,13 +72,13 @@ public class TestClaimDAO  {
 
     @Test
     public void update(){
-        claimDAO.add(newClaim1);
-        Claim newClaim = claimDAO.get(4L);
-        newClaim2.setId(4L);
-        claimDAO.update(newClaim2);
-        Assert.assertNotEquals(newClaim , claimDAO.get(1L));
-        Assert.assertEquals(newClaim2 , claimDAO.get(1L));
 
+       claimDAO.add(newClaim1);
+        long id = newClaim1.getId();
+        Claim newClaim = claimDAO.get(id);
+        newClaim.setCheckInDate("test2");
+        claimDAO.update(newClaim);
+        Assert.assertEquals(newClaim , claimDAO.get(id));
     }
 
 }
