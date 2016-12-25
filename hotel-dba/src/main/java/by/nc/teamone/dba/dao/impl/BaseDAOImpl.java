@@ -6,10 +6,12 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
 import java.util.List;
 
+@Transactional
 @Scope("singleton")
 @Repository
 public class BaseDAOImpl<T, PK extends Serializable> implements IBaseDAO<T, PK> {
