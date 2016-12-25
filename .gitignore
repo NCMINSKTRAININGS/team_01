@@ -15,4 +15,5 @@ build/
 target/
 null/
 /classes
+.log
 !.gitignore
