@@ -17,7 +17,10 @@ INSERT INTO USER(id, login, password, name, surname, email, phone, money, role ,
   VALUES(100, 'valeria', 'password', 'Valeria', 'Shpakovskaya', 'shpakovskaya.valeriya.14@gmail.com', '+375257245180', '500', 'ROLE_ADMIN', true);
 
 INSERT INTO USER(id, login, password, name, surname, email, phone, money, role , enabled)
-  VALUES(1, 'valeria123', 'password', 'Valeria', 'Shpakovskaya', 'shpakovskaya.valeriya.14@gmail.com', '+375257245180', '50000', 'ROLE_USER', true);
+  VALUES(1, 'samantha', 'password', 'Samantha', 'Gefferson', 'sammy.14@gmail.com', '80256418430', '50000', 'ROLE_USER', true);
+
+INSERT INTO USER(id, login, password, name, surname, email, phone, money, role , enabled)
+  VALUES(2, 'derek', 'password', 'Derek', 'Willson', 'derek.14@gmail.com', '80299614860', '10000', 'ROLE_LANDLORD', true);
 
 INSERT INTO CLAIM(id, check_in_date, check_out_date, status, type_id, user_id)
 VALUES(55, '31.12.2016', '02.01.2017', 1, 3, 1);

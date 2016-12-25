@@ -6,13 +6,15 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	</head>
 	<body >
-	<div class="cloud">
+	<div>
 		<form action="/j_spring_security_logout">
 			<input type="submit" value="LOGOUT">
 		</form>
 		<c:choose>
 			<c:when test="${user != null}">
-				<c:out value="${user.getLogin()}"/>
+				<p>
+					<c:out value="${user.getLogin()}"/>
+				</p>
 			</c:when>
 		</c:choose>
 	</div>

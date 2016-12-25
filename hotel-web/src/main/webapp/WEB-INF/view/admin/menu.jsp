@@ -8,7 +8,7 @@
 	<div align="right">
 		<img src="/assets/images/NetCracker.png" alt="Я не появился, но я очень старался:(" width="400" height="100"/>
 	</div>
-		<h4>menu</h4>
+		<h4><p>menu</p></h4>
 
 
 	</body>

@@ -15,11 +15,8 @@
     <script src="<c:url value="/assets/js/requests/addRoom.js"/>"></script>
     <style>
         p{
-            color: #fef9ff;
+            color: white;
             margin: 0;
-        }
-        p:hover{
-            opacity: 1;
         }
         table {
             /*border-collapse: collapse; !* Убираем двойные линии между ячейками *!*/
@@ -59,7 +56,7 @@
 
                 <c:forEach  var="k" begin="0" end="${users.size()-1}">
                     <div>
-                        <table class="greenField" width="300" border="0">
+                        <table class="greenField" width="550" border="0">
                             <tr>
                                 <td>
                                     <img src="/assets/images/default.png" alt="Я не появился, но я очень старался:(" width="100" height="100"/>

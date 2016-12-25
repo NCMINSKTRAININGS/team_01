@@ -7,10 +7,8 @@
 	</head>
 	<body>
 	
-		<h4>footer</h4>
+		<h4><p>footer</p></h4>
 
-		
-		
 	
 	</body>
 </html>

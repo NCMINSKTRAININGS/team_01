@@ -11,7 +11,7 @@
 
 		<tiles:insertAttribute name="menu"/>
 		<tiles:insertAttribute name="header"/>
-		<h2>Admin page</h2>
+		<h2 align="center"><p align="center">Admin page</p></h2>
 		<tiles:insertAttribute name="main"/>
 		<tiles:insertAttribute name="room"/>
 		<tiles:insertAttribute name="claims"/>
