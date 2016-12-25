@@ -1,17 +1,27 @@
 package by.nc.teamone.entities;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "address")
 public class Address implements Serializable{
 
-    @Id
+	private static final long serialVersionUID = 1L;
+
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
-    private Long id;
+    private long id;
 
     @Column(name="street_en")
     private String streetEn;
@@ -20,82 +30,98 @@ public class Address implements Serializable{
     private String streetRu;
 
     @Column(name="number_house")
-    private Long number;
+    private int number;
 
     @OneToMany(mappedBy = "address", fetch = FetchType.LAZY)
     private List<Room> rooms;
 
-    public String getStreetEn() {
-        return streetEn;
-    }
+	public long getId() {
+		return id;
+	}
 
-    public void setStreetEn(String streetEn) {
-        this.streetEn = streetEn;
-    }
+	public void setId(long id) {
+		this.id = id;
+	}
 
-    public String getStreetRu() {
-        return streetRu;
-    }
+	public String getStreetEn() {
+		return streetEn;
+	}
 
-    public void setStreetRu(String streetRu) {
-        this.streetRu = streetRu;
-    }
+	public void setStreetEn(String streetEn) {
+		this.streetEn = streetEn;
+	}
 
-    public Long getNumber() {
-        return number;
-    }
+	public String getStreetRu() {
+		return streetRu;
+	}
 
-    public void setNumber(Long number) {
-        this.number = number;
-    }
+	public void setStreetRu(String streetRu) {
+		this.streetRu = streetRu;
+	}
 
-    public List<Room> getRooms() {
-        return rooms;
-    }
+	public int getNumber() {
+		return number;
+	}
 
-    public void setRooms(List<Room> rooms) {
-        this.rooms = rooms;
-    }
+	public void setNumber(int number) {
+		this.number = number;
+	}
 
-    public Long getId() {
-        return id;
-    }
+	public List<Room> getRooms() {
+		return rooms;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setRooms(List<Room> rooms) {
+		this.rooms = rooms;
+	}
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + number;
+		result = prime * result + ((rooms == null) ? 0 : rooms.hashCode());
+		result = prime * result + ((streetEn == null) ? 0 : streetEn.hashCode());
+		result = prime * result + ((streetRu == null) ? 0 : streetRu.hashCode());
+		return result;
+	}
 
-        Address address = (Address) o;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Address other = (Address) obj;
+		if (id != other.id)
+			return false;
+		if (number != other.number)
+			return false;
+		if (rooms == null) {
+			if (other.rooms != null)
+				return false;
+		} else if (!rooms.equals(other.rooms))
+			return false;
+		if (streetEn == null) {
+			if (other.streetEn != null)
+				return false;
+		} else if (!streetEn.equals(other.streetEn))
+			return false;
+		if (streetRu == null) {
+			if (other.streetRu != null)
+				return false;
+		} else if (!streetRu.equals(other.streetRu))
+			return false;
+		return true;
+	}
 
-        if (streetEn != null ? !streetEn.equals(address.streetEn) : address.streetEn != null) return false;
-        if (streetRu != null ? !streetRu.equals(address.streetRu) : address.streetRu != null) return false;
-        if (number != null ? !number.equals(address.number) : address.number != null) return false;
-        return rooms != null ? rooms.equals(address.rooms) : address.rooms == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = streetEn != null ? streetEn.hashCode() : 0;
-        result = 31 * result + (streetRu != null ? streetRu.hashCode() : 0);
-        result = 31 * result + (number != null ? number.hashCode() : 0);
-        result = 31 * result + (rooms != null ? rooms.hashCode() : 0);
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        return "Address{" +
-                "streetEn='" + streetEn + '\'' +
-                ", streetRu='" + streetRu + '\'' +
-                ", number=" + number +
-                ", rooms=" + rooms +
-                '}';
-    }
+	@Override
+	public String toString() {
+		return "Address [id=" + id + ", streetEn=" + streetEn + ", streetRu=" + streetRu + ", number=" + number
+				+ ", rooms=" + rooms + "]";
+	}
 
 }

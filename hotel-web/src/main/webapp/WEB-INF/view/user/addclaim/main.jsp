@@ -10,7 +10,7 @@
 
 <h4>main</h4>
 
-<sf:form action="/claim/addClaim" method="POST" modelAttribute="claimModel">
+<sf:form action="claim/addClaim" method="POST" modelAttribute="claimModel">
     <table align="center">
         <tr>
             <td>Check in date</td>

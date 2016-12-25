@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Transactional
 @Scope("singleton")
 @Repository
 public class UserDAOImpl extends BaseDAOImpl<User, Long> implements IUserDAO {

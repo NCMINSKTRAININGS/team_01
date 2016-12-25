@@ -34,6 +34,8 @@ public class RoomController {
 	@RequestMapping(value="/addRoom", method = RequestMethod.POST)
 	public ModelAndView addRoom(@ModelAttribute("roomModel") RoomModel roomModel){
 		ModelAndView view = new ModelAndView();
+		System.out.println(roomModel.toString());
+		facade.addRoom(roomModel);
 		view.setViewName("definition-landlord");
 		return view;
 	}

@@ -22,8 +22,11 @@ INSERT INTO USER(id, login, password, name, surname, email, phone, money, role ,
 INSERT INTO USER(id, login, password, name, surname, email, phone, money, role , enabled)
   VALUES(2, 'derek', 'password', 'Derek', 'Willson', 'derek.14@gmail.com', '80299614860', '10000', 'ROLE_LANDLORD', true);
 
+INSERT INTO USER(id, login, password, name, surname, email, phone, money, role , enabled)
+  VALUES(2, 'valeria1', 'password', 'Valeria', 'Shpakovskaya', 'shpakovskaya.valeriya.14@gmail.com', '+375257245180', '50000', 'ROLE_LANDLORD', true);
+  
 INSERT INTO CLAIM(id, check_in_date, check_out_date, status, type_id, user_id)
-VALUES(55, '31.12.2016', '02.01.2017', 1, 3, 1);
+VALUES(1, '31.12.2016', '02.01.2017', 1, 3, 1);
 
 INSERT INTO ADDRESS(id, street_en, street_ru , number_house) VALUES (1,'Petrovhina','Петровщина',1);
 INSERT INTO ADDRESS(id, street_en, street_ru , number_house) VALUES (2,'Dzerginskogo','Дзержинского',95);
