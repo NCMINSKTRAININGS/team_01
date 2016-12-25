@@ -10,8 +10,25 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <script src="<c:url value="/resources/js/jquery-3.1.1.min.js"/>"></script>
-    <script src="<c:url value="/resources/js/requests/addRoom.js"/>"></script>
+    <link href="/assets/css/style.css" type="text/css" rel="stylesheet">
+    <script src="<c:url value="/assets/js/jquery-3.1.1.min.js"/>"></script>
+    <script src="<c:url value="/assets/js/requests/addRoom.js"/>"></script>
+    <style>
+        p{
+            color: #fef9ff;
+            margin: 0;
+        }
+        p:hover{
+            opacity: 1;
+        }
+        table {
+            /*border-collapse: collapse; !* Убираем двойные линии между ячейками *!*/
+            /*border: 5px; !* Прячем рамку вокруг таблицы *!*/
+        }
+        td, tr {
+            border: 0px;
+        }
+    </style>
 </head>
 <body>
 <div align="center">
@@ -20,7 +37,7 @@
             <hr/>
             <br/>
 
-            <h3>Claims acceptance</h3>
+            <h3> <p>Claims acceptance</p></h3>
 
             <br/>
             <br/>
@@ -28,7 +45,7 @@
 
             <br/>
             <c:forEach  var="k" begin="0" end="${claims.size()-1}">
-                <div  >
+                <div>
                     <c:out value="Type = ${claims[k].getType().getTypeEn()}   "/>
                     <c:out value="check in date${claims[k].getCheckInDate()}   "/>
                     <c:out value="check out date${claims[k].getCheckOutDate()}   "/>
@@ -38,19 +55,99 @@
             </c:forEach>
         </c:when>
 
-            <c:when test="${command == 'showUsers' && users.size() > 0}">
+        <c:when test="${command == 'showUsers' && users.size() > 0}">
+
                 <c:forEach  var="k" begin="0" end="${users.size()-1}">
-                    <div >
-                        <c:out value="Name = ${users[k].getName()}   "/>
-                        <c:out value="Login ${users[k].getLogin()}   "/>
-                        <c:out value="Email${users[k].getEmail()}   "/>
-                        <input type="button" value="settings" onclick="getClaimByUser('showClaims', ${users[k].getId()})"/>
+                    <div>
+                        <table class="greenField" width="300" border="0">
+                            <tr>
+                                <td>
+                                    <img src="/assets/images/default.png" alt="Я не появился, но я очень старался:(" width="100" height="100"/>
+                                </td>
+
+                                <td rowspan="2">
+                                    <table border="0">
+                                        <tr>
+                                            <td>
+                                                <p>Name:</p>
+                                            </td>
+                                            <td>
+                                                <p>
+                                                    <c:out value="${users[k].getName()} ${users[k].getSurname()}"/>
+                                                </p>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <p>
+                                                    Login:
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <p>
+                                                    <c:out value="${users[k].getLogin()}"/>
+                                                </p>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <p>
+                                                    Email:
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <p>
+                                                    <c:out value="${users[k].getEmail()}"/>
+                                                </p>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <p>
+                                                    Phone:
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <p>
+                                                    <c:out value="${users[k].getPhone()}"/>
+                                                </p>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <p>
+                                                    Role:
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <p>
+                                                    <c:out value="${users[k].getRole()}"/>
+                                                </p>
+                                            </td>
+                                        </tr>
+
+                                    </table>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td align="center">
+                                    <input type="button" class="buttonG" align="center" value="show claims" onclick="getClaimByUser('showClaims', ${users[k].getId()})"/>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 </c:forEach>
-            </c:when>
+
+
+        </c:when>
 
         <c:when test="${claims.size() == 0}">
-            claims absent
+            <p>No claims</p>
         </c:when>
         <c:when test="${command == null}">
             <input type="button" value="watch users" onclick="setCommandAdmin('showUsers')"/>

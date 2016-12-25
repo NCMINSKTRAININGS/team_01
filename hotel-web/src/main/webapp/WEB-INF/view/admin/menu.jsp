@@ -5,8 +5,11 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	</head>
 	<body>
-	
+	<div align="right">
+		<img src="/assets/images/NetCracker.png" alt="Я не появился, но я очень старался:(" width="400" height="100"/>
+	</div>
 		<h4>menu</h4>
+
 
 	</body>
 </html>

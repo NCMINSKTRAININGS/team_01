@@ -28,6 +28,10 @@ public class UserModelTransformer{
 		userModel.setLogin(user.getLogin());
 		userModel.setEmail(user.getEmail());
 		userModel.setName(user.getName());
+		userModel.setSurname(user.getSurname());
+		userModel.setPhone(user.getPhone());
+		userModel.setMoney(user.getMoney());
+		userModel.setRole(user.getRole());
 		return userModel;
 	}
 }

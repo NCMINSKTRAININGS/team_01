@@ -4,8 +4,8 @@
 <html>
 <head>
     <title>Registration</title>
-    <script src="<c:url value="/resources/js/jquery-3.1.1.min.js"/>"></script>
-    <script src="<c:url value="/resources/js/requests/userRequest.js"/>"></script>
+    <script src="<c:url value="/assets/js/jquery-3.1.1.min.js"/>"></script>
+    <script src="<c:url value="/assets/js/requests/userRequest.js"/>"></script>
 </head>
 <body>
 

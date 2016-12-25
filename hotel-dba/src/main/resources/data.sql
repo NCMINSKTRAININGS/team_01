@@ -26,4 +26,4 @@ INSERT INTO ADDRESS(id, street_en, street_ru , number_house) VALUES (1,'Petrovhi
 INSERT INTO ADDRESS(id, street_en, street_ru , number_house) VALUES (2,'Dzerginskogo','Дзержинского',95);
 INSERT INTO ADDRESS(id, street_en, street_ru , number_house) VALUES (3,'Gicalo','Гикало',9);
 INSERT INTO ADDRESS(id, street_en, street_ru , number_house) VALUES (4,'Dzerginskogo','Дзержинского',57);
-INSERT INTO ADDRESS(id, street_en, street_ru , number_house) VALUES (5,'Prospect','независимости',2);
+INSERT INTO ADDRESS(id, street_en, street_ru , number_house) VALUES (5,'Prospect','Независимости',2);
