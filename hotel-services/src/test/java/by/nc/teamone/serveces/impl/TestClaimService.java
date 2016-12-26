@@ -10,6 +10,7 @@ import by.nc.teamone.entities.User;
 import by.nc.teamone.entities.models.ClaimModel;
 import by.nc.teamone.serveces.ITestServices;
 import by.nc.teamone.services.IFacade;
+import by.nc.teamone.utils.LoggerError;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -59,7 +60,7 @@ public class TestClaimService implements ITestServices {
 
     @Test
     public void addClaim(){
-
+        LoggerError.INSTANCE.logError(TestClaimService.class, "testLogger");// delete this after set exceptions
         ClaimModel claimModel = new ClaimModel();
         claimModel.checkOutDate = "test";
         claimModel.checkInDate = "test";
