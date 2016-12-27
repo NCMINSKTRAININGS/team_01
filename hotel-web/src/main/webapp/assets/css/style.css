@@ -1,71 +1,45 @@
-.wrapper{
-    margin-top: 100px;
-    height: auto;
-    width: 80%;
-    padding-left: 10%;
-    padding-right: 10%;
-    padding-bottom: 500px;
+.greenField{
+    color: white;
+    opacity: 0.5;
+    background: #909090;
+    padding: 5px;
+    /*border: 3px #80ffff;*/
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
-.button{
-align-content: center;
-    padding-top: 100px;
-}
-.addNewRequest{
-    height: 80%;
-    padding-bottom: 50px;
-}
-.typeForRequest{
-    height: 80%;
-    width: 50%;
-    float: left;
-}
-ul.dropdown li { position: relative; }
-ul.dropdown,
-ul.dropdown-inside {
-    list-style-type: none;
-    padding: 0;
-}
-ul.dropdown-inside {
-    position: absolute;
-    left: -9999px;
-}
-ul.dropdown li.dropdown-top {
-    display: inline;
-    float: left;
-    margin: 0 1px 0 0;
-}
-ul.dropdown li.dropdown-top p {
-    float: left;
-    padding-left: 20px;
-    display: block;
-}
-ul.dropdown p.dropdown-top { }
-ul.dropdown li.dropdown-top:hover .dropdown-inside {
-    padding-top: 50px;
-    width: 800px;
-    display: block;
-    left: 0;
+.greenField :hover{
+    opacity: 1;
+    /*border: #fff9a4;*/
+    /*  изменение цвета   */
+    color: #ffffff;
+    background-color: #313131;
 }
 
-.floatType{
-    float: left;
+.buttonG {
+    display: inline-block;
+    font-family: arial,sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    color: rgb(68,68,68);
+    text-decoration: none;
+    user-select: none;
+    padding: .2em 1.2em;
+    outline: none;
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 2px;
+    background: rgb(245,245,245) linear-gradient(#f4f4f4, #f1f1f1);
+    transition: all .218s ease 0s;
 }
-
-.radio_button{
-    height: 150px;
-    margin-left: 30%;
-    padding-top: 30px;
-    margin-top: 20px
+.buttonG:hover {
+    color: rgb(24,24,24);
+    border: 1px solid rgb(198,198,198);
+    background: #f7f7f7 linear-gradient(#f7f7f7, #f1f1f1);
+    box-shadow: 0 1px 2px rgba(0,0,0,.1);
 }
-.cloud{
-    height: 50px;
-    width: auto;
-    background: #b5632f;
-}
-
-.data_string{
-    height: 20px;
-    padding-top: 5px;
-    text-align: left;
+.buttonG:active {
+    color: rgb(51,51,51);
+    border: 1px solid rgb(204,204,204);
+    background: rgb(238,238,238) linear-gradient(rgb(238,238,238), rgb(224,224,224));
+    box-shadow: 0 1px 2px rgba(0,0,0,.1) inset;
 }

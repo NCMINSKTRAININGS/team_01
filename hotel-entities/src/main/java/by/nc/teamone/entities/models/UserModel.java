@@ -13,6 +13,8 @@ public class UserModel {
 	public String surname;
 	public String email;
 	public String phone;
+	public String role;
+	private double money;
 
 	public UserModel(){
 	}
@@ -24,6 +26,7 @@ public class UserModel {
 			@JsonProperty("name")String name, 
 			@JsonProperty("surname")String surname, 
 			@JsonProperty("email")String email,
+			@JsonProperty("role")String role,
 			@JsonProperty("phone")String phone) {
 		
 		this.login = login;
@@ -33,6 +36,7 @@ public class UserModel {
 		this.surname = surname;
 		this.email = email;
 		this.phone = phone;
+		this.role = role;
 
 	}
 
@@ -99,5 +103,16 @@ public class UserModel {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public void setMoney(double money) {
+		this.money = money;
+	}
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 }
