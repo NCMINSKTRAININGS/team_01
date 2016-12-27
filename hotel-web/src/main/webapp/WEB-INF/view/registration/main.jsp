@@ -14,33 +14,33 @@
 		<table align="center">
 			<tr>
 				<td>Login:</td>
-				<td><sf:input id="login" path="login"/></td>
+				<td><sf:input id="login" path="login" required="required"/></td>
 			</tr>
 			<tr>
 				<td>Password:</td>
-				<td><sf:password id="password1" path="password1"/></td>
+				<td><sf:password id="password1" path="password1" required="required"/></td>
 			</tr>
 			
 			<tr>
 				<td>Password:</td>
-				<td><sf:password id="password2" path="password2"/></td>
+				<td><sf:password id="password2" path="password2" required="required"/></td>
 			</tr>
 			
 			<tr>
 				<td>Name:</td>
-				<td><sf:input id="name" path="name"/></td>
+				<td><sf:input id="name" path="name" required="required"/></td>
 			</tr>
 			<tr>
 				<td>Surname:</td>
-				<td><sf:input id = "surname" path="surname"/></td>
+				<td><sf:input id = "surname" path="surname" required="required"/></td>
 			</tr>
 			<tr>
 				<td>Email:</td>
-				<td><sf:input id = "email" path="email"/></td>
+				<td><sf:input id = "email" path="email" required="required"/></td>
 			</tr>
 			<tr>
 				<td>Phone:</td>
-				<td><sf:input id="phone" path="phone"/></td>
+				<td><sf:input id="phone" path="phone" required="required"/></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center">
