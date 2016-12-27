@@ -4,5 +4,5 @@ import by.nc.teamone.entities.models.UserClaimModel;
 
 
 public interface IClaimManager {
-    void addClaim(UserClaimModel claimModel);
+    int addClaim(UserClaimModel claimModel);
 }

@@ -36,9 +36,16 @@ public class ClaimManagerImpl implements IClaimManager {
     private IUserRoomDAO userRoomDAO;
 
     @Override
-    public void addClaim(UserClaimModel claimModel) {
+    public int addClaim(UserClaimModel claimModel) {
+    	
     	User user = userDAO.get(claimModel.userId);
     	Room room = roomDAO.get(claimModel.roomId);
+    	
+    	if(user.getMoney() < room.getCoast())
+    		return -2;
+    	
+    	if(room.getSeats() <= 0)
+    		return -1;
     	
     	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
     	UserRoom userRoom = new UserRoom();
@@ -56,5 +63,12 @@ public class ClaimManagerImpl implements IClaimManager {
     	userRoom.setClaimStatus(claimStatusDAO.get(1L));
     	userRoomDAO.add(userRoom);
     	
+    	user.setMoney(user.getMoney() - room.getCoast());
+    	userDAO.update(user);
+    	
+    	room.setSeats(room.getSeats() - 1);
+    	roomDAO.update(room);
+    	
+    	return 1;
     }
 }

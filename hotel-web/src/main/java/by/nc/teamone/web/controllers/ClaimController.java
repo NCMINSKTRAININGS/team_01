@@ -5,8 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,13 +33,21 @@ public class ClaimController {
         return view;
     }
 
-
     @RequestMapping(value="/addClaim", method = RequestMethod.POST)
     public ModelAndView addClaim(@ModelAttribute("userClaimModel") UserClaimModel userClaimModel){
         ModelAndView view = new ModelAndView();
         userClaimModel.userId = (facade.getUserByName(SecurityContextHolder.getContext().getAuthentication().getName()).getId());
-        System.out.println(userClaimModel);
-        facade.addClaim(userClaimModel);
+        
+        int result = facade.addClaim(userClaimModel);
+        
+        if(result == -2){
+        	view.addObject("message", "No money");
+        }else if(result == -1){
+        	view.addObject("message", "No seats");
+        }else if(result == 0){
+        	view.addObject("message", "BD error"); // Нужно допилить после написания кастомных Exception
+        }else view.addObject("message", "Success");
+        view.addObject("roomList", facade.getRoomList());
         view.setViewName("definition-user");
         return view;
     }
