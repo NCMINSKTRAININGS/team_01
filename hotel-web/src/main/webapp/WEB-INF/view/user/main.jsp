@@ -12,5 +12,15 @@
 	<form action="claim">
 		<input type="submit" value="Add claim">
 	</form>
+	
+	<c:forEach var = "room" items ="${roomList}" varStatus= "loopIndex">
+		Seats: ${room.seats}<br>
+		Coast: ${room.coast}<br>
+		Address: Пока нету<br>
+		Type: ${room.type.typeEn}<br>
+		Status: ${room.status.statusEn}<br>
+		-------------------------<br>
+	</c:forEach>
+	
 	</body>
 </html>

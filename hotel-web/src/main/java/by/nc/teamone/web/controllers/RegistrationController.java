@@ -60,7 +60,8 @@ public class RegistrationController {
 		if(bindingResult.hasErrors()){
 			ModelAndView modelAndView = new ModelAndView();
 			modelAndView.addObject("errors", userValidator.getMessages(bindingResult));
-			return new ModelAndView("definition-registration");
+			modelAndView.setViewName("definition-registration");
+			return modelAndView;
 		}
 		else{
 			facade.addUser(userModel);
@@ -84,6 +85,7 @@ public class RegistrationController {
         } else if (checkRoles.isUser(roles)) {
             ModelAndView modelAndView = new ModelAndView("definition-user");
             modelAndView.addObject("user", facade.getUserByName(name));
+            modelAndView.addObject("roomList", facade.getRoomList());
             return modelAndView;
         } else if (checkRoles.isLandlord(roles)) {
         	ModelAndView modelAndView = new ModelAndView("definition-landlord");

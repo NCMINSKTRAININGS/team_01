@@ -1,6 +1,7 @@
 package by.nc.teamone.services;
 
 import by.nc.teamone.entities.Equipment;
+import by.nc.teamone.entities.Room;
 import by.nc.teamone.entities.Type;
 import by.nc.teamone.entities.User;
 import by.nc.teamone.entities.models.AddressModel;
@@ -73,6 +74,11 @@ public class FacadeImpl implements IFacade{
     public void addRoom(RoomModel roomModel){
         roomManager.addRoom(roomModel);
     }
+    
+    @Override
+	public List<Room> getRoomList() {
+		return roomManager.getRoomList();
+	}
     
     //----------------Type
     @Override
