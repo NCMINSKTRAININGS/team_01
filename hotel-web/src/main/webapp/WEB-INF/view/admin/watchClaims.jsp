@@ -58,7 +58,7 @@
                     <div>
                         <table class="greenField" width="550" border="0">
                             <tr>
-                                <td>
+                                <td width="100" height="100">
                                     <img src="/assets/images/default.png" alt="Я не появился, но я очень старался:(" width="100" height="100"/>
                                 </td>
 
