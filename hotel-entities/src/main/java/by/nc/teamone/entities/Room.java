@@ -29,8 +29,9 @@ public class Room implements Serializable{
 	@Column(name = "coast")
 	private int coast;
 
-	@Column(name = "claim")
-	private boolean claim;
+	@OneToOne
+	@JoinColumn(name = "claim_id")
+    private ClaimStatus claimStatus;
 
 	@ManyToOne
 	@JoinColumn(name="address_id")
@@ -48,19 +49,11 @@ public class Room implements Serializable{
 			inverseJoinColumns=@JoinColumn(name="equipment_id"))
 	private List<Equipment> equipmentList;
 
-	public  List<UserRoom> getUserRooms() {
-		return userRooms;
-	}
-
-	public void setUserRooms(List<UserRoom> userRooms) {
-		this.userRooms = userRooms;
-	}
-
 	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -88,22 +81,6 @@ public class Room implements Serializable{
 		this.type = type;
 	}
 
-	public List<Equipment> getEquipmentList() {
-		return equipmentList;
-	}
-
-	public void setEquipmentList(List<Equipment> equipmentList) {
-		this.equipmentList = equipmentList;
-	}
-
-	public List<Image> getImageList() {
-		return imageList;
-	}
-
-	public void setImageList(List<Image> imageList) {
-		this.imageList = imageList;
-	}
-
 	public int getCoast() {
 		return coast;
 	}
@@ -111,13 +88,13 @@ public class Room implements Serializable{
 	public void setCoast(int coast) {
 		this.coast = coast;
 	}
-	
-	public boolean isClaim() {
-		return claim;
+
+	public ClaimStatus getClaimStatus() {
+		return claimStatus;
 	}
 
-	public void setClaim(boolean claim) {
-		this.claim = claim;
+	public void setClaimStatus(ClaimStatus claimStatus) {
+		this.claimStatus = claimStatus;
 	}
 
 	public Address getAddress() {
@@ -128,12 +105,36 @@ public class Room implements Serializable{
 		this.address = address;
 	}
 
+	public List<UserRoom> getUserRooms() {
+		return userRooms;
+	}
+
+	public void setUserRooms(List<UserRoom> userRooms) {
+		this.userRooms = userRooms;
+	}
+
+	public List<Image> getImageList() {
+		return imageList;
+	}
+
+	public void setImageList(List<Image> imageList) {
+		this.imageList = imageList;
+	}
+
+	public List<Equipment> getEquipmentList() {
+		return equipmentList;
+	}
+
+	public void setEquipmentList(List<Equipment> equipmentList) {
+		this.equipmentList = equipmentList;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((address == null) ? 0 : address.hashCode());
-		result = prime * result + (claim ? 1231 : 1237);
+		result = prime * result + ((claimStatus == null) ? 0 : claimStatus.hashCode());
 		result = prime * result + coast;
 		result = prime * result + ((equipmentList == null) ? 0 : equipmentList.hashCode());
 		result = prime * result + (int) (id ^ (id >>> 32));
@@ -159,7 +160,10 @@ public class Room implements Serializable{
 				return false;
 		} else if (!address.equals(other.address))
 			return false;
-		if (claim != other.claim)
+		if (claimStatus == null) {
+			if (other.claimStatus != null)
+				return false;
+		} else if (!claimStatus.equals(other.claimStatus))
 			return false;
 		if (coast != other.coast)
 			return false;
@@ -197,16 +201,8 @@ public class Room implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Room{" +
-				"id=" + id +
-				", seats=" + seats +
-				", status=" + status +
-				", type=" + type +
-				", coast=" + coast +
-				", claim=" + claim +
-				", userRooms=" + userRooms +
-				", imageList=" + imageList +
-				", equipmentList=" + equipmentList +
-				'}';
+		return "Room [id=" + id + ", seats=" + seats + ", status=" + status + ", type=" + type + ", coast=" + coast
+				+ ", claimStatus=" + claimStatus + ", address=" + address + ", userRooms=" + userRooms + ", imageList="
+				+ imageList + ", equipmentList=" + equipmentList + "]";
 	}
 }

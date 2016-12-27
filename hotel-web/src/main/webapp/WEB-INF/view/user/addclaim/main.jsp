@@ -11,31 +11,19 @@
 
 <h4>main</h4>
 
-<sf:form action="claim/addClaim" method="POST" modelAttribute="claimModel" onsubmit = "return validation_addClaim();">
+<sf:form action="claim/addClaim" method="POST" modelAttribute="userClaimModel" onsubmit = "return validation_addClaim();">
+	
+	<sf:hidden path="roomId" value="${roomId}"/>
+	
     <table align="center">
         <tr>
             <td>Check in date</td>
-            <fmt:formatDate value="" var="dateString" pattern="dd/MM/yyyy" />
+            <fmt:formatDate value="" var="dateString" pattern="dd-MM-yyyy" />
             <td><sf:input type = "date" id="checkInDate" path="checkInDate" required="required" value = "${dateString}"/></td>
         </tr>
         <tr>
             <td>Check out date</td>
             <td><sf:input type="date" path="checkOutDate" id="checkOutDate" required="required" value="${dateString}"/></td>
-        </tr>
-        <tr>
-            <c:forEach var = "address" items="${addressList}">
-                    <td><c:out value="${address.getStreetEn()}"/>:<c:out value="${address.getNumber()}"/>
-                        <input type = "checkbox" name="type" value="${address.getId()}" path="address"  />
-                    </td>
-            </c:forEach>
-        </tr>
-        <tr>
-            <c:forEach var = "types" items ="${typeList}" varStatus= "loopIndex">
-                <td>
-                    <c:out value="${types.getTypeEn()}"/>
-                    <sf:radiobutton  name="type" value="${types.getId()}" path="type"  required="required"/>
-                </td>
-            </c:forEach>
         </tr>
         <tr>
             <td colspan="2" align="center">

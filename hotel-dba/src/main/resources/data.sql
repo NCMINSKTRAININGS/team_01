@@ -5,6 +5,10 @@ insert into type(type_id, type_en, type_ru) VALUES(4 ,'DoubleLux', 'Двойно
 insert into type(type_id, type_en, type_ru) VALUES(5 ,'Premium', 'Премиум');
 -- maybe more
 
+insert into claim_status(claim_id, claim_status_en, claim_status_ru) VALUES(1 ,'in progress', 'В обработке');
+insert into claim_status(claim_id, claim_status_en, claim_status_ru) VALUES(2 ,'accepted', 'принято');
+insert into claim_status(claim_id, claim_status_en, claim_status_ru) VALUES(3 ,'reject', 'отклонено');
+
 insert into status(status_id, status_en, status_ru) VALUES(1 ,'Free', 'Свободен');
 insert into status(status_id, status_en, status_ru) VALUES(2 ,'Booked', 'Забронирован');
 -- maybe more
@@ -21,9 +25,7 @@ INSERT INTO USER(id, login, password, name, surname, email, phone, money, role ,
 
 INSERT INTO USER(id, login, password, name, surname, email, phone, money, role , enabled)
   VALUES(2, 'derek', 'password', 'Derek', 'Willson', 'derek.14@gmail.com', '80299614860', '10000', 'ROLE_LANDLORD', true);
-
-INSERT INTO CLAIM(id, check_in_date, check_out_date, status, type_id, user_id)
-VALUES(1, '31.12.2016', '02.01.2017', 1, 3, 1);
+  
 
 INSERT INTO ADDRESS(id, street_en, street_ru , number_house) VALUES (1,'Petrovhina','Петровщина',1);
 INSERT INTO ADDRESS(id, street_en, street_ru , number_house) VALUES (2,'Dzerginskogo','Дзержинского',95);

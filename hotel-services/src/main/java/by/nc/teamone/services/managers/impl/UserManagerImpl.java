@@ -1,10 +1,10 @@
 package by.nc.teamone.services.managers.impl;
 
 import by.nc.teamone.dba.dao.IUserDAO;
-import by.nc.teamone.entities.Claim;
+import by.nc.teamone.entities.ClaimStatus;
 import by.nc.teamone.entities.User;
 import by.nc.teamone.entities.enums.UserRole;
-import by.nc.teamone.entities.models.ClaimModel;
+import by.nc.teamone.entities.models.UserClaimModel;
 import by.nc.teamone.entities.models.UserModel;
 import by.nc.teamone.services.managers.IUserManager;
 import by.nc.teamone.services.transformers.ClaimModelTransformer;
@@ -43,12 +43,12 @@ public class UserManagerImpl implements IUserManager {
     }
 
     @Override
-    public List<ClaimModel> getClaimByIdUser(Long id) {
+    public List<UserClaimModel> getClaimByIdUser(Long id) {
         User user = userDAO.get(id);
-        List<ClaimModel> claimModels = new ArrayList<ClaimModel>();
-        for (Claim iter:user.getClaims()){
-            claimModels.add(claimModelTransformer.buildModel(iter));
-        }
+        List<UserClaimModel> claimModels = new ArrayList<UserClaimModel>();
+//        for (ClaimStatus iter:user.getClaims()){
+//            //claimModels.add(claimModelTransformer.buildModel(iter));
+//        }
         return claimModels;
     }
 

@@ -5,7 +5,7 @@ import by.nc.teamone.entities.Room;
 import by.nc.teamone.entities.Type;
 import by.nc.teamone.entities.User;
 import by.nc.teamone.entities.models.AddressModel;
-import by.nc.teamone.entities.models.ClaimModel;
+import by.nc.teamone.entities.models.UserClaimModel;
 import by.nc.teamone.entities.models.RoomModel;
 import by.nc.teamone.entities.models.UserModel;
 import by.nc.teamone.services.managers.*;
@@ -59,12 +59,12 @@ public class FacadeImpl implements IFacade{
     
     // ---------------Claim
     @Override
-    public List<ClaimModel> getClaimByIdUser(Long id) {
+    public List<UserClaimModel> getClaimByIdUser(Long id) {
         return userManager.getClaimByIdUser(id);
     }
     
     @Override
-	public void addClaim(ClaimModel claimModel) {
+	public void addClaim(UserClaimModel claimModel) {
 		claimManager.addClaim(claimModel);
 		
 	}

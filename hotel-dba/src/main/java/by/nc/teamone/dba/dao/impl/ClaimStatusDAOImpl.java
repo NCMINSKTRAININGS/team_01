@@ -1,7 +1,7 @@
 package by.nc.teamone.dba.dao.impl;
 
-import by.nc.teamone.dba.dao.IClaimDAO;
-import by.nc.teamone.entities.Claim;
+import by.nc.teamone.dba.dao.IClaimStatusDAO;
+import by.nc.teamone.entities.ClaimStatus;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,9 +9,10 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @Repository
 @Scope("singleton")
-public class ClaimDAOImpl extends BaseDAOImpl<Claim, Long> implements IClaimDAO {
-    public ClaimDAOImpl() {
-        super(Claim.class);
+public class ClaimStatusDAOImpl extends BaseDAOImpl<ClaimStatus, Long> implements IClaimStatusDAO {
+	
+    public ClaimStatusDAOImpl() {
+        super(ClaimStatus.class);
     }
 
 }

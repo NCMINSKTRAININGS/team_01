@@ -18,7 +18,11 @@
     <context:annotation-config />
     <context:component-scan base-package="by.nc.teamone.dba"/>
     
-    <jdbc:initialize-database data-source="dataSource">
+    <!-- <jdbc:initialize-database data-source="dataSource">
+		<jdbc:script location="classpath*:data.sql"/>
+	</jdbc:initialize-database> -->
+	
+	<jdbc:initialize-database data-source="dataSource">
 		<jdbc:script location="classpath*:data.sql"/>
 	</jdbc:initialize-database>
 

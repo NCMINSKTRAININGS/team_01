@@ -8,10 +8,7 @@
 		<script src="<c:url value="/assets/js/jquery-3.1.1.min.js"/>"></script>
 		
 	</head>
-	<body >
-	<form action="claim">
-		<input type="submit" value="Add claim">
-	</form>
+	<body>
 	
 	<c:forEach var = "room" items ="${roomList}" varStatus= "loopIndex">
 		Seats: ${room.seats}<br>
@@ -19,7 +16,12 @@
 		Address: Пока нету<br>
 		Type: ${room.type.typeEn}<br>
 		Status: ${room.status.statusEn}<br>
+		<form action="claim">
+			<input type="hidden" name="roomId" value="${room.id}">
+			<input type="submit" value="Add claim">
+		</form>
 		-------------------------<br>
+		
 	</c:forEach>
 	
 	</body>

@@ -5,7 +5,7 @@ import by.nc.teamone.entities.Room;
 import by.nc.teamone.entities.Type;
 import by.nc.teamone.entities.User;
 import by.nc.teamone.entities.models.AddressModel;
-import by.nc.teamone.entities.models.ClaimModel;
+import by.nc.teamone.entities.models.UserClaimModel;
 import by.nc.teamone.entities.models.RoomModel;
 import by.nc.teamone.entities.models.UserModel;
 
@@ -21,8 +21,8 @@ public interface IFacade {
     void addRoom(RoomModel roomModel);
     List<Room> getRoomList();
     
-    void addClaim(ClaimModel claimModel);
-    List<ClaimModel> getClaimByIdUser(Long id);
+    void addClaim(UserClaimModel claimModel);
+    List<UserClaimModel> getClaimByIdUser(Long id);
 
     List<Type> getAllType();
     List<Equipment> getAllEquipment();

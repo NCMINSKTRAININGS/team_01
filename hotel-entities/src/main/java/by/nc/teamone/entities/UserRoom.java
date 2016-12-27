@@ -2,7 +2,11 @@ package by.nc.teamone.entities;
 
 
 import javax.persistence.*;
+
+import org.hibernate.annotations.Type;
+
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 @Table(name="user_room")
@@ -10,11 +14,13 @@ public class UserRoom  implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
+	@Type(type = "date")
 	@Column(name="check_in_date")
-    private String checkInDate;
+    private Date checkInDate;
 
+	@Type(type = "date")
     @Column(name="check_out_date")
-    private String checkOutDate;
+    private Date checkOutDate;
 
     @Id
     @ManyToOne( fetch = FetchType.LAZY)
@@ -25,73 +31,103 @@ public class UserRoom  implements Serializable{
     @ManyToOne( fetch = FetchType.LAZY)
     @JoinColumn(name="room_id")
     private Room room;
+    
+    @OneToOne
+	@JoinColumn(name = "claim_id")
+    private ClaimStatus claimStatus;
 
-    public User getUser() {
-        return user;
-    }
+	public Date getCheckInDate() {
+		return checkInDate;
+	}
 
-    public void setUser(User user) {
-        this.user = user;
-    }
+	public void setCheckInDate(Date checkInDate) {
+		this.checkInDate = checkInDate;
+	}
 
-    public Room getRoom() {
-        return room;
-    }
+	public Date getCheckOutDate() {
+		return checkOutDate;
+	}
 
-    public void setRoom(Room room) {
-        this.room = room;
-    }
+	public void setCheckOutDate(Date checkOutDate) {
+		this.checkOutDate = checkOutDate;
+	}
 
-    public String getCheckInDate() {
-        return checkInDate;
-    }
+	public User getUser() {
+		return user;
+	}
 
-    public void setCheckInDate(String checkInDate) {
-        this.checkInDate = checkInDate;
-    }
+	public void setUser(User user) {
+		this.user = user;
+	}
 
-    public String getCheckOutDate() {
-        return checkOutDate;
-    }
+	public Room getRoom() {
+		return room;
+	}
 
-    public void setCheckOutDate(String checkOutDate) {
-        this.checkOutDate = checkOutDate;
-    }
+	public void setRoom(Room room) {
+		this.room = room;
+	}
 
-    @Override
-    public int hashCode() {
-        int result = checkInDate != null ? checkInDate.hashCode() : 0;
-        result = 31 * result + (checkOutDate != null ? checkOutDate.hashCode() : 0);
-        result = 31 * result + (user != null ? user.hashCode() : 0);
-        result = 31 * result + (room != null ? room.hashCode() : 0);
-        return result;
-    }
+	public ClaimStatus getClaimStatus() {
+		return claimStatus;
+	}
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+	public void setClaimStatus(ClaimStatus claimStatus) {
+		this.claimStatus = claimStatus;
+	}
 
-        UserRoom userRoom = (UserRoom) o;
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((checkInDate == null) ? 0 : checkInDate.hashCode());
+		result = prime * result + ((checkOutDate == null) ? 0 : checkOutDate.hashCode());
+		result = prime * result + ((claimStatus == null) ? 0 : claimStatus.hashCode());
+		result = prime * result + ((room == null) ? 0 : room.hashCode());
+		result = prime * result + ((user == null) ? 0 : user.hashCode());
+		return result;
+	}
 
-        if (checkInDate != null ? !checkInDate.equals(userRoom.checkInDate) : userRoom.checkInDate != null)
-            return false;
-        if (checkOutDate != null ? !checkOutDate.equals(userRoom.checkOutDate) : userRoom.checkOutDate != null)
-            return false;
-        if (user != null ? !user.equals(userRoom.user) : userRoom.user != null) return false;
-        return room != null ? room.equals(userRoom.room) : userRoom.room == null;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		UserRoom other = (UserRoom) obj;
+		if (checkInDate == null) {
+			if (other.checkInDate != null)
+				return false;
+		} else if (!checkInDate.equals(other.checkInDate))
+			return false;
+		if (checkOutDate == null) {
+			if (other.checkOutDate != null)
+				return false;
+		} else if (!checkOutDate.equals(other.checkOutDate))
+			return false;
+		if (claimStatus == null) {
+			if (other.claimStatus != null)
+				return false;
+		} else if (!claimStatus.equals(other.claimStatus))
+			return false;
+		if (room == null) {
+			if (other.room != null)
+				return false;
+		} else if (!room.equals(other.room))
+			return false;
+		if (user == null) {
+			if (other.user != null)
+				return false;
+		} else if (!user.equals(other.user))
+			return false;
+		return true;
+	}
 
-    }
-
-    @Override
-    public String toString() {
-        return "UserRoom{" +
-                "checkInDate='" + checkInDate + '\'' +
-                ", checkOutDate='" + checkOutDate + '\'' +
-                ", user='" + user + '\'' +
-                ", room='" + room + '\'' +
-                '}';
-    }
-
-
+	@Override
+	public String toString() {
+		return "UserRoom [checkInDate=" + checkInDate + ", checkOutDate=" + checkOutDate + ", user=" + user + ", room="
+				+ room + ", claimStatus=" + claimStatus + "]";
+	}
 }

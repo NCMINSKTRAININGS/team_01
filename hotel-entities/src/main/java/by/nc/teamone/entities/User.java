@@ -42,27 +42,8 @@ public class User implements Serializable {
 	@Column(name="enabled")
 	private boolean enabled;
 
-	@OneToMany(mappedBy="user", cascade = CascadeType.ALL , fetch = FetchType.LAZY)
-	private List<Claim> claims;
-
 	@OneToMany(mappedBy="user")
 	private List<UserRoom> userRooms ;
-
-	public List<Claim> getClaims() {
-		return claims;
-	}
-
-	public List<UserRoom> getUserRooms() {
-		return userRooms;
-	}
-
-	public void SetClaims(List<Claim> claims) {
-		this.claims = claims;
-	}
-
-	public void setUserRooms(List<UserRoom> userRooms) {
-		this.userRooms = userRooms;
-	}
 
 	public long getId() {
 		return id;
@@ -140,18 +121,24 @@ public class User implements Serializable {
 		return enabled;
 	}
 
-	public void setClaims(List<Claim> claims) {
-		this.claims = claims;
-	}
-
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
+
+	public List<UserRoom> getUserRooms() {
+		return userRooms;
+	}
+
+	public void setUserRooms(List<UserRoom> userRooms) {
+		this.userRooms = userRooms;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + (enabled ? 1231 : 1237);
 		result = prime * result + (int) (id ^ (id >>> 32));
 		result = prime * result + ((login == null) ? 0 : login.hashCode());
 		long temp;
@@ -162,6 +149,7 @@ public class User implements Serializable {
 		result = prime * result + ((phone == null) ? 0 : phone.hashCode());
 		result = prime * result + ((role == null) ? 0 : role.hashCode());
 		result = prime * result + ((surname == null) ? 0 : surname.hashCode());
+		result = prime * result + ((userRooms == null) ? 0 : userRooms.hashCode());
 		return result;
 	}
 
@@ -178,6 +166,8 @@ public class User implements Serializable {
 			if (other.email != null)
 				return false;
 		} else if (!email.equals(other.email))
+			return false;
+		if (enabled != other.enabled)
 			return false;
 		if (id != other.id)
 			return false;
@@ -213,13 +203,18 @@ public class User implements Serializable {
 				return false;
 		} else if (!surname.equals(other.surname))
 			return false;
+		if (userRooms == null) {
+			if (other.userRooms != null)
+				return false;
+		} else if (!userRooms.equals(other.userRooms))
+			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", login=" + login + ", password=" + password + ", name=" + name + ", surname="
-				+ surname + ", email=" + email + ", phone=" + phone + ", money=" + money + ", role=" + role + "]";
+				+ surname + ", email=" + email + ", phone=" + phone + ", money=" + money + ", role=" + role
+				+ ", enabled=" + enabled + ", userRooms=" + userRooms + "]";
 	}
-
 }
