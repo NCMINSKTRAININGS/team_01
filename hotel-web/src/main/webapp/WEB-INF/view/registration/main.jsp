@@ -48,6 +48,16 @@
 			</tr>
 		</table>
 	</sf:form>
+	
+	<span>Errors</span>
+	<span>${errors["login"]}</span>
+	<span>${errors["password"]}</span>
+	<span>${errors["password.no_match"]}</span>
+	<span>${errors["name"]}</span>
+	<span>${errors["surname"]}</span>
+	<span>${errors["email"]}</span>
+	<span>${errors["phone"]}</span>
+	
 </body>
 </html>
 
