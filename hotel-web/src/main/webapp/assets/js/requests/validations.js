@@ -31,6 +31,7 @@ function validation_registration() {
     var surname = document.getElementById("surname").value;
     var password1 = document.getElementById("password1").value;
     var password2 = document.getElementById("password2").value;
+    var email
     var r=/[^A-Z-a-z-0-9]/g;
 
     if (login.length < 6 || login.length > 10) {
