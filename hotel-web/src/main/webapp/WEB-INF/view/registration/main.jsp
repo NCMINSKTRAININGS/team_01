@@ -14,49 +14,52 @@
 		p{
 			color: rgba(253, 255, 0, 0.75);
 		}
+		.simpleInput{
+			width: 400px;
+		}
+		.simpleInput:focus{
+			width: 420px;
+		}
 	</style>
 </head>
 
 <body background="/assets/images/bg.jpg">
+	<div align="center">
+		<sf:form action="" cssStyle="alignment: center" method="POST" modelAttribute="userModel" onsubmit="return validation_registration()">
 
-    <sf:form action="" method="POST" modelAttribute="userModel" onsubmit="return validation_registration()">
-		<div align="center">
+				<p>Login:<br/>
+					<sf:input cssClass="simpleInput" id="login" path="login" required="required"/>
+				</p>
 
-			<p>Login:<br/>
-				<sf:input cssClass="simpleInput" id="login" path="login" required="required"/>
-			</p>
+				<p>Password:<br/>
+					<sf:password cssClass="simpleInput" id="password1" path="password1" required="required"/>
+				</p>
 
-			<p>Password:<br/>
-				<sf:password id="password1" path="password1" required="required"/>
-			</p>
+				<p>Repeat password:<br/>
+					<sf:password cssClass="simpleInput" id="password2" path="password2" required="required"/>
+				</p>
 
-			<p>Repeat password:<br/>
-				<sf:password id="password2" path="password2" required="required"/>
-			</p>
+				<p>Name:<br/>
+					<sf:input cssClass="simpleInput" id="name" path="name" required="required"/>
+				</p>
 
-			<p>Name:<br/>
-				<sf:input id="name" path="name" required="required"/>
-			</p>
+				<p>Surname:<br/>
+					<sf:input cssClass="simpleInput" id = "surname" path="surname" required="required"/>
+				</p>
 
-			<p>Surname:<br/>
-				<sf:input id = "surname" path="surname" required="required"/>
-			</p>
+				<p>Email:<br/>
+					<sf:input cssClass="simpleInput" id = "email" path="email" required="required"/>
+				</p>
 
-			<p>Email:<br/>
-				<sf:input id = "email" path="email" required="required"/>
-			</p>
+				<p>Phone:<br/>
+					<sf:input cssClass="simpleInput" id="phone" path="phone" required="required"/>
+				</p>
+				<p>
+					<input type="submit" class="glossBtn" value="Registration">
+				</p>
 
-			<p>Phone:<br/>
-				<sf:input id="phone" path="phone" required="required"/>
-			</p>
-			<p>
-				<input type="submit" value="Registration">
-			<p>
-
-
-		</div>
-	</sf:form>
-	
+		</sf:form>
+	</div>
 	<span>Errors</span>
 	<span>${errors["login"]}</span>
 	<span>${errors["password"]}</span>

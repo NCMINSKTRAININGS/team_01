@@ -49,15 +49,14 @@
 			<input type="submit" class="glossBtn" style="
 					text-shadow: -1px -1px #ffd800;
 					box-shadow: rgb(255, 237, 200) 0 2px 5px;
-					background-color: #ffdc71;
-					background-image: linear-gradient(45deg, rgba(255,255,255,.0) 30%,
+					background: #ffdc71 linear-gradient(45deg, rgba(255,255,255,.0) 30%,
 						rgba(255, 251, 251, 0.8),
 						rgba(255,255,255,.0) 70%),
 						radial-gradient(190% 100% at 50% 0%,
 						rgb(255, 210, 129) 0%,
 						rgba(255,255,255,.5) 50%,
 						rgba(0,0,0,0) 50%);
-    				box-shadow: rgb(255, 237, 200) 0 2px 5px;" value="Registration"/>
+    				" value="Registration"/>
 		</form>
 
 

@@ -22,9 +22,9 @@
 		<jdbc:script location="classpath*:data.sql"/>
 	</jdbc:initialize-database> -->
 	
-	<jdbc:initialize-database data-source="dataSource">
-		<jdbc:script location="classpath*:data.sql"/>
-	</jdbc:initialize-database>
+	<!--<jdbc:initialize-database data-source="dataSource">-->
+		<!--<jdbc:script location="classpath*:data.sql"/>-->
+	<!--</jdbc:initialize-database>-->
 
 
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
@@ -45,7 +45,7 @@
     <util:properties id = "hibernateProperties">
         <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
         <prop key="hibernate.connection.isolation">2</prop>
-        <prop key="hibernate.hbm2ddl.auto">create</prop>
+        <prop key="hibernate.hbm2ddl.auto">update</prop>
         <prop key="hibernate.show_sql">true</prop>
         <prop key="hibernate.format_sql">true</prop>
     </util:properties>

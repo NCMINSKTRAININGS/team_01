@@ -14,8 +14,15 @@
 
 	</head>
 	<body>
-	
-		<h2><p>Registration</p></h2>
+		<a href="index.jsp">
+			<img align="right" src="/assets/images/NetCracker.png" width="400" height="100" alt="Я старался)"/>
+		</a>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<h2><p align="center">Registration</p></h2>
 
 		<%--	header тут точно не нужен	--%>
 		<%--<tiles:insertAttribute name="header"/>--%>
