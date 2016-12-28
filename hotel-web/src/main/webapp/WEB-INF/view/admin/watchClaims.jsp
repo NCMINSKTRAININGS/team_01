@@ -56,10 +56,10 @@
 
                 <c:forEach  var="k" begin="0" end="${users.size()-1}">
                     <div>
-                        <table class="greenField" width="550" border="0">
+                        <table class="grayField" width="550" border="0">
                             <tr>
                                 <td width="100" height="100">
-                                    <img src="/assets/images/default.png" alt="Я не появился, но я очень старался:(" width="100" height="100"/>
+                                    <img src="/assets/images/userIcon.png" alt="Я не появился, но я очень старался:(" width="100" height="100"/>
                                 </td>
 
                                 <td rowspan="2">

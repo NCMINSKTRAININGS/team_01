@@ -7,7 +7,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Admin page</title>
 	</head>
-	<body background="/assets/images/admin_bg.jpg">
+	<body background="/assets/images/bg.jpg">
 
 		<tiles:insertAttribute name="menu"/>
 		<tiles:insertAttribute name="header"/>
