@@ -21,7 +21,7 @@ public interface IFacade {
     void addRoom(RoomModel roomModel);
     List<Room> getRoomList();
     
-    void addClaim(UserClaimModel claimModel);
+    int addClaim(UserClaimModel claimModel);
     List<UserClaimModel> getClaimByIdUser(Long id);
 
     List<Type> getAllType();

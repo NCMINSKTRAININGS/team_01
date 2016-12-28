@@ -64,9 +64,8 @@ public class FacadeImpl implements IFacade{
     }
     
     @Override
-	public void addClaim(UserClaimModel claimModel) {
-		claimManager.addClaim(claimModel);
-		
+	public int addClaim(UserClaimModel claimModel) {
+		return claimManager.addClaim(claimModel);
 	}
     
     // ---------------Room

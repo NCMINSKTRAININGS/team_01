@@ -24,5 +24,7 @@
 		
 	</c:forEach>
 	
+	<span>${message}</span>
+	
 	</body>
 </html>
