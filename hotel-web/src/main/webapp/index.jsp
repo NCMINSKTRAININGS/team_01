@@ -8,7 +8,9 @@
 
 	<style type="text/css">
 		#featured { width: 940px; height: 450px; background: white url('/assets/css/orbit/loading.gif') no-repeat center center; overflow: hidden; }
-		/* Want a different Loading GIF - visit http://www.webscriptlab.com/ - that's where we go this one :) */
+		.formLine {
+			display: inline-block;
+		}
 	</style>
 
 	<link rel="stylesheet" href="/assets/css/style.css">
@@ -28,9 +30,9 @@
 
 </head>
 <body background="/assets/images/bg.jpg">
-	<div style="height: inherit">
+	<div style="height: 150px">
 		<div id="rightDiv">
-			<form method="post" class="signin" action="j_spring_security_check" onsubmit="return validation_signIn()">
+			<form method="post" class="formLine" action="j_spring_security_check" onsubmit="return validation_signIn()">
 				<p align="left" style="color: rgba(253, 255, 0, 0.75); margin-bottom: 0">Login: </p>
 				<input class="simpleInput" style="margin-top: 3px" id="username_or_email" placeholder="Login.." name="username" type="text" required/>
 				<p align="left" style="color: rgba(253, 255, 0, 0.75); margin-top: 10px; margin-bottom: 0">Password:</p>
@@ -39,13 +41,25 @@
 					<input id="remember_me"  name="_spring_security_remember_me" type="checkbox"/>
 					Remember me
 				</p>
-				<input name="commit" type="submit" value="Sign In" />
-				<input type="submit" formaction="registration" value="registration">
+				<input name="commit" class="glossBtn" type="submit" value="Sign In" />
+				<form class="formLine" action="registration">
+					<input type="submit" class="glossBtn" style="
+					text-shadow: -1px -1px #ffd800;
+					box-shadow: rgb(255, 237, 200) 0 2px 5px;
+					background-color: #ffdc71;
+					background-image: linear-gradient(45deg, rgba(255,255,255,.0) 30%,
+						rgba(255, 251, 251, 0.8),
+						rgba(255,255,255,.0) 70%),
+						radial-gradient(190% 100% at 50% 0%,
+						rgb(255, 210, 129) 0%,
+						rgba(255,255,255,.5) 50%,
+						rgba(0,0,0,0) 50%);
+    				box-shadow: rgb(255, 237, 200) 0 2px 5px;" value="Registration"/>
+				</form>
+
 			</form>
 
-			<form action="registration">
-				<input type="submit" value="go to registration">
-			</form>
+
 		</div>
 
 		<div id="leftDiv">
