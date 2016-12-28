@@ -3,16 +3,22 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link href="/assets/css/style.css" type="text/css" rel="stylesheet">
 	</head>
 	<body>
 
-		<h4>main</h4>
-		<form action="/room">
-			<input type="submit" value="Add room">
-		</form>
-		<form action="/room/getAllClaim">
-			<input type="submit" value="Browse all user requests">
-		</form>
+		<h4><p>main</p></h4>
 
+		<div align="center">
+			<form action="/room">
+				<input type="submit" class="glossBtn" value="Add room">
+			</form>
+
+			<br/><br/>
+
+			<form action="/room/getAllClaim">
+				<input type="submit" class="glossBtn" value="Browse user requests">
+			</form>
+		</div>
 	</body>
 </html>

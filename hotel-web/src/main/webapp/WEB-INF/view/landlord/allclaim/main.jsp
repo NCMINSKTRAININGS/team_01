@@ -3,51 +3,80 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Browse requests</title>
+    <link href="/assets/css/style.css" type="text/css" rel="stylesheet">
+    <style>
+        p{
+            color:yellow;
+            margin-bottom: 0;
+        }
+        .inline{
+            display: inline-block;
+            /*margin-left: 10%;*/
+        }
+        .simpleInput{
+            width: 300px;
+        }
+        .simpleInput:focus{
+            width: 310px;
+        }
+        a{
+            color: white;
+        }
+    </style>
 </head>
-<body>
 
-    <table align="center">
-        <tr>
-            <td>    data in    </td>
-            <td>    data out   </td>
-            <td>   data userName   </td>
-            <td>   number Room     </td>
-        </tr>
-            <c:forEach var = "claim" items ="${claims}" varStatus= "loopIndex">
-        <tr>
-                <td>
+<body background="/assets/images/bg.jpg">
+
+    <div align="center">
+
+        <c:forEach var = "claim" items ="${claims}" varStatus= "loopIndex">
+
+            <div align="center">
+                <p>Data In</p>
+                <p style="margin-top: 0" class="simpleInput">
                     <c:out value="${claim.getCheckInDate()}"/>
-                </td>
-                <td>
-                    <c:out value="${claim.getCheckOutDate()}"/>
-                </td>
-                <td>
-                    <c:out value="${claim.getUser().getLogin()}"/>
-                </td>
+                </p>
 
-                <td>
+                <p>Data Out</p>
+                <p style="margin-top: 0" class="simpleInput">
+                    <c:out value="${claim.getCheckOutDate()}"/>
+                </p>
+
+                <p>Potential Tenant</p>
+                <p style="margin-top: 0" class="simpleInput">
+                    <c:out value="${claim.getUser().getLogin()} | ${claim.getUser().getName()} ${claim.getUser().getSurname()}"/>
+                </p>
+
+                <p>Room Number</p>
+                <p style="margin-top: 0" class="simpleInput">
                     <c:out value="${claim.getRoom().getId()}"/>
-                </td>
-                <td>
-                    <form action="/room/accept" method="POST">
-                        <input type="hidden" name="roomId" value="${claim.getRoom().getId()}">
-                        <input type="hidden" name="flag" value="${true}">
-                        <input type="hidden" name="userId" value="${claim.getUser().getId()}">
-                        <input type="submit" value="Accept">
-                    </form>
-                </td>
-                <td>
-                    <form action="/room/accept" method="POST">
-                        <input type="hidden" name="roomId" value="${claim.getRoom().getId()}">
-                        <input type="hidden" name="flag" value="${false}">
-                        <input type="hidden" name="userId" value="${claim.getUser().getId()}">
-                        <input type="submit" value="Decline">
-                    </form>
-                </td>
-            </tr>
-            </c:forEach>
-    </table>
+                </p>
+
+            </div>
+            <br/><br/>
+
+            <div align="center">
+                <form action="/room/accept" method="POST">
+                    <input type="hidden" name="roomId" value="${claim.getRoom().getId()}">
+                    <input type="hidden" name="flag" value="${true}">
+                    <input type="hidden" name="userId" value="${claim.getUser().getId()}">
+                    <input type="submit" class="glossBtn" align="center" value="Accept">
+                </form>
+
+                <br/>
+
+                <form action="/room/accept" method="POST">
+                    <input type="hidden" name="roomId" value="${claim.getRoom().getId()}">
+                    <input type="hidden" name="flag" value="${false}">
+                    <input type="hidden" name="userId" value="${claim.getUser().getId()}">
+                    <input type="submit" class="glossBtn" align="center" value="Decline" style="margin-bottom: 30px">
+                </form>
+
+            </div>
+        </c:forEach>
+    </div>
 
 </body>
 </html>

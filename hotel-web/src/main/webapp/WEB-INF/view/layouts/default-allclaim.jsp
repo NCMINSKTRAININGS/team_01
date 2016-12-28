@@ -4,9 +4,17 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Index</title>
+    <title>Browse claims</title>
+    <style>
+        p{
+            color:yellow;
+        }
+    </style>
 </head>
 <body>
+<img align="right" src="/assets/images/NetCracker.png" alt="Я не появился, но я очень старался:(" width="400" height="100"/>
+<br/><br/><br/><br/><br/>
+<h1><p align="center">Browse incoming requests</p></h1>
 <tiles:insertAttribute name="main"/>
 </body>
 </html>
