@@ -8,6 +8,7 @@
 			p{
 				color: white;
 				margin: 0;
+				opacity: 1;
 			}
 		</style>
 	</head>

@@ -6,24 +6,33 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<script src="<c:url value="/assets/js/jquery-3.1.1.min.js"/>"></script>
-		
+        <link href="/assets/css/style.css" type="text/css" rel="stylesheet"/>
+        <style>
+            .inline{
+                display: inline-block;
+                margin-left: 10%;
+            }
+        </style>
 	</head>
 	<body>
 	
 	<c:forEach var = "room" items ="${roomList}" varStatus= "loopIndex">
-		Seats: ${room.seats}<br>
-		Coast: ${room.coast}<br>
-		Address: Пока нету<br>
-		Type: ${room.type.typeEn}<br>
-		Status: ${room.status.statusEn}<br>
-		<form action="claim">
-			<input type="hidden" name="roomId" value="${room.id}">
-			<input type="submit" value="Add claim">
-		</form>-------------------------<br>
-		
+        <div class="inline" align="center" style="width: 420px">
+            <div class="yellowField" align="center">
+                Seats: ${room.seats}<br>
+                Coast: ${room.coast}<br>
+                Address: Пока нету<br>
+                Type: ${room.type.typeEn}<br>
+                Status: ${room.status.statusEn}<br>
+                <form action="claim">
+                    <input type="hidden" name="roomId" value="${room.id}">
+                    <input type="submit" value="Add claim">
+                </form>
+            </div>
+        </div>
 	</c:forEach>
-	
-	<span>${message}</span>
+
+    <span>${message}</span>
 	
 	</body>
 </html>

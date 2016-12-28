@@ -15,6 +15,7 @@
     <script src="<c:url value="/assets/js/requests/addRoom.js"/>"></script>
     <style>
         p{
+            opacity: 1;
             color: white;
             margin: 0;
         }
@@ -56,7 +57,7 @@
 
                 <c:forEach  var="k" begin="0" end="${users.size()-1}">
                     <div>
-                        <table class="grayField" width="550" border="0">
+                        <table class="grayField" border="0">
                             <tr>
                                 <td width="100" height="100">
                                     <img src="/assets/images/userIcon.png" alt="Я не появился, но я очень старался:(" width="100" height="100"/>
