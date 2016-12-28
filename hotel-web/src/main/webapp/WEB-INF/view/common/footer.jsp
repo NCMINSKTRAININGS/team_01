@@ -6,9 +6,6 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	</head>
 	<body>
-	
 		<h4><p>footer</p></h4>
-
-	
 	</body>
 </html>

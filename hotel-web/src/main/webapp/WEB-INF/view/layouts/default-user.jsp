@@ -6,9 +6,13 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>User page</title>
 	</head>
-	<body>
+	<body background="/assets/images/bg.jpg">
+		<img align="right" src="/assets/images/NetCracker.png" alt="Я не появился, но я очень старался:(" width="400" height="100"/>
 		<tiles:insertAttribute name="header"/>
-		<h2>User page</h2>
+		<br/>
+		<br/>
+		<br/>
+		<h1><p align="center">User page</p></h1>
 		<tiles:insertAttribute name="menu"/>
 		<tiles:insertAttribute name="main"/>
 		<tiles:insertAttribute name="footer"/>

@@ -147,8 +147,8 @@
             <p>No claims</p>
         </c:when>
         <c:when test="${command == null}">
-            <input type="button" value="watch users" onclick="setCommandAdmin('showUsers')"/>
-            <input type="button" value="AddRoom" onclick="setCommandAdmin('addRoom')"/>
+            <input type="button" class="glossBtn" value="show users" onclick="setCommandAdmin('showUsers')"/>
+            <input type="button" class="glossBtn" value="AddRoom" onclick="setCommandAdmin('addRoom')"/>
         </c:when>
         </c:choose>
 

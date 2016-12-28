@@ -9,9 +9,14 @@
 	</head>
 	<body background="/assets/images/bg.jpg">
 
+		<img align="right" src="/assets/images/NetCracker.png" alt="Я не появился, но я очень старался:(" width="400" height="100"/>
+
 		<tiles:insertAttribute name="menu"/>
 		<tiles:insertAttribute name="header"/>
-		<h2 align="center"><p align="center">Admin page</p></h2>
+		<br/>
+		<br/>
+		<br/>
+		<h1 align="center"><p align="center">Admin page</p></h1>
 		<tiles:insertAttribute name="main"/>
 		<tiles:insertAttribute name="room"/>
 		<tiles:insertAttribute name="claims"/>

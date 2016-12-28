@@ -4,17 +4,24 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<style>
+			p{
+				color: white;
+				margin: 0;
+			}
+		</style>
 	</head>
 	<body >
 	<div>
-		<form action="/j_spring_security_logout">
-			<input type="submit" value="LOGOUT">
-		</form>
+
 		<c:choose>
 			<c:when test="${user != null}">
 				<p>
-					<c:out value="${user.getLogin()}"/>
+					<c:out value="${user.getLogin()} | ${user.getName()} ${user.getSurname()}"/>
 				</p>
+				<form action="/j_spring_security_logout">
+				<input type="submit" value="LOGOUT">
+			</form>
 			</c:when>
 		</c:choose>
 	</div>

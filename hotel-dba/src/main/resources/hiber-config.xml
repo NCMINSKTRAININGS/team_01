@@ -20,16 +20,14 @@
     
      <!--<jdbc:initialize-database data-source="dataSource">
 		<jdbc:script location="classpath*:data.sql"/>
-<<<<<<< HEAD
+
 	</jdbc:initialize-database> -->
 	
 	<!--<jdbc:initialize-database data-source="dataSource">-->
 		<!--<jdbc:script location="classpath*:data.sql"/>-->
 	<!--</jdbc:initialize-database>-->
-=======
-	</jdbc:initialize-database>!-->
+	<!--</jdbc:initialize-database>!&ndash;&gt;-->
 
->>>>>>> 5cf740f8ed9260eafc9e88118051e193db1b25c6
 
 
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
