@@ -4,7 +4,7 @@
 <script src="<c:url value="/assets/js/requests/validations.js"/>"></script>
 <html>
 <head>
-    <title>Title</title>
+    <title>NetCracker</title>
 
 	<style type="text/css">
 		#featured { width: 940px; height: 450px; background: white url('/assets/css/orbit/loading.gif') no-repeat center center; overflow: hidden; }
@@ -42,8 +42,11 @@
 					Remember me
 				</p>
 				<input name="commit" class="glossBtn" type="submit" value="Sign In" />
-				<form class="formLine" action="registration">
-					<input type="submit" class="glossBtn" style="
+
+			</form>
+
+			<form class="formLine" action="registration">
+			<input type="submit" class="glossBtn" style="
 					text-shadow: -1px -1px #ffd800;
 					box-shadow: rgb(255, 237, 200) 0 2px 5px;
 					background-color: #ffdc71;
@@ -55,9 +58,7 @@
 						rgba(255,255,255,.5) 50%,
 						rgba(0,0,0,0) 50%);
     				box-shadow: rgb(255, 237, 200) 0 2px 5px;" value="Registration"/>
-				</form>
-
-			</form>
+		</form>
 
 
 		</div>

@@ -5,12 +5,20 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Registration page</title>
+
+		<style>
+			p{
+				color: rgba(253, 255, 0, 0.75);
+			}
+		</style>
+
 	</head>
 	<body>
 	
-		<h4>Registration</h4>
-		
-		<tiles:insertAttribute name="header"/>
+		<h2><p>Registration</p></h2>
+
+		<%--	header тут точно не нужен	--%>
+		<%--<tiles:insertAttribute name="header"/>--%>
 		<tiles:insertAttribute name="main"/>
 		<tiles:insertAttribute name="footer"/>
 		

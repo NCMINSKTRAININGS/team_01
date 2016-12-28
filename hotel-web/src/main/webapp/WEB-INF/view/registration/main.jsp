@@ -4,50 +4,57 @@
 <html>
 <head>
     <title>Registration</title>
-    <script src="<c:url value="/resources/js/jquery-3.1.1.min.js"/>"></script>
-    <script src="<c:url value="/resources/js/requests/userRequest.js"/>"></script>
-	<script src="<c:url value="/resources/js/requests/validations.js"/>"></script>
+    <%--<script src="<c:url value="/resources/js/jquery-3.1.1.min.js"/>"></script>--%>
+    <%--<script src="<c:url value="/resources/js/requests/userRequest.js"/>"></script>--%>
+	<script src="<c:url value="/assets/js/requests/validations.js"/>"></script>
+
+	<link rel="stylesheet" href="/assets/css/style.css">
+
+	<style>
+		p{
+			color: rgba(253, 255, 0, 0.75);
+		}
+	</style>
 </head>
-<body>
+
+<body background="/assets/images/bg.jpg">
 
     <sf:form action="" method="POST" modelAttribute="userModel" onsubmit="return validation_registration()">
-		<table align="center">
-			<tr>
-				<td>Login:</td>
-				<td><sf:input id="login" path="login" required="required"/></td>
-			</tr>
-			<tr>
-				<td>Password:</td>
-				<td><sf:password id="password1" path="password1" required="required"/></td>
-			</tr>
-			
-			<tr>
-				<td>Password:</td>
-				<td><sf:password id="password2" path="password2" required="required"/></td>
-			</tr>
-			
-			<tr>
-				<td>Name:</td>
-				<td><sf:input id="name" path="name" required="required"/></td>
-			</tr>
-			<tr>
-				<td>Surname:</td>
-				<td><sf:input id = "surname" path="surname" required="required"/></td>
-			</tr>
-			<tr>
-				<td>Email:</td>
-				<td><sf:input id = "email" path="email" required="required"/></td>
-			</tr>
-			<tr>
-				<td>Phone:</td>
-				<td><sf:input id="phone" path="phone" required="required"/></td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center">
-					<input type="submit" value="Registration">
-				</td>
-			</tr>
-		</table>
+		<div align="center">
+
+			<p>Login:<br/>
+				<sf:input cssClass="simpleInput" id="login" path="login" required="required"/>
+			</p>
+
+			<p>Password:<br/>
+				<sf:password id="password1" path="password1" required="required"/>
+			</p>
+
+			<p>Repeat password:<br/>
+				<sf:password id="password2" path="password2" required="required"/>
+			</p>
+
+			<p>Name:<br/>
+				<sf:input id="name" path="name" required="required"/>
+			</p>
+
+			<p>Surname:<br/>
+				<sf:input id = "surname" path="surname" required="required"/>
+			</p>
+
+			<p>Email:<br/>
+				<sf:input id = "email" path="email" required="required"/>
+			</p>
+
+			<p>Phone:<br/>
+				<sf:input id="phone" path="phone" required="required"/>
+			</p>
+			<p>
+				<input type="submit" value="Registration">
+			<p>
+
+
+		</div>
 	</sf:form>
 	
 	<span>Errors</span>
