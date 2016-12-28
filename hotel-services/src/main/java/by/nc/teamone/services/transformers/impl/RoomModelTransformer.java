@@ -1,4 +1,4 @@
-package by.nc.teamone.services.transformers;
+package by.nc.teamone.services.transformers.impl;
 
 import by.nc.teamone.entities.Room;
 import by.nc.teamone.entities.models.RoomModel;

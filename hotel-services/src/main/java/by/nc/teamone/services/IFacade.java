@@ -1,13 +1,7 @@
 package by.nc.teamone.services;
 
-import by.nc.teamone.entities.Equipment;
-import by.nc.teamone.entities.Room;
-import by.nc.teamone.entities.Type;
-import by.nc.teamone.entities.User;
-import by.nc.teamone.entities.models.AddressModel;
-import by.nc.teamone.entities.models.UserClaimModel;
-import by.nc.teamone.entities.models.RoomModel;
-import by.nc.teamone.entities.models.UserModel;
+import by.nc.teamone.entities.*;
+import by.nc.teamone.entities.models.*;
 
 import java.util.List;
 
@@ -28,5 +22,7 @@ public interface IFacade {
     List<Equipment> getAllEquipment();
 
     List<AddressModel> getAllAddress();
+    List<UserRoomModel> getUserRoomList();
+    void changeStatusRoom(long idRoom, boolean flag , long idUser);
 }
 

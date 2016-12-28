@@ -1,13 +1,5 @@
 package by.nc.teamone.services.managers.impl;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import by.nc.teamone.dba.dao.IClaimStatusDAO;
 import by.nc.teamone.dba.dao.IRoomDAO;
 import by.nc.teamone.dba.dao.IUserDAO;
@@ -17,6 +9,13 @@ import by.nc.teamone.entities.User;
 import by.nc.teamone.entities.UserRoom;
 import by.nc.teamone.entities.models.UserClaimModel;
 import by.nc.teamone.services.managers.IClaimManager;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 @Service
 @Transactional
@@ -71,4 +70,6 @@ public class ClaimManagerImpl implements IClaimManager {
     	
     	return 1;
     }
+
+
 }

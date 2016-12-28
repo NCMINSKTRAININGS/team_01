@@ -1,14 +1,13 @@
 package by.nc.teamone.services.managers.impl;
 
 import by.nc.teamone.dba.dao.IUserDAO;
-import by.nc.teamone.entities.ClaimStatus;
 import by.nc.teamone.entities.User;
 import by.nc.teamone.entities.enums.UserRole;
 import by.nc.teamone.entities.models.UserClaimModel;
 import by.nc.teamone.entities.models.UserModel;
 import by.nc.teamone.services.managers.IUserManager;
-import by.nc.teamone.services.transformers.ClaimModelTransformer;
-import by.nc.teamone.services.transformers.UserModelTransformer;
+import by.nc.teamone.services.transformers.impl.ClaimModelTransformer;
+import by.nc.teamone.services.transformers.impl.UserModelTransformer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;

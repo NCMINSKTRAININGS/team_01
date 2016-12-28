@@ -1,15 +1,14 @@
 package by.nc.teamone.web.controllers;
 
+import by.nc.teamone.entities.models.RoomModel;
+import by.nc.teamone.services.IFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
-import by.nc.teamone.entities.models.RoomModel;
-import by.nc.teamone.services.IFacade;
 
 @Controller
 @RequestMapping(value="/room")
@@ -17,11 +16,12 @@ public class RoomController {
 	
 	@Autowired
 	private IFacade facade;
-	
+
 	@ModelAttribute("roomModel")
     public RoomModel construct(){
     	return new RoomModel();
     }
+
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView goToAddRoom(){
@@ -39,14 +39,24 @@ public class RoomController {
 		view.setViewName("definition-landlord");
 		return view;
 	}
-	
-//	@RequestMapping(value="/getRoom", method = RequestMethod.GET)
-//	public ModelAndView getRoom(){
-//		List<Room> roomList = facade.getRoomList();
-//		System.out.println(roomList);
-//		ModelAndView modelAndView = new ModelAndView();
-//		modelAndView.addObject("roomList", roomList);
-//		modelAndView.setViewName("defifnition-user");
-//		return modelAndView;
-//	}
+
+	@RequestMapping(value = "/getAllClaim", method = RequestMethod.GET )
+	public ModelAndView getAllClaim(){
+		ModelAndView view = new ModelAndView();
+		view.addObject("claims", facade.getUserRoomList());
+		view.setViewName("definition-allclaim");
+		return view;
+	}
+
+	@RequestMapping(value =  "/accept", method = RequestMethod.POST)
+	public ModelAndView accept(@RequestParam("roomId") long roomId,
+							   @RequestParam("flag") boolean flag,
+							   @RequestParam("userId") long userId){
+		facade.changeStatusRoom(roomId, flag, userId);
+		ModelAndView view = new ModelAndView();
+		view.addObject("claims", facade.getUserRoomList());
+		view.setViewName("definition-allclaim");
+		return view;
+	}
+
 }

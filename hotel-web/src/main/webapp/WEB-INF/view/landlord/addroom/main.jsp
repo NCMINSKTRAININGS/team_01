@@ -10,7 +10,7 @@
 
 		<h4>main</h4>
 		
-		<sf:form action="room/addRoom" method="POST" modelAttribute="roomModel">
+		<sf:form action="/room/addRoom" method="POST" modelAttribute="roomModel">
 			<table align="center">
 				<tr>
 					<td>Coast:</td>

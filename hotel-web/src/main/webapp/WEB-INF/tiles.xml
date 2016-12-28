@@ -20,6 +20,9 @@
         <put-attribute name="menu" value="/WEB-INF/view/admin/menu.jsp"/>
         <put-attribute name="footer" value="/WEB-INF/view/common/footer.jsp"/>
     </definition>
+    <definition name="definition-allclaim" template="/WEB-INF/view/layouts/default-allclaim.jsp">
+        <put-attribute name="main" value="/WEB-INF/view/landlord/allclaim/main.jsp"/>
+    </definition>
     
      <definition name="definition-landlord" template="/WEB-INF/view/layouts/default-landlord.jsp">
     	<put-attribute name="header" value="/WEB-INF/view/common/header.jsp"/>
