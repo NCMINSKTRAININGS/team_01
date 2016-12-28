@@ -26,7 +26,7 @@
                 Status: ${room.status.statusEn}<br>
                 <form action="claim">
                     <input type="hidden" name="roomId" value="${room.id}">
-                    <input type="submit" value="Add claim">
+                    <input type="submit" class="buttonG" value="Add claim">
                 </form>
             </div>
         </div>
