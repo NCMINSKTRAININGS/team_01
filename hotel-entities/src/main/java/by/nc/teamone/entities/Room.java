@@ -18,18 +18,18 @@ public class Room implements Serializable{
 	@Column(name="seats")
 	private int seats;
 
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "status_id")
 	private Status status;
 
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "type_id")
 	private Type type;
 
 	@Column(name = "coast")
 	private int coast;
 
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "claim_id")
     private ClaimStatus claimStatus;
 

@@ -1,10 +1,7 @@
-package by.nc.teamone.services.transformers;
+package by.nc.teamone.services.transformers.impl;
 
 import by.nc.teamone.dba.dao.ITypeDAO;
 import by.nc.teamone.dba.dao.IUserDAO;
-import by.nc.teamone.entities.ClaimStatus;
-import by.nc.teamone.entities.User;
-import by.nc.teamone.entities.models.UserClaimModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 

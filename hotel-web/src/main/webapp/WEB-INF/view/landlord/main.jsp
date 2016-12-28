@@ -7,8 +7,12 @@
 	<body>
 
 		<h4>main</h4>
-		<form action="room">
+		<form action="/room">
 			<input type="submit" value="Add room">
 		</form>
+		<form action="/room/getAllClaim">
+			<input type="submit" value="Browse all user requests">
+		</form>
+
 	</body>
 </html>

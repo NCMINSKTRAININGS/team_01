@@ -17,9 +17,6 @@ public class Status {
     @Column(name="status_ru")
     private String statusRu;
 
-    @OneToOne(mappedBy = "status")
-    private Room room;
-
     public long getId() {
         return id;
     }
@@ -44,14 +41,6 @@ public class Status {
         this.statusRu = statusRu;
     }
 
-    public Room getRoom() {
-        return room;
-    }
-
-    public void setRoom(Room room) {
-        this.room = room;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -62,7 +51,7 @@ public class Status {
         if (id != status.id) return false;
         if (statusEn != null ? !statusEn.equals(status.statusEn) : status.statusEn != null) return false;
         if (statusRu != null ? !statusRu.equals(status.statusRu) : status.statusRu != null) return false;
-        return room != null ? room.equals(status.room) : status.room == null;
+        return true;
 
     }
 
@@ -71,7 +60,6 @@ public class Status {
         int result = (int) (id ^ (id >>> 32));
         result = 31 * result + (statusEn != null ? statusEn.hashCode() : 0);
         result = 31 * result + (statusRu != null ? statusRu.hashCode() : 0);
-        result = 31 * result + (room != null ? room.hashCode() : 0);
         return result;
     }
 
@@ -81,7 +69,6 @@ public class Status {
                 "id=" + id +
                 ", statusEn='" + statusEn + '\'' +
                 ", statusRu='" + statusRu + '\'' +
-                ", room=" + room +
                 '}';
     }
 }

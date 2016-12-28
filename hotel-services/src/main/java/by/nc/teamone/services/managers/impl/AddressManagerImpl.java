@@ -4,7 +4,7 @@ import by.nc.teamone.dba.dao.IAddressDAO;
 import by.nc.teamone.entities.Address;
 import by.nc.teamone.entities.models.AddressModel;
 import by.nc.teamone.services.managers.IAddressManager;
-import by.nc.teamone.services.transformers.AddressModelTransformer;
+import by.nc.teamone.services.transformers.impl.AddressModelTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;

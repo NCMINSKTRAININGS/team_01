@@ -1,13 +1,7 @@
 package by.nc.teamone.services;
 
-import by.nc.teamone.entities.Equipment;
-import by.nc.teamone.entities.Room;
-import by.nc.teamone.entities.Type;
-import by.nc.teamone.entities.User;
-import by.nc.teamone.entities.models.AddressModel;
-import by.nc.teamone.entities.models.UserClaimModel;
-import by.nc.teamone.entities.models.RoomModel;
-import by.nc.teamone.entities.models.UserModel;
+import by.nc.teamone.entities.*;
+import by.nc.teamone.entities.models.*;
 import by.nc.teamone.services.managers.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -16,6 +10,8 @@ import java.util.List;
 
 @Component
 public class FacadeImpl implements IFacade{
+
+
 
     @Autowired
     IUserManager userManager;
@@ -34,6 +30,9 @@ public class FacadeImpl implements IFacade{
 
     @Autowired
     IAddressManager addressManager;
+
+    @Autowired
+    IUserRoomManager userRoomManager;
     
     
     // ---------------User
@@ -70,6 +69,11 @@ public class FacadeImpl implements IFacade{
     
     // ---------------Room
     @Override
+    public List<UserRoomModel> getUserRoomList(){
+        return userRoomManager.getUserRoomList();
+    }
+
+    @Override
     public void addRoom(RoomModel roomModel){
         roomManager.addRoom(roomModel);
     }
@@ -78,6 +82,11 @@ public class FacadeImpl implements IFacade{
 	public List<Room> getRoomList() {
 		return roomManager.getRoomList();
 	}
+
+    @Override
+    public void changeStatusRoom(long idRoom, boolean flag, long idUser) {
+        roomManager.changeStatusRoom(idRoom, flag, idUser);
+    }
     
     //----------------Type
     @Override

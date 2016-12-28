@@ -27,7 +27,7 @@
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
 
-    <bean id="claimDAO" class="by.nc.teamone.dba.dao.impl.ClaimDAOImpl"/>
+    <bean id="userDAO" class="by.nc.teamone.dba.dao.impl.UserDAOImpl"/>
 
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="url" value="jdbc:mysql://localhost:3306/hotel?useSSL=false"/>

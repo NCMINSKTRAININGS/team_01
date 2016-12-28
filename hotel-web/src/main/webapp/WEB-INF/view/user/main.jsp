@@ -19,8 +19,7 @@
 		<form action="claim">
 			<input type="hidden" name="roomId" value="${room.id}">
 			<input type="submit" value="Add claim">
-		</form>
-		-------------------------<br>
+		</form>-------------------------<br>
 		
 	</c:forEach>
 	

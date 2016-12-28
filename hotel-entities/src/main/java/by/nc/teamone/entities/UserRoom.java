@@ -1,10 +1,9 @@
 package by.nc.teamone.entities;
 
 
-import javax.persistence.*;
-
 import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -23,16 +22,16 @@ public class UserRoom  implements Serializable{
     private Date checkOutDate;
 
     @Id
-    @ManyToOne( fetch = FetchType.LAZY)
+    @ManyToOne()
     @JoinColumn(name="user_id")
     private User user;
 
     @Id
-    @ManyToOne( fetch = FetchType.LAZY)
+    @ManyToOne( )
     @JoinColumn(name="room_id")
     private Room room;
     
-    @OneToOne
+    @ManyToOne
 	@JoinColumn(name = "claim_id")
     private ClaimStatus claimStatus;
 
