@@ -6,7 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import by.nc.teamone.dba.dao.IUserRoomDAO;
 import by.nc.teamone.entities.UserRoom;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional
 @Scope("singleton")
 @Repository
 public class UserRoomDAOImpl extends BaseDAOImpl<UserRoom, Long> implements IUserRoomDAO {

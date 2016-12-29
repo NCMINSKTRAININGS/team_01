@@ -28,7 +28,7 @@ public class UserValidator extends BaseValidator implements Validator{
 		if(checkRegexp(userModel.password2, "regex.user.password"))
 			getError(errors, "password", "mess.error.user.password");
 		
-		if(userModel.password1.equals(userModel.password2))
+		if(!userModel.password1.equals(userModel.password2))
 			getError(errors, "password.no_match", "mess.error.user.password.not_match");
 		
 		if(checkRegexp(userModel.name, "regex.user.name"))
