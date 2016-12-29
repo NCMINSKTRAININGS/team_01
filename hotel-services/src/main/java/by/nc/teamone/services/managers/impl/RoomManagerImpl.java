@@ -43,7 +43,7 @@ public class RoomManagerImpl implements IRoomManager {
         Room room = roomModelTransformer.buildEntity(roomModel);
         room.setStatus(statusDAO.get(1L));
         room.setType(typeDAO.get(roomModel.type));
-        room.setClaimStatus(claimStatusDAO.get(1L));
+        room.setClaimStatus(null    );
         roomDAO.add(room);
 
     }
@@ -59,14 +59,12 @@ public class RoomManagerImpl implements IRoomManager {
 
         Room room = roomDAO.get(idRoom);
         long idClaimStatus;
-        long idStatus;
 
         if (flag) {
             idClaimStatus= 2L;
             room.setStatus(statusDAO.get(2L));
-        }else{
-            idClaimStatus=3L;
-        }
+        } else idClaimStatus =3L;
+
 
         for(UserRoom iter:room.getUserRooms()){
             if (iter.getUser().getId() == idUser){

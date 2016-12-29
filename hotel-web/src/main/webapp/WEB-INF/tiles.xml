@@ -15,13 +15,13 @@
     <definition name="definition-admin" template="/WEB-INF/view/layouts/default-admin.jsp">
     	<put-attribute name="header" value="/WEB-INF/view/common/header.jsp"/>
         <put-attribute name="main" value="/WEB-INF/view/admin/main.jsp"/>
-        <put-attribute name="room" value="/WEB-INF/view/admin/addRoom.jsp"/>
-        <put-attribute name="claims" value="/WEB-INF/view/admin/watchClaims.jsp"/>
         <put-attribute name="menu" value="/WEB-INF/view/admin/menu.jsp"/>
         <put-attribute name="footer" value="/WEB-INF/view/common/footer.jsp"/>
     </definition>
     <definition name="definition-allclaim" template="/WEB-INF/view/layouts/default-allclaim.jsp">
         <put-attribute name="main" value="/WEB-INF/view/landlord/allclaim/main.jsp"/>
+        <put-attribute name="header" value="/WEB-INF/view/common/header.jsp"/>
+
     </definition>
     
      <definition name="definition-landlord" template="/WEB-INF/view/layouts/default-landlord.jsp">
@@ -29,7 +29,7 @@
         <put-attribute name="main" value="/WEB-INF/view/landlord/main.jsp"/>
         <put-attribute name="menu" value="/WEB-INF/view/landlord/menu.jsp"/>
         <put-attribute name="footer" value="/WEB-INF/view/common/footer.jsp"/>
-    </definition>
+     </definition>
     
     <definition name="definition-registration" template="/WEB-INF/view/layouts/default-registration.jsp">
     	<put-attribute name="header" value="/WEB-INF/view/common/header.jsp"/>
@@ -39,15 +39,18 @@
     
     <definition name="definition-addroom" template="/WEB-INF/view/layouts/default-room.jsp">
         <put-attribute name="main" value="/WEB-INF/view/landlord/addroom/main.jsp"/>
+        <put-attribute name="header" value="/WEB-INF/view/common/header.jsp"/>
     </definition>
 
     <definition name="definition-addclaim" template="/WEB-INF/view/layouts/default-claim.jsp">
         <put-attribute name="main" value="/WEB-INF/view/user/addclaim/main.jsp"/>
+        <put-attribute name="header" value="/WEB-INF/view/common/header.jsp"/>
     </definition>
 
 
     <definition name="definition-index" template="/WEB-INF/view/layouts/default-index.jsp">
     	<put-attribute name="main" value="/index.jsp"/>
+        <put-attribute name="header" value="/WEB-INF/view/common/header.jsp"/>
     </definition>
      
 </tiles-definitions>

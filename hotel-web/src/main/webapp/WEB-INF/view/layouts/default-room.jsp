@@ -7,7 +7,7 @@
 		<title>Admin page</title>
 	</head>
 	<body>
-
+		<tiles:insertAttribute name="header"/>
 		<h2>Add room</h2>
 		<tiles:insertAttribute name="main"/>
 	</body>

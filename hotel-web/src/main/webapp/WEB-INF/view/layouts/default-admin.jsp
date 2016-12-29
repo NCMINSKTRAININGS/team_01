@@ -18,8 +18,6 @@
 		<br/>
 		<h1 align="center"><p align="center">Admin page</p></h1>
 		<tiles:insertAttribute name="main"/>
-		<tiles:insertAttribute name="room"/>
-		<tiles:insertAttribute name="claims"/>
 		<tiles:insertAttribute name="footer"/>
 		
 	</body>

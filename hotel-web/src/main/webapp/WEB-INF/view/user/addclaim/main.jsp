@@ -11,7 +11,7 @@
 
 <h4>main</h4>
 
-<sf:form action="claim/addClaim" method="POST" modelAttribute="userClaimModel" onsubmit = "return validation_addClaim();">
+<sf:form action="/claim/addClaim" method="POST" modelAttribute="userClaimModel" onsubmit = "return validation_addClaim();">
 	
 	<sf:hidden path="roomId" value="${roomId}"/>
 	

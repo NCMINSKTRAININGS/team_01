@@ -7,6 +7,7 @@
     <title>Index</title>
 </head>
 <body>
+<tiles:insertAttribute name="header"/>
 <tiles:insertAttribute name="main"/>
 </body>
 </html>

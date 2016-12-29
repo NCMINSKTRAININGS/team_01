@@ -9,6 +9,7 @@ import by.nc.teamone.entities.User;
 import by.nc.teamone.entities.UserRoom;
 import by.nc.teamone.entities.models.UserClaimModel;
 import by.nc.teamone.services.managers.IClaimManager;
+import by.nc.teamone.utils.LoggerError;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
@@ -53,8 +54,7 @@ public class ClaimManagerImpl implements IClaimManager {
 			userRoom.setCheckInDate(formatter.parse(claimModel.checkInDate));
 			userRoom.setCheckOutDate(formatter.parse(claimModel.checkOutDate));
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			LoggerError.INSTANCE.logError(userRoom.getClass(),e.getMessage());
 		}
 		
     	userRoom.setRoom(room);
@@ -64,7 +64,6 @@ public class ClaimManagerImpl implements IClaimManager {
     	
     	user.setMoney(user.getMoney() - room.getCoast());
     	userDAO.update(user);
-    	
     	room.setSeats(room.getSeats() - 1);
     	roomDAO.update(room);
     	

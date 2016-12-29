@@ -15,22 +15,31 @@
         </style>
 	</head>
 	<body>
-	
 	<c:forEach var = "room" items ="${roomList}" varStatus= "loopIndex">
-        <div class="inline" align="center" style="width: 420px">
-            <div class="yellowField" align="center">
-                Seats: ${room.seats}<br>
-                Coast: ${room.coast}<br>
-                Address: Пока нету<br>
-                Type: ${room.type.typeEn}<br>
-                Status: ${room.status.statusEn}<br>
-                <form action="claim">
-                    <input type="hidden" name="roomId" value="${room.id}">
-                    <input type="submit" value="Add claim">
-                </form>
-            </div>
-        </div>
+
+                <div class="inline" align="center" style="width: 420px">
+                    <div class="yellowField" align="center">
+                        Seats: ${room.seats}<br>
+                        Coast: ${room.coast}<br>
+                        Address: Пока нету<br>
+                        Type: ${room.type.typeEn}<br>
+                        Status: ${room.status.statusEn}<br>
+                        <c:choose>
+                            <c:when test="${room.claimStatus.claimStatusEn == null}">
+                                <form action="claim">
+                                    <input type="hidden" name="roomId" value="${room.id}">
+                                    <input type="submit" value="Add claim">
+                                </form>
+                            </c:when>
+                            <c:when test="${room.claimStatus.claimStatusEn != null}">
+                                Claim Status: ${room.claimStatus.claimStatusEn}
+                            </c:when>
+                        </c:choose>
+                    </div>
+                </div>
+
 	</c:forEach>
+
 
     <span>${message}</span>
 	

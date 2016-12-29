@@ -3,6 +3,7 @@ package by.nc.teamone.web.controllers;
 import by.nc.teamone.entities.models.RoomModel;
 import by.nc.teamone.services.IFacade;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -45,6 +46,8 @@ public class RoomController {
 		ModelAndView view = new ModelAndView();
 		view.addObject("claims", facade.getUserRoomList());
 		view.setViewName("definition-allclaim");
+		String name = SecurityContextHolder.getContext().getAuthentication().getName();
+		view.addObject("user", facade.getUserByName(name));
 		return view;
 	}
 
@@ -55,6 +58,8 @@ public class RoomController {
 		facade.changeStatusRoom(roomId, flag, userId);
 		ModelAndView view = new ModelAndView();
 		view.addObject("claims", facade.getUserRoomList());
+		String name = SecurityContextHolder.getContext().getAuthentication().getName();
+		view.addObject("user", facade.getUserByName(name));
 		view.setViewName("definition-allclaim");
 		return view;
 	}
