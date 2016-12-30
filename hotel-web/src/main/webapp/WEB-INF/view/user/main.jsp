@@ -15,13 +15,13 @@
         </style>
 	</head>
 	<body>
-	
 	<c:forEach var = "room" items ="${roomList}" varStatus= "loopIndex">
+
         <div class="inline" align="center" style="width: 420px">
             <div class="yellowField" align="center">
                 Seats: ${room.seats}<br>
                 Coast: ${room.coast}<br>
-                Address: Пока нету<br>
+                Address: Nothing st. 22<br>
                 Type: ${room.type.typeEn}<br>
                 Status: ${room.status.statusEn}<br>
                 <form action="claim">
@@ -30,7 +30,9 @@
                 </form>
             </div>
         </div>
+
 	</c:forEach>
+
 
     <span>${message}</span>
 	

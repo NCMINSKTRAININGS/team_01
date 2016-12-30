@@ -23,6 +23,7 @@
 
         <sf:hidden path="roomId" value="${roomId}"/>
 
+<<<<<<< HEAD
         <table align="center">
             <tr>
                 <td><p>Check in date</p></td>
@@ -41,6 +42,29 @@
             </tr>
         </table>
     </sf:form>
+=======
+<sf:form action="/claim/addClaim" method="POST" modelAttribute="userClaimModel" onsubmit = "return validation_addClaim();">
+	
+	<sf:hidden path="roomId" value="${roomId}"/>
+	
+    <table align="center">
+        <tr>
+            <td>Check in date</td>
+            <fmt:formatDate value="" var="dateString" pattern="dd-MM-yyyy" />
+            <td><sf:input type = "date" id="checkInDate" path="checkInDate" required="required" value = "${dateString}"/></td>
+        </tr>
+        <tr>
+            <td>Check out date</td>
+            <td><sf:input type="date" path="checkOutDate" id="checkOutDate" required="required" value="${dateString}"/></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="submit" value="Add Claim">
+            </td>
+        </tr>
+    </table>
+</sf:form>
+>>>>>>> 3ee643a179692a7855dae7701896fc9a4a96c91e
 
 
 

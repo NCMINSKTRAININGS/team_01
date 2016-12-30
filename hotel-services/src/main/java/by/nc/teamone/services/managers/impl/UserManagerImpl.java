@@ -6,7 +6,7 @@ import by.nc.teamone.entities.enums.UserRole;
 import by.nc.teamone.entities.models.UserClaimModel;
 import by.nc.teamone.entities.models.UserModel;
 import by.nc.teamone.services.managers.IUserManager;
-import by.nc.teamone.services.transformers.impl.ClaimModelTransformer;
+
 import by.nc.teamone.services.transformers.impl.UserModelTransformer;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +28,6 @@ public class UserManagerImpl implements IUserManager {
     @Autowired
     private UserModelTransformer userModelTransformer;
 
-    @Autowired
-    ClaimModelTransformer claimModelTransformer;
 
     @Override
     public List<UserModel> getAllUsers() {

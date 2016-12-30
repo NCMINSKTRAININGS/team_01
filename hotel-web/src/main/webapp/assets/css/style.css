@@ -225,8 +225,8 @@ div.slider-nav span.left {
     cursor: pointer;
     color: #999;
     text-indent: -9999px;
-    background: url(orbit/bullets.png)
-    no-repeat; 0 0;
+    background: url(orbit/bullets.png);
+    no-repeat: 0 0;
     width: 7px; height: 7px; overflow: hidden; }
 .orbit-bullets li.active {
     color: #222;

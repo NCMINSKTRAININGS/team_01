@@ -4,12 +4,14 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link href="/assets/css/style.css" type="text/css" rel="stylesheet">
 		<title>Admin page</title>
 	</head>
-	<body>
-
-		<h2>Landlord page</h2>
+	<body background="/assets/images/bg.jpg">
+		<img align="right" src="/assets/images/NetCracker.png" alt="Я не появился, но я очень старался:(" width="400" height="100"/>
+		<br/><br/><br/><br/><br/><br/>
 		<tiles:insertAttribute name="header"/>
+		<h1><p align="center">Landlord page</p></h1>
 		<tiles:insertAttribute name="menu"/>
 		<tiles:insertAttribute name="main"/>
 		<tiles:insertAttribute name="footer"/>

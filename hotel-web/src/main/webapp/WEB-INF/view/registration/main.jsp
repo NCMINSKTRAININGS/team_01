@@ -20,6 +20,10 @@
 		.simpleInput:focus{
 			width: 420px;
 		}
+		.inline{
+			display: inline-block;
+			/*margin-left: 10%;*/
+		}
 	</style>
 </head>
 

@@ -6,7 +6,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<style>
 			p{
-				color: white;
+				color: yellow;
 				margin: 0;
 				opacity: 1;
 			}
@@ -18,7 +18,7 @@
 		<c:choose>
 			<c:when test="${user != null}">
 				<p>
-					<c:out value="${user.getLogin()} | ${user.getName()} ${user.getSurname()}"/>
+					<c:out value="${user.getLogin()} | ${user.getName()} ${user.getSurname()} | balance = ${user.getMoney()}$" />
 				</p>
 				<form action="/j_spring_security_logout">
 				<input type="submit" value="LOGOUT">

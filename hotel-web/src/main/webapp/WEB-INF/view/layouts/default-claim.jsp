@@ -5,7 +5,7 @@
     <title>Add claim</title>
 </head>
 <body>
-
+<tiles:insertAttribute name="header"/>
 <tiles:insertAttribute name="main"/>
 
 

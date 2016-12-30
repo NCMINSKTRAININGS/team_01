@@ -7,8 +7,10 @@
 		<title>Admin page</title>
 	</head>
 	<body>
-
-		<h2>Add room</h2>
+		<img align="right" src="/assets/images/NetCracker.png" alt="Я не появился, но я очень старался:(" width="400" height="100"/>
+		<br/><br/><br/><br/><br/>
+        <tiles:insertAttribute name="header"/>
+		<h1><p align="center">Add room</p></h1>
 		<tiles:insertAttribute name="main"/>
 	</body>
 </html>
