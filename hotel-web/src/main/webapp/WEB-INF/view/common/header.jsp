@@ -6,7 +6,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<style>
 			p{
-				color: white;
+				color: yellow;
 				margin: 0;
 				opacity: 1;
 			}

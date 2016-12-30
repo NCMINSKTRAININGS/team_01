@@ -5,57 +5,60 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	</head>
-	<body>
+		<link href="/assets/css/style.css" type="text/css" rel="stylesheet">
+		<title>Add Room</title>
+		<style>
+			p{
+				color: yellow;
+				margin-bottom: 0;
+				margin-top: 20px;
 
-		<h4>main</h4>
-		
+			}
+			.simpleInput{
+				width: 400px;
+			}
+			.simpleInput:focus{
+				width: 420px;
+			}
+		</style>
+	</head>
+
+	<body background="/assets/images/bg.jpg">
+
+		<h4><p>main</p></h4>
+
 		<sf:form action="/room/addRoom" method="POST" modelAttribute="roomModel">
-			<table align="center">
-				<tr>
-					<td>Coast:</td>
-					<td><sf:input path="coast"/></td>
-				</tr>
-				<tr>
-					<td>Seats:</td>
-					<td><sf:input path="seats"/></td>
-				</tr>
-				
-				<tr>
-					<td>StreetEn:</td>
-					<td><sf:input path="streetEn"/></td>
-				</tr>
-				
-				<tr>
-					<td>StreetRu:</td>
-					<td><sf:input path="streetRu"/></td>
-				</tr>
-				
-				<tr>
-					<td>Number:</td>
-					<td><sf:input path="number"/></td>
-				</tr>
-			
-				<tr>
-					<td>Type of room</td>
-					<td>
-					
-						<select name="type">
-							<option value="0">!--Type of room--!</option>
-							<c:forEach var = "type" items ="${typeList}" varStatus= "loopIndex">	
-								<option value="${type.id}">${type.typeEn}</option>
-							</c:forEach>
-						</select>
-					
-					</td>	
-				</tr>
-			
-				<tr>
-					<td colspan="2" align="center">
-						<input type="submit" value="Add Room">
-					</td>
-				</tr>
-			</table>
+			<div align="center">
+
+				<p>Coast:</p>
+				<sf:input cssClass="simpleInput" path="coast"/>
+
+				<p>Seats:</p>
+				<sf:input cssClass="simpleInput" path="seats"/>
+
+				<p>StreetEn:</p>
+				<sf:input cssClass="simpleInput" path="streetEn"/>
+
+				<p>StreetRu:</p>
+				<sf:input cssClass="simpleInput" path="streetRu"/>
+
+				<p>Number:</p>
+				<sf:input cssClass="simpleInput" path="number"/>
+
+				<p>Type of room</p>
+
+				<select name="type">
+					<option value="0">!--Type of room--!</option>
+					<c:forEach var = "type" items ="${typeList}" varStatus= "loopIndex">
+						<option value="${type.id}">${type.typeEn}</option>
+					</c:forEach>
+				</select>
+
+				<br/><br/><br/><br/>
+
+				<input type="submit" class="glossBtn" value="Add Room" style="margin-bottom: 50px">
+
+			</div>
 		</sf:form>
 	</body>
 </html>
